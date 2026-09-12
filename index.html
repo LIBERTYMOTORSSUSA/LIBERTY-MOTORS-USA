@@ -3,146 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liberty Motors USA | Premium Vehicles at 30% Off</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Liberty Motors USA - Premium Vehicle Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a0e27;
-            --secondary: #151b3d;
-            --accent: #f59e0b;
-            --accent-dark: #d97706;
-            --success: #10b981;
-            --danger: #ef4444;
-            --btc-orange: #f7931a;
-            --light: #ffffff;
-            --gray: #94a3b8;
-            --dark-gray: #64748b;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --gold: #ffd700;
+            --light: #f5f5f7;
+            --dark: #0f0f23;
+            --success: #00d26a;
+            --text: #333;
+            --text-light: #666;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--primary);
-            color: var(--light);
+            background: var(--light);
+            color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
         }
-        
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 39, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--accent);
+
+        /* HEADER - FIXED CONTACT BAR */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 12px 0;
+            position: relative;
             z-index: 1000;
-            padding: 1rem 0;
         }
-        
-        nav {
+
+        .top-bar-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        /* REMOVE DECORATIVE LINES THAT BLOCK TEXT */
+        .contact-item::before,
+        .contact-item::after {
+            display: none !important;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--light);
-            text-decoration: none;
+            gap: 12px;
         }
-        
+
         .logo-icon {
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
         }
-        
-        .logo span {
-            color: var(--accent);
+
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: #fff;
         }
-        
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .nav-links {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            gap: 35px;
+            list-style: none;
         }
-        
+
         .nav-links a {
-            color: var(--gray);
+            color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            font-size: 15px;
             transition: color 0.3s;
+            position: relative;
         }
-        
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
         .nav-links a:hover {
             color: var(--accent);
         }
-        
-        .nav-icons {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
-        
-        .icon-btn {
-            position: relative;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .icon-btn:hover {
-            transform: scale(1.1);
-            color: var(--accent);
-        }
-        
-        .badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--danger);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
         }
-        
-        /* Hero Section */
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* HERO SECTION */
         .hero {
-            margin-top: 80px;
-            padding: 6rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(10,14,39,0.95), rgba(21,27,61,0.9)), 
-                        url('images/hero-bg.jpg') center/cover;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--dark) 100%);
+            padding: 80px 20px;
             position: relative;
+            overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -150,3003 +270,1979 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, rgba(245,158,11,0.1) 0%, transparent 70%);
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        
+
         .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.1;
+
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
-        
-        .hero h1 span {
-            color: var(--accent);
-            display: block;
+
+        .hero-text h2 span {
+            color: var(--gold);
         }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
+
+        .hero-text p {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 500px;
         }
-        
-        .hero-badges {
+
+        .hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
         }
-        
-        .hero-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(245,158,11,0.1);
-            border: 1px solid rgba(245,158,11,0.3);
-            padding: 0.75rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: var(--primary);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245,158,11,0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--accent);
-            color: var(--primary);
-        }
-        
-        .btn-large {
-            padding: 1.25rem 2.5rem;
-            font-size: 1.1rem;
-        }
-        
-        /* Contact Bar */
-        .contact-bar {
-            background: linear-gradient(90deg, rgba(245,158,11,0.1), rgba(245,158,11,0.05));
-            border-bottom: 1px solid rgba(245,158,11,0.2);
-            padding: 1rem;
-            text-align: center;
-            margin-top: 80px;
-        }
-        
-        .contact-bar-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .contact-item a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--secondary);
-            padding: 3rem 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            flex-wrap: wrap;
-            border-top: 1px solid rgba(245,158,11,0.2);
-            border-bottom: 1px solid rgba(245,158,11,0.2);
-        }
-        
+
         .stat {
             text-align: center;
         }
-        
+
         .stat-value {
-            font-size: 3rem;
+            font-size: 36px;
             font-weight: 800;
-            color: var(--accent);
-            display: block;
+            color: var(--gold);
         }
-        
+
         .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            padding: 5rem 2rem 2rem;
+
+        .hero-image {
+            position: relative;
         }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+
+        .hero-car {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
-        
-        .section-header p {
-            color: var(--gray);
-            font-size: 1.1rem;
+
+        .floating-card {
+            position: absolute;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
-        
-        /* Filters */
-        .filters {
-            padding: 1.5rem 2rem;
+
+        .card-btc {
+            top: 20px;
+            right: -20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btc-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #f7931a 0%, #ffb347 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btc-icon svg {
+            width: 25px;
+            height: 25px;
+            fill: #fff;
+        }
+
+        .btc-info h4 {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .btc-info .btc-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 60px 20px;
+            background: #fff;
+        }
+
+        .features-grid {
             max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: var(--light);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+            border-radius: 20px;
             display: flex;
-            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: #fff;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* INVENTORY SECTION */
+        .inventory {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filters {
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            display: flex;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .filter-btn {
-            padding: 0.9rem 1.75rem;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(245,158,11,0.3);
-            color: var(--light);
-            border-radius: 50px;
+            padding: 10px 25px;
+            border: 2px solid #ddd;
+            background: #fff;
+            border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s;
             font-weight: 500;
-            font-size: 0.95rem;
+            transition: all 0.3s;
         }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
             border-color: var(--accent);
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+            color: #fff;
         }
-        
-        /* Car Grid */
-        .car-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
+
+        .vehicles-grid {
             max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
         }
-        
-        .car-card {
-            background: var(--secondary);
-            border-radius: 16px;
+
+        .vehicle-card {
+            background: #fff;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s;
-            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .vehicle-images {
             position: relative;
-        }
-        
-        .car-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-        
-        .car-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .car-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border-color: rgba(245,158,11,0.3);
-        }
-        
-        .car-image-container {
-            position: relative;
-            height: 240px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+            height: 220px;
             overflow: hidden;
         }
-        
-        .car-image {
+
+        .vehicle-images img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
-        
-        .car-card:hover .car-image {
-            transform: scale(1.05);
-        }
-        
-        .discount-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--success);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            z-index: 2;
-        }
-        
-        .favorite-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 45px;
-            height: 45px;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.3rem;
-            z-index: 2;
-        }
-        
-        .favorite-btn:hover, .favorite-btn.active {
-            background: var(--danger);
+
+        .vehicle-card:hover .vehicle-images img {
             transform: scale(1.1);
         }
-        
-        .car-info {
-            padding: 1.75rem;
+
+        .image-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
         }
-        
-        .car-category {
-            color: var(--accent);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+
+        .image-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
         }
-        
-        .car-title {
-            font-size: 1.35rem;
+
+        .image-dot.active {
+            background: #fff;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 700;
-            margin-bottom: 0.75rem;
         }
-        
-        .car-specs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            color: var(--gray);
-            font-size: 0.85rem;
+
+        .vehicle-info {
+            padding: 25px;
         }
-        
-        .car-spec {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        
-        .car-price-row {
+
+        .vehicle-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            align-items: start;
+            margin-bottom: 15px;
         }
-        
-        .price-container {
-            display: flex;
-            flex-direction: column;
+
+        .vehicle-title h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 5px;
         }
-        
-        .price-current {
-            font-size: 1.8rem;
-            font-weight: 800;
+
+        .vehicle-title span {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .vehicle-price {
+            text-align: right;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .current-price {
+            font-size: 24px;
+            font-weight: 700;
             color: var(--success);
         }
-        
-        .price-original {
-            text-decoration: line-through;
-            color: var(--dark-gray);
-            font-size: 0.95rem;
+
+        .vehicle-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
-        
-        .savings {
-            color: var(--accent);
-            font-size: 0.85rem;
+
+        .spec {
+            text-align: center;
+        }
+
+        .spec svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .spec-value {
+            font-size: 14px;
             font-weight: 600;
+            color: var(--primary);
         }
-        
-        /* Car Detail Modal */
+
+        .spec-label {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .vehicle-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: var(--text);
+        }
+
+        .vehicle-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .vehicle-actions .btn {
+            flex: 1;
+            justify-content: center;
+        }
+
+        /* PAYMENT CALCULATOR SECTION */
+        .calculator-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .calculator-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .calculator-info p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+
+        .calculator-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            color: var(--text);
+        }
+
+        .calculator-box h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .calc-field {
+            margin-bottom: 25px;
+        }
+
+        .calc-field label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .calc-field input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .calc-field input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+        }
+
+        .range-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .calc-result h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .monthly-payment {
+            font-size: 42px;
+            font-weight: 800;
+        }
+
+        .calc-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .calc-detail {
+            text-align: center;
+        }
+
+        .calc-detail-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .calc-detail-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* MODAL STYLES */
         .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.98);
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
             z-index: 2000;
             overflow-y: auto;
         }
-        
+
         .modal-overlay.active {
-            display: block;
-        }
-        
-        .modal-content {
-            min-height: 100vh;
-            background: var(--primary);
-        }
-        
-        .modal-header {
-            position: sticky;
-            top: 0;
-            background: rgba(10,14,39,0.98);
-            backdrop-filter: blur(20px);
-            padding: 1.5rem 3rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(245,158,11,0.2);
-            z-index: 10;
+            justify-content: center;
+            padding: 20px;
         }
-        
-        .modal-header h2 {
-            color: var(--accent);
-            font-size: 1.5rem;
-        }
-        
-        .modal-body {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: calc(100vh - 80px);
-        }
-        
-        .modal-image-section {
-            background: var(--secondary);
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .modal-main-image {
-            width: 100%;
-            max-width: 700px;
-            height: 450px;
-            background: linear-gradient(145deg, #1e293b, #0f172a);
+
+        .modal {
+            background: #fff;
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            border: 2px solid rgba(245,158,11,0.2);
-        }
-        
-        .modal-main-image img {
+            max-width: 900px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .image-gallery {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .gallery-thumb {
-            width: 100px;
-            height: 75px;
-            background: #1e293b;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: all 0.3s;
-            overflow: hidden;
-        }
-        
-        .gallery-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .gallery-thumb:hover, .gallery-thumb.active {
-            border-color: var(--accent);
-            transform: scale(1.05);
-        }
-        
-        .modal-details-section {
-            padding: 3rem;
-            overflow-y: auto;
-        }
-        
-        .car-header-info {
-            margin-bottom: 2rem;
-        }
-        
-        .car-header-info .category {
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .car-header-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .car-header-info .subtitle {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .pricing-box {
-            background: linear-gradient(145deg, rgba(245,158,11,0.1), rgba(245,158,11,0.05));
-            border: 2px solid rgba(245,158,11,0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .pricing-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .pricing-row:last-child {
-            margin-bottom: 0;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(245,158,11,0.2);
-        }
-        
-        .price-label {
-            color: var(--gray);
-            font-size: 1rem;
-        }
-        
-        .price-value {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .price-value.strike {
-            text-decoration: line-through;
-            color: var(--dark-gray);
-        }
-        
-        .price-value.current {
-            font-size: 2.5rem;
-            color: var(--success);
-            font-weight: 800;
-        }
-        
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .spec-item {
-            background: rgba(255,255,255,0.05);
-            padding: 1.25rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .spec-label {
-            color: var(--gray);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .spec-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .features-list {
-            margin-bottom: 2rem;
-        }
-        
-        .features-list h3 {
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-        
-        .feature-icon {
-            color: var(--success);
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-        }
-        
-        .btn-full {
-            flex: 1;
-            justify-content: center;
-        }
-        
-        /* Payment Modal */
-        .payment-modal, .auth-modal, .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        
-        .payment-modal.active, .auth-modal.active, .cart-modal.active {
-            display: flex;
-        }
-        
-        .modal-box {
-            background: var(--secondary);
-            border-radius: 24px;
-            width: 100%;
-            max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            border: 2px solid rgba(245,158,11,0.3);
-            box-shadow: 0 25px 100px rgba(0,0,0,0.5);
+            position: relative;
         }
-        
-        .modal-box-header {
-            padding: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
         }
-        
-        .modal-box-header h2 {
-            font-size: 1.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+
+        .modal-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
         }
-        
-        .modal-box-body {
-            padding: 2rem;
+
+        .modal-header p {
+            opacity: 0.9;
         }
-        
-        .payment-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .payment-option {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            font-size: 24px;
             cursor: pointer;
             transition: all 0.3s;
-            position: relative;
         }
-        
-        .payment-option:hover:not(.disabled) {
-            border-color: var(--accent);
-            transform: translateY(-4px);
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
         }
-        
-        .payment-option.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            position: relative;
+
+        .modal-body {
+            padding: 30px;
         }
-        
-        .payment-option.disabled::after {
-            content: 'UNAVAILABLE';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-15deg);
-            background: var(--danger);
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border-radius: 4px;
+
+        .form-section {
+            margin-bottom: 35px;
         }
-        
-        .payment-option.selected {
-            border-color: var(--accent);
-            background: rgba(245,158,11,0.1);
-        }
-        
-        .payment-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .payment-option h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .payment-option p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .crypto-section {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-        
-        .crypto-section.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .btc-logo {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .btc-logo-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--btc-orange), #e67e00);
-            border-radius: 50%;
+
+        .form-section h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 1rem;
-            box-shadow: 0 10px 40px rgba(247,147,26,0.4);
+            gap: 10px;
         }
-        
-        .btc-address-box {
-            background: rgba(0,0,0,0.4);
-            border: 2px solid var(--btc-orange);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+
+        .form-section h3 svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
         }
-        
-        .btc-address-label {
-            color: var(--gray);
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
         }
-        
-        .btc-address {
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            color: var(--btc-orange);
-            word-break: break-all;
-            background: rgba(247,147,26,0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px dashed var(--btc-orange);
-        }
-        
-        .btc-qr-placeholder {
-            width: 200px;
-            height: 200px;
-            background: white;
-            margin: 0 auto 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-size: 4rem;
-        }
-        
-        .btc-instructions {
-            background: rgba(247,147,26,0.1);
-            border-left: 4px solid var(--btc-orange);
-            padding: 1.25rem;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btc-instructions h4 {
-            color: var(--btc-orange);
-            margin-bottom: 0.5rem;
-        }
-        
-        .btc-instructions p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .btc-amount {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btc-amount-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .btc-amount-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--btc-orange);
-        }
-        
-        .btc-amount-usd {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-        }
-        
-        .tx-reference {
-            background: rgba(255,255,255,0.05);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .tx-label {
-            color: var(--gray);
-            font-size: 0.8rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .tx-id {
-            font-family: monospace;
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-        
-        /* Loading Screen */
-        .loading-screen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary);
-            z-index: 4000;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .loading-screen.active {
-            display: flex;
-        }
-        
-        .blockchain-visual {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin-bottom: 3rem;
-        }
-        
-        .blockchain-ring {
-            position: absolute;
-            border: 3px solid var(--btc-orange);
-            border-radius: 50%;
-            animation: blockchainPulse 2s ease-in-out infinite;
-        }
-        
-        .blockchain-ring:nth-child(1) {
-            width: 100%;
-            height: 100%;
-            animation-delay: 0s;
-        }
-        
-        .blockchain-ring:nth-child(2) {
-            width: 75%;
-            height: 75%;
-            top: 12.5%;
-            left: 12.5%;
-            animation-delay: 0.5s;
-        }
-        
-        .blockchain-ring:nth-child(3) {
-            width: 50%;
-            height: 50%;
-            top: 25%;
-            left: 25%;
-            animation-delay: 1s;
-        }
-        
-        @keyframes blockchainPulse {
-            0%, 100% { transform: scale(1); opacity: 1; border-color: var(--btc-orange); }
-            50% { transform: scale(1.1); opacity: 0.5; border-color: var(--accent); }
-        }
-        
-        .blockchain-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-        }
-        
-        .loading-text {
-            text-align: center;
-            max-width: 500px;
-        }
-        
-        .loading-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--btc-orange);
-        }
-        
-        .loading-status {
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            min-height: 2rem;
-        }
-        
-        .loading-progress {
-            width: 400px;
-            max-width: 90vw;
-            height: 6px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .loading-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--btc-orange), var(--accent));
-            width: 0%;
-            animation: loadingProgress 3s ease-in-out infinite;
-        }
-        
-        @keyframes loadingProgress {
-            0% { width: 0%; }
-            50% { width: 70%; }
-            70% { width: 85%; }
-            90% { width: 95%; }
-            100% { width: 98%; }
-        }
-        
-        .loading-details {
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-        }
-        
-        .loading-detail-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .detail-status {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--success);
-            animation: statusBlink 1s infinite;
-        }
-        
-        @keyframes statusBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        
-        .time-estimate {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: rgba(245,158,11,0.1);
-            border-radius: 8px;
-            border: 1px solid rgba(245,158,11,0.3);
-        }
-        
-        .time-estimate p {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        /* Auth Modal */
-        .auth-content {
-            padding: 3rem;
-        }
-        
-        .auth-content h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-        
+
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
-        
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
         }
-        
-        .form-group input {
+
+        .form-group label .required {
+            color: var(--accent);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.1);
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
             border-radius: 10px;
-            color: var(--light);
-            font-size: 1rem;
+            font-size: 15px;
             transition: all 0.3s;
+            font-family: inherit;
         }
-        
-        .form-group input:focus {
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--accent);
         }
-        
-        .auth-switch {
-            text-align: center;
-            margin-top: 1.5rem;
-            color: var(--gray);
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
         }
-        
-        .auth-switch a {
-            color: var(--accent);
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        /* Cart */
-        .cart-items {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cart-item {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
-        
-        .cart-item-image {
-            width: 100px;
-            height: 75px;
-            background: #1e293b;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .cart-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .cart-item-details {
-            flex: 1;
-        }
-        
-        .cart-item-title {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        
-        .cart-item-price {
-            color: var(--success);
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-        
-        .cart-item-remove {
-            background: none;
-            border: none;
-            color: var(--danger);
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0.5rem;
-        }
-        
-        .cart-total {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cart-total-label {
-            font-size: 1.2rem;
-        }
-        
-        .cart-total-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--success);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background: var(--secondary);
-            padding: 5rem 2rem;
-            border-top: 1px solid rgba(245,158,11,0.2);
-        }
-        
-        .testimonials-grid {
+
+        .payment-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
         }
-        
-        .testimonial-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 2rem;
+
+        .payment-method {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
             transition: all 0.3s;
         }
-        
-        .testimonial-card:hover {
-            border-color: rgba(245,158,11,0.3);
-            transform: translateY(-5px);
+
+        .payment-method:hover,
+        .payment-method.selected {
+            border-color: var(--accent);
+            background: rgba(233, 69, 96, 0.05);
         }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+
+        .payment-method svg {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
         }
-        
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
+
+        .payment-method.btc svg {
+            fill: #f7931a;
         }
-        
-        .testimonial-meta h4 {
-            margin-bottom: 0.25rem;
+
+        .payment-method.eth svg {
+            fill: #627eea;
         }
-        
-        .testimonial-meta .stars {
-            color: var(--accent);
+
+        .payment-method.usdt svg {
+            fill: #26a17b;
         }
-        
-        .testimonial-text {
-            color: var(--gray);
-            line-height: 1.8;
-            font-style: italic;
+
+        .payment-method h4 {
+            font-size: 14px;
+            color: var(--primary);
         }
-        
-        /* Footer */
+
+        .btc-payment-details {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .btc-address-box {
+            background: #fff;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btc-address {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            word-break: break-all;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .qr-code svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btc-rate-info {
+            text-align: center;
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 8px;
+        }
+
+        .btc-rate-info p {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .transaction-ref-box {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .transaction-ref-box label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .transaction-ref-box input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .transaction-ref-box p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .submit-order-btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* FOOTER - FIXED CONTACT VISIBILITY */
         footer {
-            background: linear-gradient(180deg, var(--secondary), var(--primary));
-            padding: 4rem 2rem 2rem;
-            border-top: 2px solid rgba(245,158,11,0.2);
+            background: var(--primary);
+            color: #fff;
+            padding: 60px 20px 30px;
         }
-        
+
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
         }
-        
-        .footer-section h3 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
-        
-        .footer-section p, .footer-section a {
-            color: var(--gray);
-            text-decoration: none;
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
             line-height: 1.8;
-            display: block;
-            margin-bottom: 0.5rem;
         }
-        
-        .footer-section a:hover {
-            color: var(--accent);
+
+        .footer-contact {
+            margin-top: 20px;
         }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--dark-gray);
-        }
-        
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            background: var(--secondary);
-            border: 1px solid var(--accent);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
+
+        .footer-contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            z-index: 5000;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* REMOVE ANY BLOCKING LINES FROM FOOTER CONTACT */
+        .footer-contact-item::before,
+        .footer-contact-item::after {
+            display: none !important;
+        }
+
+        .footer-contact-item svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h2 {
+                font-size: 36px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vehicles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transform: translateX(400px);
             transition: transform 0.3s;
+            z-index: 3000;
         }
-        
+
         .toast.show {
             transform: translateX(0);
-        }
-        
-        .toast-icon {
-            font-size: 1.5rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .modal-body { grid-template-columns: 1fr; }
-            .modal-image-section { min-height: 400px; }
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .car-grid { grid-template-columns: 1fr; }
-            .payment-options { grid-template-columns: 1fr; }
-            .stats-bar { gap: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon">🗽</div>
-                Liberty Motors <span>USA</span>
-            </a>
-            <div class="nav-links">
-                <a href="#inventory">Inventory</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#contact">Contact</a>
+    <!-- TOP BAR - FIXED CONTACT VISIBILITY -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:management01098@gmail.com">management01098@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Nationwide Delivery Available</span>
+                </div>
             </div>
-            <div class="nav-icons">
-                <button class="icon-btn" onclick="openAuth()" title="Account">👤</button>
-                <button class="icon-btn" onclick="openFavorites()" title="Favorites">❤️</button>
-                <button class="icon-btn" onclick="openCart()" title="Cart">
-                    🛒
-                    <span class="badge" id="cartBadge" style="display:none">0</span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Contact Bar -->
-    <div class="contact-bar">
-        <div class="contact-bar-content">
-            <div class="contact-item">
-                <span>📧</span>
-                <a href="mailto:management01098@gmail.com">management01098@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <span>💬</span>
-                <a href="https://tr.ee/pxo6p9VhqF" target="_blank">Telegram Support</a>
-            </div>
-            <div class="contact-item">
-                <span>⚡</span>
-                <span>30% Below Market Prices - Bitcoin Accepted</span>
+            <div class="social-links">
+                <a href="https://tr.ee/pxo6p9VhqF" target="_blank" title="Telegram">
+                    <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Hero -->
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                </div>
+                <div class="logo-text">
+                    <h1>Liberty Motors</h1>
+                    <span>Premium Auto Sales</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#calculator">Payment Calculator</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="scrollToInventory()">View Cars</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Liberty Motors <span>USA</span></h1>
-            <p>Premium vehicles at unbeatable prices. Real cars, real savings, real Bitcoin payments.</p>
-            <div class="hero-badges">
-                <div class="hero-badge">✓ 30% Below Market</div>
-                <div class="hero-badge">₿ Bitcoin Accepted</div>
-                <div class="hero-badge">🇺🇸 Nationwide</div>
+            <div class="hero-text">
+                <h2>Premium Vehicles at <span>Unbeatable Prices</span></h2>
+                <p>Discover our exclusive collection of luxury and performance vehicles. Bitcoin accepted with instant processing and nationwide delivery.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">500+</div>
+                        <div class="stat-label">Vehicles</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">30%</div>
+                        <div class="stat-label">Avg. Discount</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">48h</div>
+                        <div class="stat-label">Delivery</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="scrollToInventory()">Browse Inventory</button>
             </div>
-            <button class="btn btn-primary btn-large" onclick="document.getElementById('inventory').scrollIntoView({behavior:'smooth'})">
-                Browse 60+ Vehicles
-            </button>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800" alt="Luxury Car" class="hero-car">
+                <div class="floating-card card-btc">
+                    <div class="btc-icon">
+                        <svg viewBox="0 0 24 24"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.244 14.9.362c6.43 1.605 10.342 8.115 8.738 14.542zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.52 2.1c-.347-.087-.7-.167-1.054-.25l.53-2.12-1.32-.33-.54 2.15c-.285-.065-.565-.13-.84-.2l-1.815-.45-.35 1.406s.975.224.96.238c.535.136.63.486.62.766l-.62 2.473c.037.01.085.024.138.047l-.14-.035-.86 3.47c-.066.16-.23.4-.61.31.02.027-.96-.24-.96-.24L8.4 15.58l1.72.43c.32.08.63.17.94.25l-.55 2.19 1.32.33.54-2.16c.36.1.71.18 1.05.26l-.54 2.14 1.32.33.55-2.21c2.24.42 3.93.25 4.64-1.77.57-1.63-.03-2.57-1.37-3.18.98-.23 1.71-.86 1.91-2.17zm-3.42 4.75c-.41 1.63-3.16.75-4.06.53l.72-2.9c.9.23 3.79.67 3.34 2.37zm.41-4.75c-.37 1.5-2.66.74-3.4.55l.66-2.64c.74.19 3.13.55 2.74 2.09z"/></svg>
+                    </div>
+                    <div class="btc-info">
+                        <h4>Live BTC Rate</h4>
+                        <div class="btc-price" id="btcRate">Loading...</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <div class="stats-bar">
-        <div class="stat">
-            <span class="stat-value">60+</span>
-            <span class="stat-label">Vehicles</span>
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Verified Vehicles</h3>
+                <p>Every car undergoes rigorous inspection and certification process</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                </div>
+                <h3>Crypto Payments</h3>
+                <p>Instant Bitcoin, Ethereum & USDT transactions accepted</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                </div>
+                <h3>Free Delivery</h3>
+                <p>Nationwide shipping to your doorstep within 48 hours</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </div>
+                <h3>Secure Transactions</h3>
+                <p>Blockchain-verified payments with full buyer protection</p>
+            </div>
         </div>
-        <div class="stat">
-            <span class="stat-value">$500+</span>
-            <span class="stat-label">Starting Price</span>
+    </section>
+
+    <!-- INVENTORY SECTION -->
+    <section class="inventory" id="inventory">
+        <div class="section-header">
+            <h2>Featured Inventory</h2>
+            <p>Hand-selected premium vehicles with unbeatable pricing. All prices include shipping and documentation.</p>
         </div>
-        <div class="stat">
-            <span class="stat-value">30%</span>
-            <span class="stat-label">Below Market</span>
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterVehicles('all')">All Vehicles</button>
+            <button class="filter-btn" onclick="filterVehicles('sedan')">Sedans</button>
+            <button class="filter-btn" onclick="filterVehicles('suv')">SUVs</button>
+            <button class="filter-btn" onclick="filterVehicles('truck')">Trucks</button>
+            <button class="filter-btn" onclick="filterVehicles('luxury')">Luxury</button>
+            <button class="filter-btn" onclick="filterVehicles('sports')">Sports</button>
         </div>
-        <div class="stat">
-            <span class="stat-value">₿</span>
-            <span class="stat-label">Bitcoin Ready</span>
+        <div class="vehicles-grid" id="vehiclesGrid">
+            <!-- Vehicles will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- PAYMENT CALCULATOR -->
+    <section class="calculator-section" id="calculator">
+        <div class="calculator-container">
+            <div class="calculator-info">
+                <h2>Calculate Your Monthly Payment</h2>
+                <p>Use our payment calculator to estimate your monthly installments. Adjust the vehicle price, down payment, and loan term to find a plan that works for your budget.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">0%</div>
+                        <div class="stat-label">Interest Rate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">72</div>
+                        <div class="stat-label">Max Months</div>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h3>Payment Estimator</h3>
+                <div class="calc-field">
+                    <label>Vehicle Price: $<span id="priceValue">35000</span></label>
+                    <input type="range" id="vehiclePrice" min="10000" max="150000" value="35000" step="1000">
+                    <div class="range-values">
+                        <span>$10,000</span>
+                        <span>$150,000</span>
+                    </div>
+                </div>
+                <div class="calc-field">
+                    <label>Down Payment: $<span id="downValue">5000</span></label>
+                    <input type="range" id="downPayment" min="0" max="50000" value="5000" step="500">
+                    <div class="range-values">
+                        <span>$0</span>
+                        <span>$50,000</span>
+                    </div>
+                </div>
+                <div class="calc-field">
+                    <label>Loan Term: <span id="termValue">60</span> months</label>
+                    <input type="range" id="loanTerm" min="12" max="72" value="60" step="6">
+                    <div class="range-values">
+                        <span>12 mo</span>
+                        <span>72 mo</span>
+                    </div>
+                </div>
+                <div class="calc-result">
+                    <h4>Estimated Monthly Payment</h4>
+                    <div class="monthly-payment" id="monthlyPayment">$500</div>
+                    <div class="calc-details">
+                        <div class="calc-detail">
+                            <div class="calc-detail-value" id="loanAmount">$30,000</div>
+                            <div class="calc-detail-label">Loan Amount</div>
+                        </div>
+                        <div class="calc-detail">
+                            <div class="calc-detail-value" id="totalInterest">$0</div>
+                            <div class="calc-detail-label">Interest (0%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Complete Your Purchase</h2>
+                <p>Fill in your details to secure your vehicle</p>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm">
+                    <!-- VEHICLE SUMMARY -->
+                    <div class="form-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                            Selected Vehicle
+                        </h3>
+                        <div id="selectedVehicleSummary" style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- PERSONAL INFORMATION -->
+                    <div class="form-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            Personal Information
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <span class="required">*</span></label>
+                                <input type="text" name="firstName" required placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span class="required">*</span></label>
+                                <input type="text" name="lastName" required placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address <span class="required">*</span></label>
+                                <input type="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <input type="tel" name="phone" required placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BILLING ADDRESS -->
+                    <div class="form-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                            Billing Address
+                        </h3>
+                        <div class="form-group full-width">
+                            <label>Street Address <span class="required">*</span></label>
+                            <input type="text" name="billingAddress" required placeholder="123 Main Street">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City <span class="required">*</span></label>
+                                <input type="text" name="billingCity" required placeholder="New York">
+                            </div>
+                            <div class="form-group">
+                                <label>State/Province <span class="required">*</span></label>
+                                <input type="text" name="billingState" required placeholder="NY">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>ZIP/Postal Code <span class="required">*</span></label>
+                                <input type="text" name="billingZip" required placeholder="10001">
+                            </div>
+                            <div class="form-group">
+                                <label>Country <span class="required">*</span></label>
+                                <select name="billingCountry" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US" selected>United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DELIVERY INFORMATION -->
+                    <div class="form-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                            Delivery Information
+                        </h3>
+                        <div class="form-group full-width">
+                            <label>
+                                <input type="checkbox" id="sameAsBilling" checked onchange="toggleDeliveryAddress()">
+                                Delivery address same as billing
+                            </label>
+                        </div>
+                        <div id="deliveryAddressFields" style="display: none;">
+                            <div class="form-group full-width">
+                                <label>Delivery Street Address <span class="required">*</span></label>
+                                <input type="text" name="deliveryAddress" placeholder="456 Delivery Ave">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Delivery City <span class="required">*</span></label>
+                                    <input type="text" name="deliveryCity" placeholder="Los Angeles">
+                                </div>
+                                <div class="form-group">
+                                    <label>Delivery State <span class="required">*</span></label>
+                                    <input type="text" name="deliveryState" placeholder="CA">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Delivery ZIP <span class="required">*</span></label>
+                                    <input type="text" name="deliveryZip" placeholder="90001">
+                                </div>
+                                <div class="form-group">
+                                    <label>Delivery Country <span class="required">*</span></label>
+                                    <select name="deliveryCountry">
+                                        <option value="">Select Country</option>
+                                        <option value="US" selected>United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Preferred Delivery Date <span class="required">*</span></label>
+                                <input type="date" name="preferredDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Alternative Delivery Date</label>
+                                <input type="date" name="alternateDate">
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Special Delivery Instructions</label>
+                            <textarea name="deliveryNotes" placeholder="Any specific instructions for delivery..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT METHOD -->
+                    <div class="form-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                            Payment Method
+                        </h3>
+                        <div class="payment-methods">
+                            <div class="payment-method btc selected" onclick="selectPayment('btc')">
+                                <svg viewBox="0 0 24 24"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.244 14.9.362c6.43 1.605 10.342 8.115 8.738 14.542zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.52 2.1c-.347-.087-.7-.167-1.054-.25l.53-2.12-1.32-.33-.54 2.15c-.285-.065-.565-.13-.84-.2l-1.815-.45-.35 1.406s.975.224.96.238c.535.136.63.486.62.766l-.62 2.473c.037.01.085.024.138.047l-.14-.035-.86 3.47c-.066.16-.23.4-.61.31.02.027-.96-.24-.96-.24L8.4 15.58l1.72.43c.32.08.63.17.94.25l-.55 2.19 1.32.33.54-2.16c.36.1.71.18 1.05.26l-.54 2.14 1.32.33.55-2.21c2.24.42 3.93.25 4.64-1.77.57-1.63-.03-2.57-1.37-3.18.98-.23 1.71-.86 1.91-2.17zm-3.42 4.75c-.41 1.63-3.16.75-4.06.53l.72-2.9c.9.23 3.79.67 3.34 2.37zm.41-4.75c-.37 1.5-2.66.74-3.4.55l.66-2.64c.74.19 3.13.55 2.74 2.09z"/></svg>
+                                <h4>Bitcoin</h4>
+                            </div>
+                            <div class="payment-method eth" onclick="selectPayment('eth')">
+                                <svg viewBox="0 0 24 24"><path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/></svg>
+                                <h4>Ethereum</h4>
+                            </div>
+                            <div class="payment-method usdt" onclick="selectPayment('usdt')">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                                <h4>USDT</h4>
+                            </div>
+                        </div>
+
+                        <!-- Bitcoin Payment Details -->
+                        <div class="btc-payment-details" id="btcPaymentDetails">
+                            <div class="btc-address-box">
+                                <p style="margin-bottom: 10px; color: var(--text-light);">Send payment to this Bitcoin address:</p>
+                                <div class="btc-address" id="btcAddress">bc1qnwwesz4qankx7v8cyevgfhw3vsra26g8xaz9s6</div>
+                                <button type="button" class="copy-btn" onclick="copyBTCAddress()">Copy Address</button>
+                            </div>
+                            <div class="qr-code">
+                                <svg viewBox="0 0 200 200" id="btcQRCode">
+                                    <!-- QR Code will be generated -->
+                                    <rect fill="#fff" width="200" height="200"/>
+                                    <rect fill="#000" x="20" y="20" width="50" height="50"/>
+                                    <rect fill="#fff" x="30" y="30" width="30" height="30"/>
+                                    <rect fill="#000" x="35" y="35" width="20" height="20"/>
+                                    <rect fill="#000" x="130" y="20" width="50" height="50"/>
+                                    <rect fill="#fff" x="140" y="30" width="30" height="30"/>
+                                    <rect fill="#000" x="145" y="35" width="20" height="20"/>
+                                    <rect fill="#000" x="20" y="130" width="50" height="50"/>
+                                    <rect fill="#fff" x="30" y="140" width="30" height="30"/>
+                                    <rect fill="#000" x="35" y="145" width="20" height="20"/>
+                                    <rect fill="#000" x="85" y="20" width="10" height="10"/>
+                                    <rect fill="#000" x="85" y="40" width="10" height="10"/>
+                                    <rect fill="#000" x="85" y="60" width="10" height="10"/>
+                                    <rect fill="#000" x="105" y="20" width="10" height="10"/>
+                                    <rect fill="#000" x="105" y="40" width="10" height="10"/>
+                                    <rect fill="#000" x="105" y="60" width="10" height="10"/>
+                                    <rect fill="#000" x="85" y="85" width="30" height="30"/>
+                                    <rect fill="#000" x="20" y="85" width="10" height="10"/>
+                                    <rect fill="#000" x="40" y="85" width="10" height="10"/>
+                                    <rect fill="#000" x="60" y="85" width="10" height="10"/>
+                                    <rect fill="#000" x="130" y="85" width="10" height="10"/>
+                                    <rect fill="#000" x="150" y="85" width="10" height="10"/>
+                                    <rect fill="#000" x="170" y="85" width="10" height="10"/>
+                                    <rect fill="#000" x="85" y="130" width="10" height="10"/>
+                                    <rect fill="#000" x="85" y="150" width="10" height="10"/>
+                                    <rect fill="#000" x="85" y="170" width="10" height="10"/>
+                                    <rect fill="#000" x="105" y="130" width="10" height="10"/>
+                                    <rect fill="#000" x="105" y="150" width="10" height="10"/>
+                                    <rect fill="#000" x="105" y="170" width="10" height="10"/>
+                                    <rect fill="#000" x="130" y="130" width="10" height="10"/>
+                                    <rect fill="#000" x="150" y="130" width="10" height="10"/>
+                                    <rect fill="#000" x="170" y="130" width="10" height="10"/>
+                                    <rect fill="#000" x="130" y="150" width="10" height="10"/>
+                                    <rect fill="#000" x="150" y="150" width="10" height="10"/>
+                                    <rect fill="#000" x="170" y="150" width="10" height="10"/>
+                                    <rect fill="#000" x="130" y="170" width="10" height="10"/>
+                                    <rect fill="#000" x="150" y="170" width="10" height="10"/>
+                                    <rect fill="#000" x="170" y="170" width="10" height="10"/>
+                                </svg>
+                            </div>
+                            <div class="btc-rate-info">
+                                <p>Current BTC Rate: <span id="modalBtcRate">Loading...</span></p>
+                                <p style="margin-top: 8px; font-size: 14px;">Amount Due: <strong id="btcAmount">Calculating...</strong></p>
+                            </div>
+                            
+                            <!-- TRANSACTION REFERENCE INPUT -->
+                            <div class="transaction-ref-box">
+                                <label>Your Transaction Reference (TRID) <span class="required">*</span></label>
+                                <input type="text" name="transactionRef" id="transactionRef" required placeholder="Enter your transaction ID/memo" maxlength="64">
+                                <p>Enter the unique transaction ID or memo from your Bitcoin wallet. This helps us verify your payment.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary submit-order-btn">
+                        Complete Purchase
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- Inventory -->
-    <section id="inventory">
-        <div class="section-header">
-            <h2>Our Premium Inventory</h2>
-            <p>60 hand-selected vehicles across all price ranges - All 30% below market value</p>
-        </div>
-        
-        <div class="filters">
-            <button class="filter-btn active" onclick="filterCars('all')">All Vehicles</button>
-            <button class="filter-btn" onclick="filterCars('budget')">Budget ($500-$2k)</button>
-            <button class="filter-btn" onclick="filterCars('economy')">Economy ($2k-$10k)</button>
-            <button class="filter-btn" onclick="filterCars('premium')">Premium ($10k-$100k)</button>
-        </div>
-        
-        <div class="car-grid" id="carGrid"></div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <div class="section-header">
-            <h2>What Our Customers Say</h2>
-            <p>Real reviews from real buyers</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">JD</div>
-                    <div class="testimonial-meta">
-                        <h4>John Davis</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p class="testimonial-text">"Got a 2015 Camry for 30% less than dealership price. Bitcoin payment was smooth and the car arrived in perfect condition. Highly recommend!"</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">SM</div>
-                    <div class="testimonial-meta">
-                        <h4>Sarah Miller</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p class="testimonial-text">"Liberty Motors made buying my first car easy. The team was responsive on Telegram and helped me through the whole Bitcoin payment process."</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">RK</div>
-                    <div class="testimonial-meta">
-                        <h4>Robert Kim</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p class="testimonial-text">"Best prices in the market. Saved over $8,000 on a BMW 3-Series. Transaction confirmed in 20 minutes. These guys are legit!"</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" style="padding: 5rem 2rem; text-align: center;">
-        <div class="section-header">
-            <h2>Contact Us</h2>
-            <p>Have questions? We're here to help 24/7</p>
-        </div>
-        <div style="max-width: 600px; margin: 0 auto;">
-            <div style="background: rgba(245,158,11,0.1); border: 2px solid var(--accent); border-radius: 16px; padding: 2rem;">
-                <h3 style="color: var(--accent); margin-bottom: 1rem;">⚠️ Important Payment Information</h3>
-                <p style="margin-bottom: 1.5rem;">Credit card payments are currently unavailable due to processing issues. We accept <strong>Bitcoin (BTC) only</strong> at this time.</p>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div>📧 <a href="mailto:management01098@gmail.com" style="color: var(--accent);">management01098@gmail.com</a></div>
-                    <div>💬 <a href="https://tr.ee/pxo6p9VhqF" target="_blank" style="color: var(--accent);">Telegram: @LibertyMotorsSupport</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+    <!-- FOOTER - FIXED CONTACT VISIBILITY -->
+    <footer id="contact">
         <div class="footer-content">
-            <div class="footer-section">
+            <div class="footer-brand">
                 <h3>Liberty Motors USA</h3>
-                <p>Premium vehicles at 30% below market value. Bitcoin accepted. Quality guaranteed.</p>
+                <p>Your trusted partner for premium vehicles. We offer the best selection of luxury and performance cars at unbeatable prices, with secure cryptocurrency payments and nationwide delivery.</p>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <a href="mailto:management01098@gmail.com">management01098@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <span>Bitcoin & Crypto Accepted</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4z"/></svg>
+                        <span>Nationwide Delivery Available</span>
+                    </div>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#inventory">Browse Inventory</a>
-                <a href="#testimonials">Customer Reviews</a>
-                <a href="#" onclick="openCart(); return false">My Cart</a>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#inventory">Inventory</a></li>
+                    <li><a href="#calculator">Payment Calculator</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: management01098@gmail.com</p>
-                <p>Telegram: <a href="https://tr.ee/pxo6p9VhqF" target="_blank">@LibertyMotorsSupport</a></p>
-                <p>Available 24/7 for support</p>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Vehicle Financing</a></li>
+                    <li><a href="#">Trade-In Program</a></li>
+                    <li><a href="#">Delivery Service</a></li>
+                    <li><a href="#">Vehicle Protection</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="https://tr.ee/pxo6p9VhqF" target="_blank">Telegram Support</a></li>
+                    <li><a href="mailto:management01098@gmail.com">Email Support</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Liberty Motors USA. All rights reserved. | 60+ Vehicles | Bitcoin Accepted</p>
+            <p>&copy; 2024 Liberty Motors USA. All rights reserved.</p>
+            <p>Secure Bitcoin Payments Accepted</p>
         </div>
     </footer>
 
-    <!-- Car Detail Modal -->
-    <div class="modal-overlay" id="carModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Vehicle Details</h2>
-                <button class="btn btn-secondary" onclick="closeModal()">Close</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image-section">
-                    <div class="modal-main-image" id="modalMainImage">
-                        <img src="" alt="Car Image" id="mainCarImage">
-                    </div>
-                    <div class="image-gallery" id="imageGallery"></div>
-                </div>
-                <div class="modal-details-section">
-                    <div class="car-header-info">
-                        <div class="category" id="modalCategory">Category</div>
-                        <h1 id="modalTitle">Car Name</h1>
-                        <p class="subtitle" id="modalSubtitle">Description</p>
-                    </div>
-                    
-                    <div class="pricing-box">
-                        <div class="pricing-row">
-                            <span class="price-label">Market Value</span>
-                            <span class="price-value strike" id="modalMarketPrice">$0</span>
-                        </div>
-                        <div class="pricing-row">
-                            <span class="price-label">Your Price (30% Off)</span>
-                            <span class="price-value current" id="modalYourPrice">$0</span>
-                        </div>
-                        <div class="pricing-row">
-                            <span class="price-label">You Save</span>
-                            <span class="price-value" style="color: var(--accent);" id="modalSavings">$0</span>
-                        </div>
-                    </div>
-                    
-                    <div class="specs-grid" id="modalSpecs"></div>
-                    
-                    <div class="features-list">
-                        <h3>Key Features</h3>
-                        <div class="features-grid" id="modalFeatures"></div>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <button class="btn btn-secondary btn-full" onclick="addToCart()">🛒 Add to Cart</button>
-                        <button class="btn btn-primary btn-full" onclick="buyNow()">⚡ Buy Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="modal-box">
-            <div class="modal-box-header">
-                <h2>🛒 Your Cart</h2>
-                <button class="btn btn-secondary" onclick="closeCart()">✕</button>
-            </div>
-            <div class="modal-box-body">
-                <div class="cart-items" id="cartItems">
-                    <!-- Cart items populated by JS -->
-                </div>
-                <div class="cart-total">
-                    <span class="cart-total-label">Total:</span>
-                    <span class="cart-total-value" id="cartTotal">$0</span>
-                </div>
-                <button class="btn btn-primary" style="width: 100%;" onclick="proceedToCheckout()">
-                    Proceed to Checkout →
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Payment Modal -->
-    <div class="payment-modal" id="paymentModal">
-        <div class="modal-box">
-            <div class="modal-box-header">
-                <h2>💳 Payment</h2>
-                <button class="btn btn-secondary" onclick="closePayment()">✕</button>
-            </div>
-            <div class="modal-box-body">
-                <div class="payment-options">
-                    <div class="payment-option disabled">
-                        <div class="payment-icon">💳</div>
-                        <h3>Credit Card</h3>
-                        <p>Visa, Mastercard, Amex</p>
-                    </div>
-                    <div class="payment-option selected" onclick="selectPayment('crypto')">
-                        <div class="payment-icon">₿</div>
-                        <h3>Bitcoin</h3>
-                        <p>Fast & Secure</p>
-                    </div>
-                </div>
-                
-                <div class="crypto-section active" id="cryptoSection">
-                    <div class="btc-logo">
-                        <div class="btc-logo-icon">₿</div>
-                        <h3>Bitcoin Payment</h3>
-                    </div>
-                    
-                    <div class="btc-amount">
-                        <div class="btc-amount-label">Amount to Pay</div>
-                        <div class="btc-amount-value" id="btcAmount">0.00000000 BTC</div>
-                        <div class="btc-amount-usd" id="btcUsdAmount">$0.00 USD</div>
-                    </div>
-                    
-                    <div class="btc-qr-placeholder">
-                        <img src="images/qr-btc.png" alt="BTC QR Code" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.parentElement.innerHTML='📱'">
-                    </div>
-                    
-                    <div class="btc-address-box">
-                        <div class="btc-address-label">Send BTC to this address:</div>
-                        <div class="btc-address" id="btcAddress">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
-                        <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%;" onclick="copyBTC()">📋 Copy Address</button>
-                    </div>
-                    
-                    <div class="tx-reference">
-                        <div class="tx-label">Transaction Reference</div>
-                        <div class="tx-id" id="txRef">LM-XXXXXXXX</div>
-                    </div>
-                    
-                    <div class="btc-instructions">
-                        <h4>⚠️ Important Instructions</h4>
-                        <p>1. Copy the BTC address above<br>
-                        2. Send the exact amount from your wallet<br>
-                        3. Include the Transaction Reference in your payment memo<br>
-                        4. Click "I've Sent Payment" below<br>
-                        5. Wait for blockchain confirmation (30-60 mins)</p>
-                    </div>
-                    
-                    <button class="btn btn-primary" style="width: 100%;" onclick="confirmPayment()">
-                        ✅ I've Sent Payment
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="blockchain-visual">
-            <div class="blockchain-ring"></div>
-            <div class="blockchain-ring"></div>
-            <div class="blockchain-ring"></div>
-            <div class="blockchain-center">₿</div>
-        </div>
-        <div class="loading-text">
-            <h2>Confirming Transaction</h2>
-            <div class="loading-status" id="loadingStatus">Waiting for blockchain confirmation...</div>
-            <div class="loading-progress">
-                <div class="loading-bar"></div>
-            </div>
-            <div class="loading-details">
-                <div class="loading-detail-item">
-                    <span class="detail-status"></span>
-                    <span>Transaction detected in mempool</span>
-                </div>
-                <div class="loading-detail-item">
-                    <span class="detail-status"></span>
-                    <span>Awaiting miner confirmation...</span>
-                </div>
-                <div class="loading-detail-item">
-                    <span class="detail-status"></span>
-                    <span>Network: Bitcoin Mainnet</span>
-                </div>
-            </div>
-            <div class="time-estimate">
-                <p>⏱️ This process typically takes 30-60 minutes</p>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem;">Please do not close this window</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Auth Modal -->
-    <div class="auth-modal" id="authModal">
-        <div class="modal-box">
-            <div class="modal-box-header">
-                <h2 id="authTitle">Sign In</h2>
-                <button class="btn btn-secondary" onclick="closeAuth()">✕</button>
-            </div>
-            <div class="modal-box-body">
-                <form id="authForm" onsubmit="handleAuth(event)">
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" id="authEmail" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" id="authPassword" placeholder="••••••••" required>
-                    </div>
-                    <div class="form-group" id="confirmPasswordGroup" style="display: none;">
-                        <label>Confirm Password</label>
-                        <input type="password" id="authConfirmPassword" placeholder="••••••••">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">
-                        Sign In
-                    </button>
-                </form>
-                <div class="auth-switch">
-                    <span id="authSwitchText">Don't have an account?</span>
-                    <a onclick="toggleAuthMode()" id="authSwitchLink">Register</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <span class="toast-icon" id="toastIcon">✓</span>
-        <span id="toastMessage">Item added to cart</span>
-    </div>
+    <!-- TOAST -->
+    <div class="toast" id="toast">Copied to clipboard!</div>
 
     <script>
-        // Configuration
-        const STATIC_BTC_ADDRESS = 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh';
-        const BTC_PRICE = 43000; // Approximate BTC price in USD
+        // ============================================
+        // CAR DATABASE - EASY TO UPDATE
+        // ============================================
+        // Format for adding new vehicles:
+        // {
+        //     id: unique_number,
+        //     make: "Car Make",
+        //     model: "Car Model",
+        //     year: 2024,
+        //     type: "sedan/suv/truck/luxury/sports",
+        //     marketPrice: 50000,      // Original market price
+        //     price: 35000,            // Our discounted price
+        //     mileage: 15000,
+        //     engine: "3.5L V6",
+        //     transmission: "Automatic",
+        //     drivetrain: "AWD",
+        //     fuelType: "Gasoline",
+        //     mpg: "25 city / 32 hwy",
+        //     exteriorColor: "Midnight Black",
+        //     interiorColor: "Black Leather",
+        //     vin: "1HGBH41JXMN109186",
+        //     features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5"],
+        //     images: ["url1", "url2", "url3", "url4", "url5"]
+        // }
         
-        // State
-        let currentCar = null;
-        let cart = JSON.parse(localStorage.getItem('libertyCart')) || [];
-        let favorites = JSON.parse(localStorage.getItem('libertyFavorites')) || [];
-        let currentUser = JSON.parse(localStorage.getItem('libertyUser')) || null;
-        let isLoginMode = true;
-        
-        // 60 Cars Database (20 per tier)
         const carDatabase = [
-            // BUDGET TIER: $500 - $2,000 (20 cars)
             {
-                id: 'b001',
-                tier: 'budget',
-                make: 'Toyota',
-                model: 'Corolla',
-                year: 1998,
-                marketPrice: 1800,
-                miles: '185,000',
-                engine: '1.8L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '28/35',
-                features: ['Reliable Engine', 'Great MPG', 'Low Maintenance', 'CD Player', 'Power Windows'],
-                images: ['toyota_corolla_1998_1.jpg', 'toyota_corolla_1998_2.jpg', 'toyota_corolla_1998_3.jpg', 'toyota_corolla_1998_4.jpg', 'toyota_corolla_1998_5.jpg']
+                id: 1,
+                make: "Mercedes-Benz",
+                model: "S-Class S580",
+                year: 2023,
+                type: "luxury",
+                marketPrice: 125000,
+                price: 87500,
+                mileage: 8500,
+                engine: "4.0L V8 Biturbo",
+                transmission: "9-Speed Automatic",
+                drivetrain: "4MATIC AWD",
+                fuelType: "Gasoline",
+                mpg: "17 city / 25 hwy",
+                exteriorColor: "Obsidian Black Metallic",
+                interiorColor: "Macchiato Beige Leather",
+                vin: "W1KUG8CB8PA123456",
+                features: ["Burmester 4D Sound", "MBUX Hyperscreen", "Air Suspension", "Massage Seats", "Drive Pilot"],
+                images: [
+                    "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600",
+                    "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=600",
+                    "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600",
+                    "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600",
+                    "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600"
+                ]
             },
             {
-                id: 'b002',
-                tier: 'budget',
-                make: 'Honda',
-                model: 'Civic',
-                year: 1999,
-                marketPrice: 1950,
-                miles: '170,000',
-                engine: '1.6L 4-Cylinder',
-                transmission: 'Manual',
-                drivetrain: 'FWD',
-                mpg: '30/38',
-                features: ['Sporty Handling', 'Fuel Efficient', 'Aftermarket Stereo', 'Alloy Wheels', 'Sunroof'],
-                images: ['honda_civic_1999_1.jpg', 'honda_civic_1999_2.jpg', 'honda_civic_1999_3.jpg', 'honda_civic_1999_4.jpg', 'honda_civic_1999_5.jpg']
+                id: 2,
+                make: "BMW",
+                model: "X7 xDrive40i",
+                year: 2023,
+                type: "suv",
+                marketPrice: 85000,
+                price: 59500,
+                mileage: 12000,
+                engine: "3.0L Inline-6 Turbo",
+                transmission: "8-Speed Automatic",
+                drivetrain: "xDrive AWD",
+                fuelType: "Gasoline",
+                mpg: "21 city / 25 hwy",
+                exteriorColor: "Alpine White",
+                interiorColor: "Cognac Vernasca Leather",
+                vin: "5UX23EU00P9X12345",
+                features: ["Panoramic Sky Lounge", "Harman Kardon Audio", "Air Suspension", "Executive Package", "Driving Assistance Pro"],
+                images: [
+                    "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600",
+                    "https://images.unsplash.com/photo-1607853202273-797f1be22e38?w=600",
+                    "https://images.unsplash.com/photo-1606220838315-056192d678e1?w=600",
+                    "https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=600",
+                    "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600"
+                ]
             },
             {
-                id: 'b003',
-                tier: 'budget',
-                make: 'Ford',
-                model: 'Focus',
-                year: 2005,
-                marketPrice: 1600,
-                miles: '155,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '26/32',
-                features: ['Compact Size', 'Easy Parking', 'A/C Working', 'New Tires', 'Clean Title'],
-                images: ['ford_focus_2005_1.jpg', 'ford_focus_2005_2.jpg', 'ford_focus_2005_3.jpg', 'ford_focus_2005_4.jpg', 'ford_focus_2005_5.jpg']
+                id: 3,
+                make: "Porsche",
+                model: "911 Carrera S",
+                year: 2022,
+                type: "sports",
+                marketPrice: 135000,
+                price: 94500,
+                mileage: 6500,
+                engine: "3.0L Twin-Turbo Flat-6",
+                transmission: "8-Speed PDK",
+                drivetrain: "RWD",
+                fuelType: "Gasoline",
+                mpg: "18 city / 25 hwy",
+                exteriorColor: "Racing Yellow",
+                interiorColor: "Black Leather",
+                vin: "WP0AB2A95NS123456",
+                features: ["Sport Chrono Package", "PASM", "Sport Exhaust", "Bose Audio", "GT Sport Steering Wheel"],
+                images: [
+                    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600",
+                    "https://images.unsplash.com/photo-1544829099-f89c8ed71e64?w=600",
+                    "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600",
+                    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600",
+                    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600"
+                ]
             },
             {
-                id: 'b004',
-                tier: 'budget',
-                make: 'Chevrolet',
-                model: 'Malibu',
-                year: 2004,
-                marketPrice: 1750,
-                miles: '165,000',
-                engine: '2.2L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '24/32',
-                features: ['Spacious Interior', 'Comfortable Ride', 'Cruise Control', 'Keyless Entry', 'ABS Brakes'],
-                images: ['chevrolet_malibu_2004_1.jpg', 'chevrolet_malibu_2004_2.jpg', 'chevrolet_malibu_2004_3.jpg', 'chevrolet_malibu_2004_4.jpg', 'chevrolet_malibu_2004_5.jpg']
+                id: 4,
+                make: "Tesla",
+                model: "Model S Plaid",
+                year: 2023,
+                type: "luxury",
+                marketPrice: 110000,
+                price: 77000,
+                mileage: 3200,
+                engine: "Tri Motor Electric",
+                transmission: "Single-Speed",
+                drivetrain: "AWD",
+                fuelType: "Electric",
+                mpg: "120 MPGe",
+                exteriorColor: "Pearl White Multi-Coat",
+                interiorColor: "Black & White Premium",
+                vin: "5YJ3E1ECXP0001234",
+                features: ["Full Self-Driving", "Autopilot", "17\" Cinematic Display", "Gaming Computer", "Air Filtration"],
+                images: [
+                    "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=600",
+                    "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600",
+                    "https://images.unsplash.com/photo-1619767886558-ef22b66aab7d?w=600",
+                    "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=600",
+                    "https://images.unsplash.com/photo-1619767886558-ef22b66aab7d?w=600"
+                ]
             },
             {
-                id: 'b005',
-                tier: 'budget',
-                make: 'Nissan',
-                model: 'Sentra',
-                year: 2006,
-                marketPrice: 1900,
-                miles: '145,000',
-                engine: '1.8L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '27/34',
-                features: ['Reliable', 'Good Resale', 'Power Steering', 'Air Conditioning', 'Dual Airbags'],
-                images: ['nissan_sentra_2006_1.jpg', 'nissan_sentra_2006_2.jpg', 'nissan_sentra_2006_3.jpg', 'nissan_sentra_2006_4.jpg', 'nissan_sentra_2006_5.jpg']
+                id: 5,
+                make: "Ford",
+                model: "F-150 Raptor",
+                year: 2023,
+                type: "truck",
+                marketPrice: 78000,
+                price: 54600,
+                mileage: 18000,
+                engine: "3.5L EcoBoost V6",
+                transmission: "10-Speed Automatic",
+                drivetrain: "4WD",
+                fuelType: "Gasoline",
+                mpg: "15 city / 18 hwy",
+                exteriorColor: "Code Orange",
+                interiorColor: "Black Recaro",
+                vin: "1FTFW1RG7PFC12345",
+                features: ["Fox Racing Shocks", "Trail Control", "360-Degree Camera", "Pro Power Onboard", "B&O Sound System"],
+                images: [
+                    "https://images.unsplash.com/photo-1551830820-330a71b99659?w=600",
+                    "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600",
+                    "https://images.unsplash.com/photo-1605893477919-3b7d7e4c1d84?w=600",
+                    "https://images.unsplash.com/photo-1551830820-330a71b99659?w=600",
+                    "https://images.unsplash.com/photo-1605893477919-3b7d7e4c1d84?w=600"
+                ]
             },
             {
-                id: 'b006',
-                tier: 'budget',
-                make: 'Hyundai',
-                model: 'Elantra',
-                year: 2007,
-                marketPrice: 1850,
-                miles: '150,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '25/33',
-                features: ['Great Warranty History', 'Fuel Efficient', 'Spacious Trunk', 'AM/FM/CD', 'Power Locks'],
-                images: ['hyundai_elantra_2007_1.jpg', 'hyundai_elantra_2007_2.jpg', 'hyundai_elantra_2007_3.jpg', 'hyundai_elantra_2007_4.jpg', 'hyundai_elantra_2007_5.jpg']
-            },
-            {
-                id: 'b007',
-                tier: 'budget',
-                make: 'Kia',
-                model: 'Spectra',
-                year: 2006,
-                marketPrice: 1500,
-                miles: '160,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '24/32',
-                features: ['Affordable Parts', 'Reliable Engine', 'Cold A/C', 'Clean Interior', 'New Battery'],
-                images: ['kia_spectra_2006_1.jpg', 'kia_spectra_2006_2.jpg', 'kia_spectra_2006_3.jpg', 'kia_spectra_2006_4.jpg', 'kia_spectra_2006_5.jpg']
-            },
-            {
-                id: 'b008',
-                tier: 'budget',
-                make: 'Mazda',
-                model: 'Protege',
-                year: 2003,
-                marketPrice: 1400,
-                miles: '175,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Manual',
-                drivetrain: 'FWD',
-                mpg: '25/31',
-                features: ['Fun to Drive', 'Sporty Look', 'Manual Transmission', 'Good Clutch', 'Recent Tune-up'],
-                images: ['mazda_protege_2003_1.jpg', 'mazda_protege_2003_2.jpg', 'mazda_protege_2003_3.jpg', 'mazda_protege_2003_4.jpg', 'mazda_protege_2003_5.jpg']
-            },
-            {
-                id: 'b009',
-                tier: 'budget',
-                make: 'Subaru',
-                model: 'Legacy',
-                year: 2002,
-                marketPrice: 1950,
-                miles: '180,000',
-                engine: '2.5L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '21/28',
-                features: ['All-Wheel Drive', 'Winter Ready', 'Boxer Engine', 'Heated Seats', 'Roof Rails'],
-                images: ['subaru_legacy_2002_1.jpg', 'subaru_legacy_2002_2.jpg', 'subaru_legacy_2002_3.jpg', 'subaru_legacy_2002_4.jpg', 'subaru_legacy_2002_5.jpg']
-            },
-            {
-                id: 'b010',
-                tier: 'budget',
-                make: 'Volkswagen',
-                model: 'Jetta',
-                year: 2004,
-                marketPrice: 1850,
-                miles: '155,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Manual',
-                drivetrain: 'FWD',
-                mpg: '24/31',
-                features: ['German Engineering', 'Solid Build', 'Leather Seats', 'Sunroof', 'Premium Sound'],
-                images: ['vw_jetta_2004_1.jpg', 'vw_jetta_2004_2.jpg', 'vw_jetta_2004_3.jpg', 'vw_jetta_2004_4.jpg', 'vw_jetta_2004_5.jpg']
-            },
-            {
-                id: 'b011',
-                tier: 'budget',
-                make: 'Jeep',
-                model: 'Cherokee',
-                year: 1999,
-                marketPrice: 2000,
-                miles: '195,000',
-                engine: '4.0L Inline-6',
-                transmission: 'Automatic',
-                drivetrain: '4WD',
-                mpg: '15/20',
-                features: ['Legendary 4.0L Engine', 'Off-Road Capable', '4x4', 'Spacious Cargo', 'Towing Package'],
-                images: ['jeep_cherokee_1999_1.jpg', 'jeep_cherokee_1999_2.jpg', 'jeep_cherokee_1999_3.jpg', 'jeep_cherokee_1999_4.jpg', 'jeep_cherokee_1999_5.jpg']
-            },
-            {
-                id: 'b012',
-                tier: 'budget',
-                make: 'Toyota',
-                model: 'Camry',
-                year: 2001,
-                marketPrice: 1900,
-                miles: '175,000',
-                engine: '2.2L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '25/32',
-                features: ['Ultra Reliable', 'Smooth Ride', 'Spacious', 'Power Windows', 'Cruise Control'],
-                images: ['toyota_camry_2001_1.jpg', 'toyota_camry_2001_2.jpg', 'toyota_camry_2001_3.jpg', 'toyota_camry_2001_4.jpg', 'toyota_camry_2001_5.jpg']
-            },
-            {
-                id: 'b013',
-                tier: 'budget',
-                make: 'Honda',
-                model: 'Accord',
-                year: 2000,
-                marketPrice: 1850,
-                miles: '168,000',
-                engine: '2.3L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '24/31',
-                features: ['VTEC Engine', 'Reliable', 'Comfortable', 'Power Seats', 'CD Changer'],
-                images: ['honda_accord_2000_1.jpg', 'honda_accord_2000_2.jpg', 'honda_accord_2000_3.jpg', 'honda_accord_2000_4.jpg', 'honda_accord_2000_5.jpg']
-            },
-            {
-                id: 'b014',
-                tier: 'budget',
-                make: 'Ford',
-                model: 'Ranger',
-                year: 2003,
-                marketPrice: 1950,
-                miles: '165,000',
-                engine: '3.0L V6',
-                transmission: 'Manual',
-                drivetrain: 'RWD',
-                mpg: '19/24',
-                features: ['Truck Bed', 'Towing Capacity', 'Reliable', 'New Clutch', 'Tool Box Included'],
-                images: ['ford_ranger_2003_1.jpg', 'ford_ranger_2003_2.jpg', 'ford_ranger_2003_3.jpg', 'ford_ranger_2003_4.jpg', 'ford_ranger_2003_5.jpg']
-            },
-            {
-                id: 'b015',
-                tier: 'budget',
-                make: 'Chevrolet',
-                model: 'S10',
-                year: 2002,
-                marketPrice: 1750,
-                miles: '158,000',
-                engine: '2.2L 4-Cylinder',
-                transmission: 'Manual',
-                drivetrain: 'RWD',
-                mpg: '20/26',
-                features: ['Compact Truck', 'Fuel Efficient', 'Extended Cab', 'Bed Liner', 'Running Boards'],
-                images: ['chevrolet_s10_2002_1.jpg', 'chevrolet_s10_2002_2.jpg', 'chevrolet_s10_2002_3.jpg', 'chevrolet_s10_2002_4.jpg', 'chevrolet_s10_2002_5.jpg']
-            },
-            {
-                id: 'b016',
-                tier: 'budget',
-                make: 'Dodge',
-                model: 'Caravan',
-                year: 2005,
-                marketPrice: 1600,
-                miles: '172,000',
-                engine: '3.3L V6',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '19/26',
-                features: ['7 Passenger', 'Stow-N-Go', 'Family Ready', 'Rear A/C', 'Power Sliding Doors'],
-                images: ['dodge_caravan_2005_1.jpg', 'dodge_caravan_2005_2.jpg', 'dodge_caravan_2005_3.jpg', 'dodge_caravan_2005_4.jpg', 'dodge_caravan_2005_5.jpg']
-            },
-            {
-                id: 'b017',
-                tier: 'budget',
-                make: 'Pontiac',
-                model: 'Grand Prix',
-                year: 2006,
-                marketPrice: 1900,
-                miles: '155,000',
-                engine: '3.8L V6',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '20/30',
-                features: ['Powerful V6', 'Sporty', 'Leather Seats', 'Bose Audio', 'Heated Seats'],
-                images: ['pontiac_grandprix_2006_1.jpg', 'pontiac_grandprix_2006_2.jpg', 'pontiac_grandprix_2006_3.jpg', 'pontiac_grandprix_2006_4.jpg', 'pontiac_grandprix_2006_5.jpg']
-            },
-            {
-                id: 'b018',
-                tier: 'budget',
-                make: 'Buick',
-                model: 'Century',
-                year: 2003,
-                marketPrice: 1450,
-                miles: '148,000',
-                engine: '3.1L V6',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '20/29',
-                features: ['Comfortable Ride', 'Spacious', 'Reliable', 'Dual Climate', 'Clean History'],
-                images: ['buick_century_2003_1.jpg', 'buick_century_2003_2.jpg', 'buick_century_2003_3.jpg', 'buick_century_2003_4.jpg', 'buick_century_2003_5.jpg']
-            },
-            {
-                id: 'b019',
-                tier: 'budget',
-                make: 'Mercury',
-                model: 'Sable',
-                year: 2004,
-                marketPrice: 1350,
-                miles: '162,000',
-                engine: '3.0L V6',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '20/26',
-                features: ['Luxury Feel', 'Spacious', 'Good Condition', 'Power Everything', 'Keyless Entry'],
-                images: ['mercury_sable_2004_1.jpg', 'mercury_sable_2004_2.jpg', 'mercury_sable_2004_3.jpg', 'mercury_sable_2004_4.jpg', 'mercury_sable_2004_5.jpg']
-            },
-            {
-                id: 'b020',
-                tier: 'budget',
-                make: 'Saturn',
-                model: 'Vue',
-                year: 2006,
-                marketPrice: 1550,
-                miles: '158,000',
-                engine: '2.2L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '22/28',
-                features: ['Compact SUV', 'Versatile', 'Good MPG', 'Roof Rails', 'Cargo Space'],
-                images: ['saturn_vue_2006_1.jpg', 'saturn_vue_2006_2.jpg', 'saturn_vue_2006_3.jpg', 'saturn_vue_2006_4.jpg', 'saturn_vue_2006_5.jpg']
-            },
-
-            // ECONOMY TIER: $2,000 - $10,000 (20 cars)
-            {
-                id: 'e001',
-                tier: 'economy',
-                make: 'Toyota',
-                model: 'Corolla',
-                year: 2013,
-                marketPrice: 9500,
-                miles: '95,000',
-                engine: '1.8L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '27/34',
-                features: ['Bluetooth', 'Backup Camera', 'Keyless Entry', 'Cruise Control', 'Alloy Wheels'],
-                images: ['toyota_corolla_2013_1.jpg', 'toyota_corolla_2013_2.jpg', 'toyota_corolla_2013_3.jpg', 'toyota_corolla_2013_4.jpg', 'toyota_corolla_2013_5.jpg']
-            },
-            {
-                id: 'e002',
-                tier: 'economy',
-                make: 'Honda',
-                model: 'Civic',
-                year: 2012,
-                marketPrice: 9200,
-                miles: '88,000',
-                engine: '1.8L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '28/39',
-                features: ['i-VTEC Engine', 'USB Audio', 'Steering Wheel Controls', 'Moonroof', 'Fog Lights'],
-                images: ['honda_civic_2012_1.jpg', 'honda_civic_2012_2.jpg', 'honda_civic_2012_3.jpg', 'honda_civic_2012_4.jpg', 'honda_civic_2012_5.jpg']
-            },
-            {
-                id: 'e003',
-                tier: 'economy',
-                make: 'Ford',
-                model: 'Fusion',
-                year: 2014,
-                marketPrice: 9800,
-                miles: '105,000',
-                engine: '2.5L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '22/34',
-                features: ['SYNC System', 'Bluetooth', 'Backup Sensors', 'Heated Seats', '18-inch Wheels'],
-                images: ['ford_fusion_2014_1.jpg', 'ford_fusion_2014_2.jpg', 'ford_fusion_2014_3.jpg', 'ford_fusion_2014_4.jpg', 'ford_fusion_2014_5.jpg']
-            },
-            {
-                id: 'e004',
-                tier: 'economy',
-                make: 'Chevrolet',
-                model: 'Cruze',
-                year: 2015,
-                marketPrice: 8900,
-                miles: '92,000',
-                engine: '1.4L Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '27/46',
-                features: ['Turbocharged', 'Touchscreen', 'Rear Camera', 'Remote Start', 'WiFi Hotspot'],
-                images: ['chevrolet_cruze_2015_1.jpg', 'chevrolet_cruze_2015_2.jpg', 'chevrolet_cruze_2015_3.jpg', 'chevrolet_cruze_2015_4.jpg', 'chevrolet_cruze_2015_5.jpg']
-            },
-            {
-                id: 'e005',
-                tier: 'economy',
-                make: 'Nissan',
-                model: 'Altima',
-                year: 2013,
-                marketPrice: 9600,
-                miles: '98,000',
-                engine: '2.5L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '27/38',
-                features: ['Push Button Start', 'Dual Zone Climate', 'Bose Audio', 'Smart Key', 'LED Lights'],
-                images: ['nissan_altima_2013_1.jpg', 'nissan_altima_2013_2.jpg', 'nissan_altima_2013_3.jpg', 'nissan_altima_2013_4.jpg', 'nissan_altima_2013_5.jpg']
-            },
-            {
-                id: 'e006',
-                tier: 'economy',
-                make: 'Hyundai',
-                model: 'Sonata',
-                year: 2014,
-                marketPrice: 9400,
-                miles: '102,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '25/37',
-                features: ['Blue Link', 'Heated Front Seats', 'Panoramic Roof', 'Blind Spot Monitor', 'Lane Assist'],
-                images: ['hyundai_sonata_2014_1.jpg', 'hyundai_sonata_2014_2.jpg', 'hyundai_sonata_2014_3.jpg', 'hyundai_sonata_2014_4.jpg', 'hyundai_sonata_2014_5.jpg']
-            },
-            {
-                id: 'e007',
-                tier: 'economy',
-                make: 'Kia',
-                model: 'Optima',
-                year: 2013,
-                marketPrice: 8800,
-                miles: '108,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '24/35',
-                features: ['UVO System', 'Infinity Audio', 'Panoramic Sunroof', 'Ventilated Seats', 'Navigation'],
-                images: ['kia_optima_2013_1.jpg', 'kia_optima_2013_2.jpg', 'kia_optima_2013_3.jpg', 'kia_optima_2013_4.jpg', 'kia_optima_2013_5.jpg']
-            },
-            {
-                id: 'e008',
-                tier: 'economy',
-                make: 'Mazda',
-                model: '3',
-                year: 2014,
-                marketPrice: 9700,
-                miles: '89,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '30/41',
-                features: ['SkyActiv Tech', 'Blind Spot', 'Rear Cross Traffic', 'Bose 9-Speaker', 'Rain Sensing Wipers'],
-                images: ['mazda_3_2014_1.jpg', 'mazda_3_2014_2.jpg', 'mazda_3_2014_3.jpg', 'mazda_3_2014_4.jpg', 'mazda_3_2014_5.jpg']
-            },
-            {
-                id: 'e009',
-                tier: 'economy',
-                make: 'Subaru',
-                model: 'Impreza',
-                year: 2012,
-                marketPrice: 9200,
-                miles: '115,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '27/36',
-                features: ['Symmetrical AWD', ' boxer Engine', 'Heated Seats', 'Fog Lights', 'Roof Spoiler'],
-                images: ['subaru_impreza_2012_1.jpg', 'subaru_impreza_2012_2.jpg', 'subaru_impreza_2012_3.jpg', 'subaru_impreza_2012_4.jpg', 'subaru_impreza_2012_5.jpg']
-            },
-            {
-                id: 'e010',
-                tier: 'economy',
-                make: 'Volkswagen',
-                model: 'Passat',
-                year: 2013,
-                marketPrice: 9500,
-                miles: '96,000',
-                engine: '2.5L 5-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'FWD',
-                mpg: '22/32',
-                features: ['German Engineering', 'Leatherette', 'Fender Audio', 'Auto Climate', 'SiriusXM'],
-                images: ['vw_passat_2013_1.jpg', 'vw_passat_2013_2.jpg', 'vw_passat_2013_3.jpg', 'vw_passat_2013_4.jpg', 'vw_passat_2013_5.jpg']
-            },
-            {
-                id: 'e011',
-                tier: 'economy',
-                make: 'Jeep',
-                model: 'Wrangler',
-                year: 2008,
-                marketPrice: 9800,
-                miles: '145,000',
-                engine: '3.8L V6',
-                transmission: 'Manual',
-                drivetrain: '4WD',
-                mpg: '15/19',
-                features: ['Iconic Design', 'Removable Top', 'Off-Road Ready', 'Winch Ready', 'Lift Kit'],
-                images: ['jeep_wrangler_2008_1.jpg', 'jeep_wrangler_2008_2.jpg', 'jeep_wrangler_2008_3.jpg', 'jeep_wrangler_2008_4.jpg', 'jeep_wrangler_2008_5.jpg']
-            },
-            {
-                id: 'e012',
-                tier: 'economy',
-                make: 'Toyota',
-                model: 'RAV4',
-                year: 2011,
-                marketPrice: 9600,
-                miles: '125,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '21/27',
-                features: ['AWD System', 'Spacious Cargo', 'Roof Rails', 'Tow Package', 'Privacy Glass'],
-                images: ['toyota_rav4_2011_1.jpg', 'toyota_rav4_2011_2.jpg', 'toyota_rav4_2011_3.jpg', 'toyota_rav4_2011_4.jpg', 'toyota_rav4_2011_5.jpg']
-            },
-            {
-                id: 'e013',
-                tier: 'economy',
-                make: 'Honda',
-                model: 'CR-V',
-                year: 2010,
-                marketPrice: 9400,
-                miles: '118,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '21/27',
-                features: ['Real Time AWD', 'Magic Seats', 'Sunroof', 'Dual Deck Cargo', 'Backup Camera'],
-                images: ['honda_crv_2010_1.jpg', 'honda_crv_2010_2.jpg', 'honda_crv_2010_3.jpg', 'honda_crv_2010_4.jpg', 'honda_crv_2010_5.jpg']
-            },
-            {
-                id: 'e014',
-                tier: 'economy',
-                make: 'Ford',
-                model: 'Escape',
-                year: 2013,
-                marketPrice: 9200,
-                miles: '108,000',
-                engine: '1.6L EcoBoost',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '22/30',
-                features: ['EcoBoost Turbo', 'SYNC with MyFord', 'Hands Free Liftgate', 'Active Park Assist', 'Sony Audio'],
-                images: ['ford_escape_2013_1.jpg', 'ford_escape_2013_2.jpg', 'ford_escape_2013_3.jpg', 'ford_escape_2013_4.jpg', 'ford_escape_2013_5.jpg']
-            },
-            {
-                id: 'e015',
-                tier: 'economy',
-                make: 'Chevrolet',
-                model: 'Equinox',
-                year: 2014,
-                marketPrice: 9500,
-                miles: '112,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '20/29',
-                features: ['OnStar 4G LTE', '7-inch Touchscreen', 'Rear Vision Camera', 'Heated Seats', 'Remote Start'],
-                images: ['chevrolet_equinox_2014_1.jpg', 'chevrolet_equinox_2014_2.jpg', 'chevrolet_equinox_2014_3.jpg', 'chevrolet_equinox_2014_4.jpg', 'chevrolet_equinox_2014_5.jpg']
-            },
-            {
-                id: 'e016',
-                tier: 'economy',
-                make: 'Nissan',
-                model: 'Rogue',
-                year: 2012,
-                marketPrice: 8900,
-                miles: '115,000',
-                engine: '2.5L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '23/28',
-                features: ['Intelligent AWD', 'Divide-N-Hide Cargo', 'NissanConnect', 'Around View Monitor', 'Bose Audio'],
-                images: ['nissan_rogue_2012_1.jpg', 'nissan_rogue_2012_2.jpg', 'nissan_rogue_2012_3.jpg', 'nissan_rogue_2012_4.jpg', 'nissan_rogue_2012_5.jpg']
-            },
-            {
-                id: 'e017',
-                tier: 'economy',
-                make: 'Hyundai',
-                model: 'Tucson',
-                year: 2013,
-                marketPrice: 9100,
-                miles: '105,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '21/28',
-                features: ['Blue Link Connected', 'Panoramic Sunroof', 'Leather Seats', 'Navigation', 'Backup Camera'],
-                images: ['hyundai_tucson_2013_1.jpg', 'hyundai_tucson_2013_2.jpg', 'hyundai_tucson_2013_3.jpg', 'hyundai_tucson_2013_4.jpg', 'hyundai_tucson_2013_5.jpg']
-            },
-            {
-                id: 'e018',
-                tier: 'economy',
-                make: 'Kia',
-                model: 'Sportage',
-                year: 2014,
-                marketPrice: 9300,
-                miles: '98,000',
-                engine: '2.4L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '21/28',
-                features: ['UVO eServices', 'Cooled Driver Seat', 'Smart Power Liftgate', 'Blind Spot Detection', 'LED Daytime Running'],
-                images: ['kia_sportage_2014_1.jpg', 'kia_sportage_2014_2.jpg', 'kia_sportage_2014_3.jpg', 'kia_sportage_2014_4.jpg', 'kia_sportage_2014_5.jpg']
-            },
-            {
-                id: 'e019',
-                tier: 'economy',
-                make: 'Mazda',
-                model: 'CX-5',
-                year: 2013,
-                marketPrice: 9700,
-                miles: '95,000',
-                engine: '2.0L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '25/31',
-                features: ['SkyActiv Technology', 'Smart City Brake', 'Blind Spot Monitoring', 'Bose Audio', 'Bi-Xenon Headlights'],
-                images: ['mazda_cx5_2013_1.jpg', 'mazda_cx5_2013_2.jpg', 'mazda_cx5_2013_3.jpg', 'mazda_cx5_2013_4.jpg', 'mazda_cx5_2013_5.jpg']
-            },
-            {
-                id: 'e020',
-                tier: 'economy',
-                make: 'Subaru',
-                model: 'Forester',
-                year: 2011,
-                marketPrice: 9400,
-                miles: '122,000',
-                engine: '2.5L 4-Cylinder',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '21/27',
-                features: ['X-Mode AWD', 'Panoramic Sunroof', 'EyeSight Safety', 'Starlink Multimedia', 'Power Rear Gate'],
-                images: ['subaru_forester_2011_1.jpg', 'subaru_forester_2011_2.jpg', 'subaru_forester_2011_3.jpg', 'subaru_forester_2011_4.jpg', 'subaru_forester_2011_5.jpg']
-            },
-
-            // PREMIUM TIER: $10,000 - $100,000 (20 cars)
-            {
-                id: 'p001',
-                tier: 'premium',
-                make: 'BMW',
-                model: '3 Series',
-                year: 2016,
-                marketPrice: 28500,
-                miles: '65,000',
-                engine: '2.0L TwinPower Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'RWD',
-                mpg: '24/35',
-                features: ['iDrive 5.0', 'Navigation Professional', 'Harman Kardon', 'Heads-Up Display', 'Wireless Charging'],
-                images: ['bmw_3series_2016_1.jpg', 'bmw_3series_2016_2.jpg', 'bmw_3series_2016_3.jpg', 'bmw_3series_2016_4.jpg', 'bmw_3series_2016_5.jpg']
-            },
-            {
-                id: 'p002',
-                tier: 'premium',
-                make: 'Mercedes-Benz',
-                model: 'C-Class',
-                year: 2017,
-                marketPrice: 32000,
-                miles: '58,000',
-                engine: '2.0L Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'RWD',
-                mpg: '24/33',
-                features: ['COMAND Online', 'Burmester Audio', 'Air Suspension', 'Distronic Plus', 'Magic Sky Control'],
-                images: ['mercedes_cclass_2017_1.jpg', 'mercedes_cclass_2017_2.jpg', 'mercedes_cclass_2017_3.jpg', 'mercedes_cclass_2017_4.jpg', 'mercedes_cclass_2017_5.jpg']
-            },
-            {
-                id: 'p003',
-                tier: 'premium',
-                make: 'Audi',
-                model: 'A4',
-                year: 2018,
-                marketPrice: 29500,
-                miles: '52,000',
-                engine: '2.0L TFSI',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '25/33',
-                features: ['Virtual Cockpit', 'MMI Touch', 'Bang & Olufsen', 'Matrix LED', 'Quattro AWD'],
-                images: ['audi_a4_2018_1.jpg', 'audi_a4_2018_2.jpg', 'audi_a4_2018_3.jpg', 'audi_a4_2018_4.jpg', 'audi_a4_2018_5.jpg']
-            },
-            {
-                id: 'p004',
-                tier: 'premium',
-                make: 'Lexus',
-                model: 'IS 350',
-                year: 2017,
-                marketPrice: 31000,
-                miles: '48,000',
-                engine: '3.5L V6',
-                transmission: 'Automatic',
-                drivetrain: 'RWD',
-                mpg: '20/28',
-                features: ['Enform App Suite', 'Mark Levinson', 'F Sport Package', 'Variable Gear Ratio', 'Adaptive Suspension'],
-                images: ['lexus_is350_2017_1.jpg', 'lexus_is350_2017_2.jpg', 'lexus_is350_2017_3.jpg', 'lexus_is350_2017_4.jpg', 'lexus_is350_2017_5.jpg']
-            },
-            {
-                id: 'p005',
-                tier: 'premium',
-                make: 'Acura',
-                model: 'TLX Type S',
-                year: 2021,
-                marketPrice: 42000,
-                miles: '28,000',
-                engine: '3.0L V6 Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '19/25',
-                features: ['Super Handling AWD', 'ELS Studio 3D', 'AcuraWatch', 'Apex Blue Pearl', 'Sport+ Mode'],
-                images: ['acura_tlx_2021_1.jpg', 'acura_tlx_2021_2.jpg', 'acura_tlx_2021_3.jpg', 'acura_tlx_2021_4.jpg', 'acura_tlx_2021_5.jpg']
-            },
-            {
-                id: 'p006',
-                tier: 'premium',
-                make: 'Infiniti',
-                model: 'Q50 Red Sport',
-                year: 2019,
-                marketPrice: 38000,
-                miles: '42,000',
-                engine: '3.0L V6 Twin Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '19/26',
-                features: ['400 HP', 'Direct Adaptive Steering', 'Predictive FCW', 'Around View 2.0', 'BOSE 16-Speaker'],
-                images: ['infiniti_q50_2019_1.jpg', 'infiniti_q50_2019_2.jpg', 'infiniti_q50_2019_3.jpg', 'infiniti_q50_2019_4.jpg', 'infiniti_q50_2019_5.jpg']
-            },
-            {
-                id: 'p007',
-                tier: 'premium',
-                make: 'Cadillac',
-                model: 'CT5-V',
-                year: 2020,
-                marketPrice: 55000,
-                miles: '35,000',
-                engine: '3.0L V6 Twin Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'RWD',
-                mpg: '18/26',
-                features: ['360 HP', 'Magnetic Ride 4.0', 'Performance Traction', 'Brembo Brakes', 'Launch Control'],
-                images: ['cadillac_ct5v_2020_1.jpg', 'cadillac_ct5v_2020_2.jpg', 'cadillac_ct5v_2020_3.jpg', 'cadillac_ct5v_2020_4.jpg', 'cadillac_ct5v_2020_5.jpg']
-            },
-            {
-                id: 'p008',
-                tier: 'premium',
-                make: 'Genesis',
-                model: 'G70 3.3T',
-                year: 2021,
-                marketPrice: 45000,
-                miles: '32,000',
-                engine: '3.3L V6 Twin Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '18/25',
-                features: ['365 HP', 'Lexicon Audio', 'Nappa Leather', 'Heads-Up Display', 'Genesis Connected'],
-                images: ['genesis_g70_2021_1.jpg', 'genesis_g70_2021_2.jpg', 'genesis_g70_2021_3.jpg', 'genesis_g70_2021_4.jpg', 'genesis_g70_2021_5.jpg']
-            },
-            {
-                id: 'p009',
-                tier: 'premium',
-                make: 'Volvo',
-                model: 'S60 T8',
-                year: 2020,
-                marketPrice: 52000,
-                miles: '38,000',
-                engine: '2.0L Plug-in Hybrid',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '69 MPGe',
-                features: ['400 HP', 'Pilot Assist', 'Bowers & Wilkins', 'Crystal Gear Selector', 'Air Suspension'],
-                images: ['volvo_s60_2020_1.jpg', 'volvo_s60_2020_2.jpg', 'volvo_s60_2020_3.jpg', 'volvo_s60_2020_4.jpg', 'volvo_s60_2020_5.jpg']
-            },
-            {
-                id: 'p010',
-                tier: 'premium',
-                make: 'Alfa Romeo',
-                model: 'Giulia Quadrifoglio',
-                year: 2019,
-                marketPrice: 68000,
-                miles: '45,000',
-                engine: '2.9L V6 Twin Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'RWD',
-                mpg: '17/24',
-                features: ['505 HP', 'Carbon Fiber Hood', 'Torque Vectoring', 'Brembo Carbon Ceramic', 'Race Mode'],
-                images: ['alfa_giulia_2019_1.jpg', 'alfa_giulia_2019_2.jpg', 'alfa_giulia_2019_3.jpg', 'alfa_giulia_2019_4.jpg', 'alfa_giulia_2019_5.jpg']
-            },
-            {
-                id: 'p011',
-                tier: 'premium',
-                make: 'BMW',
-                model: 'X5',
-                year: 2018,
-                marketPrice: 48500,
-                miles: '68,000',
-                engine: '3.0L Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '18/25',
-                features: ['xDrive50i', 'Panoramic Sky Lounge', 'Executive Package', 'Air Suspension', 'Soft Close Doors'],
-                images: ['bmw_x5_2018_1.jpg', 'bmw_x5_2018_2.jpg', 'bmw_x5_2018_3.jpg', 'bmw_x5_2018_4.jpg', 'bmw_x5_2018_5.jpg']
-            },
-            {
-                id: 'p012',
-                tier: 'premium',
-                make: 'Mercedes-Benz',
-                model: 'GLE 450',
-                year: 2020,
-                marketPrice: 62000,
-                miles: '48,000',
-                engine: '3.0L Inline-6 Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '19/24',
-                features: ['EQ Boost Hybrid', 'MBUX Hyperscreen', 'E-Active Body', 'Carwash Mode', '7-Seat Configuration'],
-                images: ['mercedes_gle_2020_1.jpg', 'mercedes_gle_2020_2.jpg', 'mercedes_gle_2020_3.jpg', 'mercedes_gle_2020_4.jpg', 'mercedes_gle_2020_5.jpg']
-            },
-            {
-                id: 'p013',
-                tier: 'premium',
-                make: 'Audi',
-                model: 'Q7',
-                year: 2019,
-                marketPrice: 54000,
-                miles: '55,000',
-                engine: '3.0L V6 Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '19/25',
-                features: ['Prestige Package', 'Matrix Design LED', 'Bang & Olufsen 3D', 'All-Wheel Steering', 'Adaptive Air'],
-                images: ['audi_q7_2019_1.jpg', 'audi_q7_2019_2.jpg', 'audi_q7_2019_3.jpg', 'audi_q7_2019_4.jpg', 'audi_q7_2019_5.jpg']
-            },
-            {
-                id: 'p014',
-                tier: 'premium',
-                make: 'Lexus',
-                model: 'RX 450h',
-                year: 2020,
-                marketPrice: 52000,
-                miles: '42,000',
-                engine: '3.5L V6 Hybrid',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '31/28',
-                features: ['F Sport Design', 'Mark Levinson 15-Speaker', 'Touch-Free Power Door', 'BladeScan AHS', '360 Camera'],
-                images: ['lexus_rx450h_2020_1.jpg', 'lexus_rx450h_2020_2.jpg', 'lexus_rx450h_2020_3.jpg', 'lexus_rx450h_2020_4.jpg', 'lexus_rx450h_2020_5.jpg']
-            },
-            {
-                id: 'p015',
-                tier: 'premium',
-                make: 'Porsche',
-                model: 'Macan S',
-                year: 2019,
-                marketPrice: 58000,
-                miles: '52,000',
-                engine: '3.0L V6 Turbo',
-                transmission: 'PDK',
-                drivetrain: 'AWD',
-                mpg: '19/23',
-                features: ['348 HP', 'Sport Chrono', 'PASM', 'BOSE Surround', 'Panoramic Roof'],
-                images: ['porsche_macan_2019_1.jpg', 'porsche_macan_2019_2.jpg', 'porsche_macan_2019_3.jpg', 'porsche_macan_2019_4.jpg', 'porsche_macan_2019_5.jpg']
-            },
-            {
-                id: 'p016',
-                tier: 'premium',
-                make: 'Land Rover',
-                model: 'Range Rover Sport',
-                year: 2018,
-                marketPrice: 72000,
-                miles: '75,000',
-                engine: '5.0L V8 Supercharged',
-                transmission: 'Automatic',
-                drivetrain: '4WD',
-                mpg: '15/19',
-                features: ['518 HP', 'Dynamic Response', 'Terrain Response 2', 'Meridian Signature', 'Deployable Side Steps'],
-                images: ['rr_sport_2018_1.jpg', 'rr_sport_2018_2.jpg', 'rr_sport_2018_3.jpg', 'rr_sport_2018_4.jpg', 'rr_sport_2018_5.jpg']
-            },
-            {
-                id: 'p017',
-                tier: 'premium',
-                make: 'Jaguar',
-                model: 'F-PACE SVR',
-                year: 2020,
-                marketPrice: 68000,
-                miles: '48,000',
-                engine: '5.0L V8 Supercharged',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '16/21',
-                features: ['550 HP', 'Active Exhaust', 'Configurable Dynamics', 'Performance Seats', 'SVR Body Kit'],
-                images: ['jaguar_fpace_2020_1.jpg', 'jaguar_fpace_2020_2.jpg', 'jaguar_fpace_2020_3.jpg', 'jaguar_fpace_2020_4.jpg', 'jaguar_fpace_2020_5.jpg']
-            },
-            {
-                id: 'p018',
-                tier: 'premium',
-                make: 'Maserati',
-                model: 'Levante',
-                year: 2019,
-                marketPrice: 65000,
-                miles: '58,000',
-                engine: '3.0L V6 Twin Turbo',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '16/22',
-                features: ['Ferrari-Built Engine', 'Skyhook Suspension', 'Harman Kardon', 'Zegna Silk Seats', 'Active Airdam'],
-                images: ['maserati_levante_2019_1.jpg', 'maserati_levante_2019_2.jpg', 'maserati_levante_2019_3.jpg', 'maserati_levante_2019_4.jpg', 'maserati_levante_2019_5.jpg']
-            },
-            {
-                id: 'p019',
-                tier: 'premium',
-                make: 'Tesla',
-                model: 'Model 3 Performance',
-                year: 2021,
-                marketPrice: 55000,
-                miles: '35,000',
-                engine: 'Dual Motor Electric',
-                transmission: 'Automatic',
-                drivetrain: 'AWD',
-                mpg: '315 Mile Range',
-                features: ['0-60 in 3.1s', 'Autopilot', 'Premium Interior', '20-inch Wheels', 'Track Mode'],
-                images: ['tesla_model3_2021_1.jpg', 'tesla_model3_2021_2.jpg', 'tesla_model3_2021_3.jpg', 'tesla_model3_2021_4.jpg', 'tesla_model3_2021_5.jpg']
-            },
-            {
-                id: 'p020',
-                tier: 'premium',
-                make: 'Porsche',
-                model: '911 Carrera',
-                year: 2017,
-                marketPrice: 95000,
-                miles: '42,000',
-                engine: '3.0L Twin Turbo',
-                transmission: 'PDK',
-                drivetrain: 'RWD',
-                mpg: '20/29',
-                features: ['370 HP', 'Sport Chrono Package', 'PASM', 'Sport Exhaust', 'Burmester Audio'],
-                images: ['porsche_911_2017_1.jpg', 'porsche_911_2017_2.jpg', 'porsche_911_2017_3.jpg', 'porsche_911_2017_4.jpg', 'porsche_911_2017_5.jpg']
+                id: 6,
+                make: "Audi",
+                model: "e-tron GT",
+                year: 2023,
+                type: "luxury",
+                marketPrice: 105000,
+                price: 73500,
+                mileage: 4500,
+                engine: "Dual Motor Electric",
+                transmission: "2-Speed",
+                drivetrain: "Quattro AWD",
+                fuelType: "Electric",
+                mpg: "82 MPGe",
+                exteriorColor: "Tactical Green",
+                interiorColor: "Black Valcona Leather",
+                vin: "WAU2B2F43PN123456",
+                features: ["Matrix LED Headlights", "Bang & Olufsen 3D Audio", "Air Suspension", "Night Vision", "Carbon Optics Package"],
+                images: [
+                    "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600",
+                    "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600",
+                    "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?w=600",
+                    "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600",
+                    "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600"
+                ]
             }
         ];
 
-        // Initialize
-        function init() {
-            renderCars(carDatabase);
-            updateCartBadge();
-            checkAuth();
-        }
+        // ============================================
+        // GLOBAL VARIABLES
+        // ============================================
+        let currentBTCPrice = 0;
+        let selectedVehicle = null;
+        let currentImageIndex = {};
+        const STATIC_BTC_ADDRESS = 'bc1qnwwesz4qankx7v8cyevgfhw3vsra26g8xaz9s6';
 
-        // Calculate discounted price
-        function getDiscountedPrice(marketPrice) {
-            return Math.round(marketPrice * 0.7);
-        }
-
-        // Render cars
-        function renderCars(cars) {
-            const grid = document.getElementById('carGrid');
-            grid.innerHTML = '';
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchBTCRate();
+            renderVehicles();
+            initCalculator();
             
-            cars.forEach(car => {
-                const discountedPrice = getDiscountedPrice(car.marketPrice);
-                const savings = car.marketPrice - discountedPrice;
-                const isFav = favorites.includes(car.id);
-                
-                const card = document.createElement('div');
-                card.className = 'car-card';
-                card.onclick = (e) => {
-                    if(!e.target.closest('.favorite-btn')) openCarModal(car);
-                };
-                
-                card.innerHTML = `
-                    <div class="car-image-container">
-                        <img src="images/${car.images[0]}" alt="${car.year} ${car.make} ${car.model}" class="car-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect fill=%22%23334155%22 width=%22400%22 height=%22250%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 font-size=%2280%22>🚗</text></svg>'">
-                        <div class="discount-badge">SAVE 30%</div>
-                        <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite('${car.id}')">
-                            ${isFav ? '❤️' : '🤍'}
-                        </button>
-                    </div>
-                    <div class="car-info">
-                        <div class="car-category">${car.tier.toUpperCase()} TIER</div>
-                        <div class="car-title">${car.year} ${car.make} ${car.model}</div>
-                        <div class="car-specs">
-                            <span class="car-spec">📍 ${car.miles}</span>
-                            <span class="car-spec">⚙️ ${car.transmission}</span>
-                            <span class="car-spec">🛣️ ${car.mpg}</span>
-                        </div>
-                        <div class="car-price-row">
-                            <div class="price-container">
-                                <span class="price-current">$${discountedPrice.toLocaleString()}</span>
-                                <span class="price-original">$${car.marketPrice.toLocaleString()}</span>
-                            </div>
-                            <span class="savings">Save $${savings.toLocaleString()}</span>
-                        </div>
-                    </div>
-                `;
-                
-                grid.appendChild(card);
-            });
-        }
+            // Set minimum date for delivery to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const dateString = tomorrow.toISOString().split('T')[0];
+            document.querySelector('input[name="preferredDate"]').min = dateString;
+            document.querySelector('input[name="alternateDate"]').min = dateString;
+        });
 
-        // Filter cars
-        function filterCars(tier) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            if(tier === 'all') {
-                renderCars(carDatabase);
-            } else {
-                const filtered = carDatabase.filter(c => c.tier === tier);
-                renderCars(filtered);
+        // ============================================
+        // REAL-TIME BTC RATE FETCHING
+        // ============================================
+        async function fetchBTCRate() {
+            try {
+                // Using CoinGecko API (free, no API key required)
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+                const data = await response.json();
+                
+                if (data.bitcoin && data.bitcoin.usd) {
+                    currentBTCPrice = data.bitcoin.usd;
+                    updateBTCDisplay();
+                } else {
+                    throw new Error('Invalid response');
+                }
+            } catch (error) {
+                console.error('Error fetching BTC rate:', error);
+                // Fallback rate if API fails
+                currentBTCPrice = 65000;
+                updateBTCDisplay();
             }
         }
 
-        // Open car modal
-        function openCarModal(car) {
-            currentCar = car;
-            const discountedPrice = getDiscountedPrice(car.marketPrice);
-            const savings = car.marketPrice - discountedPrice;
+        function updateBTCDisplay() {
+            const formattedPrice = currentBTCPrice.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            });
             
-            document.getElementById('modalCategory').textContent = `${car.tier.toUpperCase()} TIER VEHICLE`;
-            document.getElementById('modalTitle').textContent = `${car.year} ${car.make} ${car.model}`;
-            document.getElementById('modalSubtitle').textContent = `${car.miles} miles • ${car.engine} • ${car.transmission} • ${car.drivetrain}`;
-            document.getElementById('modalMarketPrice').textContent = `$${car.marketPrice.toLocaleString()}`;
-            document.getElementById('modalYourPrice').textContent = `$${discountedPrice.toLocaleString()}`;
-            document.getElementById('modalSavings').textContent = `$${savings.toLocaleString()}`;
-            
-            // Main image
-            document.getElementById('mainCarImage').src = `images/${car.images[0]}`;
-            document.getElementById('mainCarImage').onerror = function() {
-                this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect fill="%231e293b" width="800" height="500"/><text fill="%23f59e0b" x="50%" y="50%" text-anchor="middle" font-size="120">🚗</text></svg>';
-            };
-            
-            // Thumbnails
-            const gallery = document.getElementById('imageGallery');
-            gallery.innerHTML = car.images.map((img, i) => `
-                <div class="gallery-thumb ${i === 0 ? 'active' : ''}" onclick="changeMainImage('${img}', this)">
-                    <img src="images/${img}" alt="View ${i+1}" onerror="this.style.display='none'; this.parentElement.innerHTML='📷'">
+            const btcRateElements = document.querySelectorAll('#btcRate, #modalBtcRate');
+            btcRateElements.forEach(el => {
+                if (el) el.textContent = formattedPrice;
+            });
+
+            // Update BTC amount if vehicle selected
+            if (selectedVehicle) {
+                updateBTCAmount();
+            }
+        }
+
+        function updateBTCAmount() {
+            if (selectedVehicle && currentBTCPrice > 0) {
+                const btcAmount = (selectedVehicle.price / currentBTCPrice).toFixed(8);
+                const btcAmountEl = document.getElementById('btcAmount');
+                if (btcAmountEl) btcAmountEl.textContent = btcAmount + ' BTC';
+            }
+        }
+
+        // ============================================
+        // VEHICLE RENDERING
+        // ============================================
+        function renderVehicles(filter = 'all') {
+            const grid = document.getElementById('vehiclesGrid');
+            grid.innerHTML = '';
+
+            const filteredCars = filter === 'all' 
+                ? carDatabase 
+                : carDatabase.filter(car => car.type === filter);
+
+            filteredCars.forEach(car => {
+                const discount = Math.round(((car.marketPrice - car.price) / car.marketPrice) * 100);
+                const card = createVehicleCard(car, discount);
+                grid.appendChild(card);
+                
+                // Initialize image index for this car
+                currentImageIndex[car.id] = 0;
+            });
+        }
+
+        function createVehicleCard(car, discount) {
+            const card = document.createElement('div');
+            card.className = 'vehicle-card';
+            card.innerHTML = `
+                <div class="vehicle-images">
+                    <img src="${car.images[0]}" alt="${car.year} ${car.make} ${car.model}" id="car-image-${car.id}">
+                    <div class="discount-badge">-${discount}% OFF</div>
+                    <div class="image-nav">
+                        ${car.images.map((_, idx) => `
+                            <div class="image-dot ${idx === 0 ? 'active' : ''}" 
+                                 onclick="changeImage(${car.id}, ${idx})"></div>
+                        `).join('')}
+                    </div>
                 </div>
-            `).join('');
-            
-            // Specs
-            const specs = document.getElementById('modalSpecs');
-            specs.innerHTML = `
-                <div class="spec-item">
-                    <div class="spec-label">Year</div>
-                    <div class="spec-value">${car.year}</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Mileage</div>
-                    <div class="spec-value">${car.miles}</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Engine</div>
-                    <div class="spec-value">${car.engine}</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Transmission</div>
-                    <div class="spec-value">${car.transmission}</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Drivetrain</div>
-                    <div class="spec-value">${car.drivetrain}</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">MPG</div>
-                    <div class="spec-value">${car.mpg}</div>
+                <div class="vehicle-info">
+                    <div class="vehicle-header">
+                        <div class="vehicle-title">
+                            <h3>${car.year} ${car.make} ${car.model}</h3>
+                            <span>VIN: ${car.vin}</span>
+                        </div>
+                        <div class="vehicle-price">
+                            <div class="original-price">$${car.marketPrice.toLocaleString()}</div>
+                            <div class="current-price">$${car.price.toLocaleString()}</div>
+                        </div>
+                    </div>
+                    <div class="vehicle-specs">
+                        <div class="spec">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <div class="spec-value">${car.mileage.toLocaleString()}</div>
+                            <div class="spec-label">Miles</div>
+                        </div>
+                        <div class="spec">
+                            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                            <div class="spec-value">${car.engine.split(' ')[0]}</div>
+                            <div class="spec-label">Engine</div>
+                        </div>
+                        <div class="spec">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <div class="spec-value">${car.transmission.split('-')[0]}</div>
+                            <div class="spec-label">Trans</div>
+                        </div>
+                    </div>
+                    <div class="vehicle-features">
+                        ${car.features.slice(0, 4).map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                    </div>
+                    <div class="vehicle-actions">
+                        <button class="btn btn-outline" onclick="showVehicleDetails(${car.id})">Details</button>
+                        <button class="btn btn-primary" onclick="openCheckout(${car.id})">Buy Now</button>
+                    </div>
                 </div>
             `;
+            return card;
+        }
+
+        function changeImage(carId, index) {
+            const car = carDatabase.find(c => c.id === carId);
+            if (!car) return;
+
+            currentImageIndex[carId] = index;
+            const img = document.getElementById(`car-image-${carId}`);
+            if (img) {
+                img.src = car.images[index];
+            }
+
+            // Update dots
+            const dots = document.querySelectorAll(`#car-image-${carId}`).forEach(el => {
+                const nav = el.parentElement.querySelector('.image-nav');
+                if (nav) {
+                    nav.querySelectorAll('.image-dot').forEach((dot, idx) => {
+                        dot.classList.toggle('active', idx === index);
+                    });
+                }
+            });
+        }
+
+        function filterVehicles(type) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(type) || (type === 'all' && btn.textContent === 'All Vehicles')) {
+                    btn.classList.add('active');
+                }
+            });
             
-            // Features
-            document.getElementById('modalFeatures').innerHTML = car.features.map(f => `
-                <div class="feature-item">
-                    <span class="feature-icon">✓</span>
-                    <span>${f}</span>
+            renderVehicles(type);
+        }
+
+        function showVehicleDetails(carId) {
+            const car = carDatabase.find(c => c.id === carId);
+            if (!car) return;
+            
+            // Create and show details modal
+            alert(`Vehicle Details:\n\n${car.year} ${car.make} ${car.model}\nVIN: ${car.vin}\n\nEngine: ${car.engine}\nTransmission: ${car.transmission}\nDrivetrain: ${car.drivetrain}\nFuel Type: ${car.fuelType}\nMPG: ${car.mpg}\n\nExterior: ${car.exteriorColor}\nInterior: ${car.interiorColor}\n\nFeatures:\n${car.features.join('\n')}`);
+        }
+
+        // ============================================
+        // CHECKOUT MODAL
+        // ============================================
+        function openCheckout(carId) {
+            selectedVehicle = carDatabase.find(c => c.id === carId);
+            if (!selectedVehicle) return;
+
+            // Update vehicle summary
+            const summary = document.getElementById('selectedVehicleSummary');
+            summary.innerHTML = `
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <img src="${selectedVehicle.images[0]}" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
+                    <div>
+                        <h4 style="margin-bottom: 5px;">${selectedVehicle.year} ${selectedVehicle.make} ${selectedVehicle.model}</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 5px;">VIN: ${selectedVehicle.vin}</p>
+                        <p style="font-size: 20px; font-weight: 700; color: var(--success);">$${selectedVehicle.price.toLocaleString()}</p>
+                    </div>
                 </div>
-            `).join('');
-            
-            document.getElementById('carModal').classList.add('active');
+            `;
+
+            // Update BTC amount
+            updateBTCAmount();
+
+            // Show modal
+            document.getElementById('checkoutModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        // Change main image
-        function changeMainImage(imgName, thumb) {
-            document.getElementById('mainCarImage').src = `images/${imgName}`;
-            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-        }
-
-        // Close modal
         function closeModal() {
-            document.getElementById('carModal').classList.remove('active');
+            document.getElementById('checkoutModal').classList.remove('active');
             document.body.style.overflow = '';
+            selectedVehicle = null;
         }
 
-        // Toggle favorite
-        function toggleFavorite(carId) {
-            const idx = favorites.indexOf(carId);
-            if(idx > -1) {
-                favorites.splice(idx, 1);
-                showToast('Removed from favorites', '❤️');
+        function selectPayment(method) {
+            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+            document.querySelector(`.payment-method.${method}`).classList.add('selected');
+            
+            // Show/hide appropriate payment details
+            const btcDetails = document.getElementById('btcPaymentDetails');
+            if (method === 'btc') {
+                btcDetails.style.display = 'block';
             } else {
-                favorites.push(carId);
-                showToast('Added to favorites', '❤️');
+                btcDetails.style.display = 'none';
             }
-            localStorage.setItem('libertyFavorites', JSON.stringify(favorites));
-            renderCars(carDatabase);
         }
 
-        // Add to cart
-        function addToCart() {
-            if(!currentUser) {
-                showToast('Please sign in first', '⚠️');
-                openAuth();
-                return;
-            }
+        function toggleDeliveryAddress() {
+            const checkbox = document.getElementById('sameAsBilling');
+            const fields = document.getElementById('deliveryAddressFields');
+            const inputs = fields.querySelectorAll('input, select');
             
-            const existing = cart.find(item => item.id === currentCar.id);
-            if(existing) {
-                showToast('This car is already in your cart', '⚠️');
-                return;
+            if (checkbox.checked) {
+                fields.style.display = 'none';
+                inputs.forEach(input => input.removeAttribute('required'));
+            } else {
+                fields.style.display = 'block';
+                inputs.forEach(input => {
+                    if (input.name !== 'alternateDate') input.setAttribute('required', 'required');
+                });
             }
-            
-            const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
-            cart.push({
-                ...currentCar,
-                finalPrice: discountedPrice
+        }
+
+        function copyBTCAddress() {
+            navigator.clipboard.writeText(STATIC_BTC_ADDRESS).then(() => {
+                showToast('Bitcoin address copied!');
             });
-            
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            updateCartBadge();
-            showToast('Added to cart!', '🛒');
-            closeModal();
         }
 
-        // Buy now
-        function buyNow() {
-            if(!currentUser) {
-                showToast('Please sign in first', '⚠️');
-                openAuth();
-                return;
-            }
-            
-            // Clear cart and add this car only
-            const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
-            cart = [{
-                ...currentCar,
-                finalPrice: discountedPrice
-            }];
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            updateCartBadge();
-            closeModal();
-            openCart();
-        }
-
-        // Open cart
-        function openCart() {
-            renderCart();
-            document.getElementById('cartModal').classList.add('active');
-        }
-
-        // Close cart
-        function closeCart() {
-            document.getElementById('cartModal').classList.remove('active');
-        }
-
-        // Render cart
-        function renderCart() {
-            const container = document.getElementById('cartItems');
-            
-            if(cart.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">Your cart is empty</p>';
-                document.getElementById('cartTotal').textContent = '$0';
-                return;
-            }
-            
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="images/${item.images[0]}" alt="${item.year} ${item.make}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 75%22><rect fill=%22%23334155%22 width=%22100%22 height=%2275%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>🚗</text></svg>'">
-                    </div>
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.year} ${item.make} ${item.model}</div>
-                        <div class="cart-item-price">$${item.finalPrice.toLocaleString()}</div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">🗑️</button>
-                </div>
-            `).join('');
-            
-            const total = cart.reduce((sum, item) => sum + item.finalPrice, 0);
-            document.getElementById('cartTotal').textContent = '$' + total.toLocaleString();
-        }
-
-        // Remove from cart
-        function removeFromCart(carId) {
-            cart = cart.filter(item => item.id !== carId);
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            renderCart();
-            updateCartBadge();
-            showToast('Removed from cart', '🗑️');
-        }
-
-        // Update cart badge
-        function updateCartBadge() {
-            const badge = document.getElementById('cartBadge');
-            if(cart.length > 0) {
-                badge.textContent = cart.length;
-                badge.style.display = 'flex';
-            } else {
-                badge.style.display = 'none';
-            }
-        }
-
-        // Proceed to checkout
-        function proceedToCheckout() {
-            if(cart.length === 0) {
-                showToast('Your cart is empty', '⚠️');
-                return;
-            }
-            closeCart();
-            openPayment();
-        }
-
-        // Open payment
-        function openPayment() {
-            const total = cart.reduce((sum, item) => sum + item.finalPrice, 0);
-            const btcAmount = (total / BTC_PRICE).toFixed(8);
-            const txRef = 'LM-' + Math.random().toString(36).substr(2, 8).toUpperCase();
-            
-            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
-            document.getElementById('btcUsdAmount').textContent = '$' + total.toLocaleString() + ' USD';
-            document.getElementById('txRef').textContent = txRef;
-            
-            document.getElementById('paymentModal').classList.add('active');
-        }
-
-        // Close payment
-        function closePayment() {
-            document.getElementById('paymentModal').classList.remove('active');
-        }
-
-        // Copy BTC address
-        function copyBTC() {
-            navigator.clipboard.writeText(STATIC_BTC_ADDRESS);
-            showToast('BTC address copied!', '📋');
-        }
-
-        // Confirm payment
-        function confirmPayment() {
-            closePayment();
-            document.getElementById('loadingScreen').classList.add('active');
-            
-            const statuses = [
-                'Waiting for blockchain confirmation...',
-                'Transaction detected in mempool...',
-                'Awaiting miner confirmation (1/6)...',
-                'Confirming transaction (3/6)...',
-                'Verifying payment details...',
-                'Finalizing confirmation (5/6)...',
-                'Payment confirmed! Processing order...'
-            ];
-            
-            let i = 0;
-            const interval = setInterval(() => {
-                if(i < statuses.length) {
-                    document.getElementById('loadingStatus').textContent = statuses[i];
-                    i++;
-                }
-            }, 8000); // Change every 8 seconds for realistic timing
-            
-            // Keep running indefinitely as requested
-        }
-
-        // Auth functions
-        function openAuth() {
-            document.getElementById('authModal').classList.add('active');
-        }
-
-        function closeAuth() {
-            document.getElementById('authModal').classList.remove('active');
-        }
-
-        function toggleAuthMode() {
-            isLoginMode = !isLoginMode;
-            document.getElementById('authTitle').textContent = isLoginMode ? 'Sign In' : 'Create Account';
-            document.getElementById('authSubmitBtn').textContent = isLoginMode ? 'Sign In' : 'Create Account';
-            document.getElementById('authSwitchText').textContent = isLoginMode ? "Don't have an account?" : "Already have an account?";
-            document.getElementById('authSwitchLink').textContent = isLoginMode ? 'Register' : 'Sign In';
-            document.getElementById('confirmPasswordGroup').style.display = isLoginMode ? 'none' : 'block';
-        }
-
-        function handleAuth(e) {
-            e.preventDefault();
-            const email = document.getElementById('authEmail').value;
-            const password = document.getElementById('authPassword').value;
-            
-            if(!isLoginMode) {
-                const confirmPass = document.getElementById('authConfirmPassword').value;
-                if(password !== confirmPass) {
-                    showToast('Passwords do not match', '❌');
-                    return;
-                }
-                // Store new user
-                const users = JSON.parse(localStorage.getItem('libertyUsers')) || [];
-                if(users.find(u => u.email === email)) {
-                    showToast('Email already registered', '❌');
-                    return;
-                }
-                users.push({email, password, created: new Date().toISOString()});
-                localStorage.setItem('libertyUsers', JSON.stringify(users));
-                showToast('Account created! Please sign in', '✓');
-                toggleAuthMode();
-                return;
-            }
-            
-            // Login
-            const users = JSON.parse(localStorage.getItem('libertyUsers')) || [];
-            const user = users.find(u => u.email === email && u.password === password);
-            
-            if(user) {
-                currentUser = {email: user.email, loginTime: new Date().toISOString()};
-                localStorage.setItem('libertyUser', JSON.stringify(currentUser));
-                closeAuth();
-                showToast('Welcome back, ' + email.split('@')[0] + '!', '👋');
-                updateUIForUser();
-            } else {
-                showToast('Invalid email or password', '❌');
-            }
-        }
-
-        function checkAuth() {
-            if(currentUser) {
-                updateUIForUser();
-            }
-        }
-
-        function updateUIForUser() {
-            // Could update UI to show user is logged in
-        }
-
-        function openFavorites() {
-            if(favorites.length === 0) {
-                showToast('No favorites yet', '💔');
-                return;
-            }
-            const favCars = carDatabase.filter(c => favorites.includes(c.id));
-            renderCars(favCars);
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            showToast('Showing ' + favCars.length + ' favorites', '❤️');
-        }
-
-        // Toast notification
-        function showToast(message, icon) {
+        function showToast(message) {
             const toast = document.getElementById('toast');
-            document.getElementById('toastIcon').textContent = icon;
-            document.getElementById('toastMessage').textContent = message;
+            toast.textContent = message;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        // Close modals on outside click
-        window.onclick = (e) => {
-            if(e.target.classList.contains('modal-overlay')) closeModal();
-            if(e.target.classList.contains('cart-modal')) closeCart();
-            if(e.target.classList.contains('payment-modal')) closePayment();
-            if(e.target.classList.contains('auth-modal')) closeAuth();
-        };
+        // Form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validate transaction reference
+            if (!data.transactionRef || data.transactionRef.trim() === '') {
+                alert('Please enter your Bitcoin transaction reference (TRID)');
+                return;
+            }
+            
+            // Process order
+            alert(`Order Submitted Successfully!\n\nThank you ${data.firstName} ${data.lastName}!\n\nYour order for the ${selectedVehicle.year} ${selectedVehicle.make} ${selectedVehicle.model} has been received.\n\nTransaction Reference: ${data.transactionRef}\n\nOur team will verify your payment and contact you within 24 hours.\n\nDelivery scheduled for ${data.preferredDate} to:\n${data.sameAsBilling === 'on' ? data.billingAddress : data.deliveryAddress}`);
+            
+            closeModal();
+            this.reset();
+        });
 
-        // Initialize
-        init();
+        // ============================================
+        // PAYMENT CALCULATOR
+        // ============================================
+        function initCalculator() {
+            const vehiclePrice = document.getElementById('vehiclePrice');
+            const downPayment = document.getElementById('downPayment');
+            const loanTerm = document.getElementById('loanTerm');
+            
+            vehiclePrice.addEventListener('input', updateCalculator);
+            downPayment.addEventListener('input', updateCalculator);
+            loanTerm.addEventListener('input', updateCalculator);
+            
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const price = parseInt(document.getElementById('vehiclePrice').value);
+            const down = parseInt(document.getElementById('downPayment').value);
+            const term = parseInt(document.getElementById('loanTerm').value);
+            
+            // Update display values
+            document.getElementById('priceValue').textContent = price.toLocaleString();
+            document.getElementById('downValue').textContent = down.toLocaleString();
+            document.getElementById('termValue').textContent = term;
+            
+            // Calculate monthly payment (0% interest for crypto deals)
+            const loanAmount = price - down;
+            const monthlyPayment = loanAmount / term;
+            
+            document.getElementById('monthlyPayment').textContent = '$' + Math.round(monthlyPayment).toLocaleString();
+            document.getElementById('loanAmount').textContent = '$' + loanAmount.toLocaleString();
+            document.getElementById('totalInterest').textContent = '$0';
+        }
+
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        function scrollToInventory() {
+            document.getElementById('inventory').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close modal on outside click
+        document.getElementById('checkoutModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Refresh BTC rate every 60 seconds
+        setInterval(fetchBTCRate, 60000);
     </script>
 </body>
-  </html>
+                                </html>
