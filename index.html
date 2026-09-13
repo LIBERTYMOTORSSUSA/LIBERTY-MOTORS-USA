@@ -932,7 +932,7 @@
             margin-top: 0.5rem;
         }
         
-        .payment-modal, .auth-modal, .cart-modal, .profile-modal {
+        .payment-modal, .auth-modal, .favorites-modal, .profile-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -947,7 +947,7 @@
             overflow-y: auto;
         }
         
-        .payment-modal.active, .auth-modal.active, .cart-modal.active, .profile-modal.active {
+        .payment-modal.active, .auth-modal.active, .favorites-modal.active, .profile-modal.active {
             display: flex;
         }
         
@@ -1401,7 +1401,7 @@
         
         .profile-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -1432,130 +1432,72 @@
         
         .profile-actions button { width: 100%; }
         
-        /* Cart */
-        .cart-items {
-            max-height: 400px;
+        /* Favorites Modal */
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-height: 500px;
             overflow-y: auto;
-            margin-bottom: 1.5rem;
         }
         
-        .cart-item {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
+        .favorite-item {
             background: rgba(255,255,255,0.05);
             border-radius: 12px;
-            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
         }
         
-        .cart-item-image {
-            width: 100px;
-            height: 75px;
-            background: #1e293b;
-            border-radius: 8px;
+        .favorite-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        
+        .favorite-item-image {
+            height: 150px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
             overflow: hidden;
         }
         
-        .cart-item-image img {
+        .favorite-item-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .cart-item-details { flex: 1; }
+        .favorite-item-info {
+            padding: 1rem;
+        }
         
-        .cart-item-title {
+        .favorite-item-title {
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
         
-        .cart-item-price {
+        .favorite-item-price {
             color: var(--success);
             font-size: 1.1rem;
             font-weight: 700;
         }
         
-        .cart-item-remove {
-            background: none;
+        .favorite-item-remove {
+            background: var(--danger);
+            color: white;
             border: none;
-            color: var(--danger);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0.5rem;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            width: 100%;
         }
         
-        .cart-total {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cart-total-label { font-size: 1.2rem; }
-        
-        .cart-total-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--success);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background: var(--secondary);
-            padding: 5rem 2rem;
-            border-top: 1px solid rgba(245,158,11,0.2);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-        
-        .testimonial-card:hover {
-            border-color: rgba(245,158,11,0.3);
-            transform: translateY(-5px);
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .testimonial-meta h4 { margin-bottom: 0.25rem; }
-        
-        .testimonial-meta .stars { color: var(--accent); }
-        
-        .testimonial-text {
+        .empty-favorites {
+            text-align: center;
+            padding: 3rem;
             color: var(--gray);
-            line-height: 1.8;
-            font-style: italic;
         }
         
         /* Buyer Info Form */
@@ -1678,7 +1620,6 @@
         @media (max-width: 768px) {
             .modal-body { grid-template-columns: 1fr; }
             .modal-image-section { min-height: 400px; }
-            .calc-row { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .form-row.three-col { grid-template-columns: 1fr; }
             .profile-stats { grid-template-columns: 1fr; }
@@ -1706,10 +1647,9 @@
             </div>
             <div class="nav-icons">
                 <button class="icon-btn" onclick="openProfile()" title="Account" id="profileBtn">👤</button>
-                <button class="icon-btn" onclick="openFavorites()" title="Favorites">❤️</button>
-                <button class="icon-btn" onclick="openCart()" title="Cart">
-                    🛒
-                    <span class="badge" id="cartBadge" style="display:none">0</span>
+                <button class="icon-btn" onclick="openFavorites()" title="Favorites">
+                    ❤️
+                    <span class="badge" id="favBadge" style="display:none">0</span>
                 </button>
             </div>
         </nav>
@@ -1862,7 +1802,7 @@
                 <h3>Quick Links</h3>
                 <a href="#inventory">Browse Inventory</a>
                 <a href="#testimonials">Customer Reviews</a>
-                <a href="#" onclick="openCart(); return false">My Cart</a>
+                <a href="#" onclick="openFavorites(); return false">My Favorites</a>
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
@@ -2001,35 +1941,35 @@
                     </div>
                     
                     <div class="action-buttons" style="margin-top: 1.5rem;">
-                        <button class="btn btn-secondary btn-full" onclick="addToCart()">🛒 Add to Cart</button>
-                        <button class="btn btn-primary btn-full" onclick="proceedToCheckoutFromCalculator()">⚡ Buy Now</button>
+                        <button class="btn btn-secondary btn-full" onclick="toggleFavoriteFromModal()">
+                            <span id="modalFavBtnIcon">🤍</span> <span id="modalFavBtnText">Save for Later</span>
+                        </button>
+                        <button class="btn btn-primary btn-full" onclick="buyNow()">⚡ Buy Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
+    <!-- Favorites Modal -->
+    <div class="favorites-modal" id="favoritesModal">
         <div class="modal-box">
             <div class="modal-box-header">
-                <h2>🛒 Your Cart</h2>
-                <button class="btn btn-secondary" onclick="closeCart()">✕</button>
+                <h2>❤️ My Favorites (Save for Later)</h2>
+                <button class="btn btn-secondary" onclick="closeFavoritesModal()">✕</button>
             </div>
             <div class="modal-box-body">
-                <div class="cart-items" id="cartItems"></div>
-                <div class="cart-total">
-                    <span class="cart-total-label">Total:</span>
-                    <span class="cart-total-value" id="cartTotal">$0</span>
+                <div id="favoritesContainer">
+                    <div class="empty-favorites">
+                        <p>No saved vehicles yet.</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Click the heart icon on any car to save it for later!</p>
+                    </div>
                 </div>
-                <button class="btn btn-primary" style="width: 100%;" onclick="proceedToCheckout()">
-                    Proceed to Checkout →
-                </button>
             </div>
         </div>
     </div>
 
-    <!-- Payment Modal (Simplified - No Calculator) -->
+    <!-- Payment Modal -->
     <div class="payment-modal" id="paymentModal">
         <div class="modal-box">
             <div class="modal-box-header">
@@ -2170,10 +2110,6 @@
                 
                 <div class="profile-stats">
                     <div class="profile-stat">
-                        <div class="profile-stat-value" id="profileCartCount">0</div>
-                        <div class="profile-stat-label">Cart Items</div>
-                    </div>
-                    <div class="profile-stat">
                         <div class="profile-stat-value" id="profileFavCount">0</div>
                         <div class="profile-stat-label">Favorites</div>
                     </div>
@@ -2262,7 +2198,7 @@
     <!-- Toast -->
     <div class="toast" id="toast">
         <span class="toast-icon" id="toastIcon">✓</span>
-        <span id="toastMessage">Item added to cart</span>
+        <span id="toastMessage">Item added to favorites</span>
     </div>
 
     <script>
@@ -2270,13 +2206,12 @@
         // CONFIGURATION
         // ============================================
         const STATIC_BTC_ADDRESS = 'bc1qnwwesz4qankx7v8cyevgfhw3vsra26g8xaz9s6';
-        let BTC_PRICE = 43000; // Will be updated on load
+        let BTC_PRICE = 43000;
         
         // ============================================
-        // STATE MANAGEMENT
+        // STATE MANAGEMENT - NO CART, ONLY FAVORITES
         // ============================================
         let currentCar = null;
-        let cart = JSON.parse(localStorage.getItem('libertyCart')) || [];
         let favorites = JSON.parse(localStorage.getItem('libertyFavorites')) || [];
         let currentUser = JSON.parse(localStorage.getItem('libertyUser')) || null;
         let isLoginMode = true;
@@ -2285,16 +2220,13 @@
         let calculatedMonthly = 0;
         let calculatedTerm = 36;
         let currentPaymentType = 'down';
+        let checkoutCar = null; // Stores car being purchased
         
         // ============================================
         // CAR DATABASE - 60 CARS (20 PER TIER)
-        // Each car has 5 images - first is display
         // ============================================
-        
         const carDatabase = [
-            // ============================================
             // BUDGET TIER: $500 - $2,000 (20 cars)
-            // ============================================
             {
                 id: 'b001', tier: 'budget', make: 'Toyota', model: 'Corolla', year: 1998,
                 marketPrice: 1800, miles: '185,000', engine: '1.8L 4-Cylinder', transmission: 'Automatic',
@@ -2456,9 +2388,7 @@
                 images: ['subaru_impreza_2002_1.jpg', 'subaru_impreza_2002_2.jpg', 'subaru_impreza_2002_3.jpg', 'subaru_impreza_2002_4.jpg', 'subaru_impreza_2002_5.jpg']
             },
             
-            // ============================================
             // ECONOMY TIER: $2,000 - $10,000 (20 cars)
-            // ============================================
             {
                 id: 'e001', tier: 'economy', make: 'Toyota', model: 'Camry', year: 2013,
                 marketPrice: 9500, miles: '95,000', engine: '2.5L 4-Cylinder', transmission: 'Automatic',
@@ -2620,9 +2550,7 @@
                 images: ['bmw_328i_2011_1.jpg', 'bmw_328i_2011_2.jpg', 'bmw_328i_2011_3.jpg', 'bmw_328i_2011_4.jpg', 'bmw_328i_2011_5.jpg']
             },
             
-            // ============================================
             // PREMIUM TIER: $10,000 - $100,000 (20 cars)
-            // ============================================
             {
                 id: 'p001', tier: 'premium', make: 'BMW', model: '3 Series', year: 2016,
                 marketPrice: 28500, miles: '65,000', engine: '2.0L TwinPower Turbo', transmission: 'Automatic',
@@ -2791,7 +2719,7 @@
         function init() {
             fetchBTCRate();
             renderCars(carDatabase);
-            updateCartBadge();
+            updateFavBadge();
             checkAuth();
             
             const tomorrow = new Date();
@@ -2842,12 +2770,11 @@
                     if(!e.target.closest('.favorite-btn')) openCarModal(car);
                 };
                 
-                // Use first image as display
                 card.innerHTML = `
                     <div class="car-image-container">
                         <img src="images/${car.images[0]}" alt="${car.year} ${car.make} ${car.model}" class="car-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect fill=%22%23334155%22 width=%22400%22 height=%22250%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 font-size=%2280%22>🚗</text></svg>'">
                         <div class="discount-badge">SAVE 30%</div>
-                        <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite('${car.id}')">
+                        <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite('${car.id}')" title="Save for Later">
                             ${isFav ? '❤️' : '🤍'}
                         </button>
                     </div>
@@ -2930,7 +2857,7 @@
             document.getElementById('modalYourPrice').textContent = `$${discountedPrice.toLocaleString()}`;
             document.getElementById('modalSavings').textContent = `$${savings.toLocaleString()}`;
             
-            // Set up images - first is main, all 5 in gallery
+            // Set up images
             document.getElementById('mainCarImage').src = `images/${car.images[0]}`;
             document.getElementById('mainCarImage').onerror = function() {
                 this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect fill="%231e293b" width="800" height="500"/><text fill="%23f59e0b" x="50%" y="50%" text-anchor="middle" font-size="120">🚗</text></svg>';
@@ -2963,6 +2890,11 @@
                 <div class="feature-item"><span class="feature-icon">✓</span><span>${f}</span></div>
             `).join('');
             
+            // Update Save for Later button state in modal
+            const isFav = favorites.includes(car.id);
+            document.getElementById('modalFavBtnIcon').textContent = isFav ? '❤️' : '🤍';
+            document.getElementById('modalFavBtnText').textContent = isFav ? 'Saved' : 'Save for Later';
+            
             // Initialize Payment Calculator
             initializeCarCalculator(discountedPrice, car.tier);
             
@@ -2972,10 +2904,8 @@
         
         // PAYMENT CALCULATOR FUNCTIONS
         function initializeCarCalculator(vehiclePrice, tier) {
-            // Set fixed vehicle price display
             document.getElementById('calcVehiclePrice').textContent = '$' + vehiclePrice.toLocaleString();
             
-            // Determine minimum down payment based on tier
             const minDownPayments = {
                 budget: 500,
                 economy: 1000,
@@ -2983,25 +2913,20 @@
             };
             const minDown = minDownPayments[tier] || 500;
             
-            // Set up down payment slider
             const downSlider = document.getElementById('calcDownPayment');
             downSlider.min = minDown;
-            downSlider.max = vehiclePrice; // Max = full price
+            downSlider.max = vehiclePrice;
             downSlider.value = minDown;
             
-            // Update labels
             document.getElementById('downPaymentLabel').textContent = `Min: $${minDown.toLocaleString()}`;
             document.getElementById('minDownWarningAmount').textContent = minDown.toLocaleString();
             document.getElementById('calcDownDisplay').textContent = '$' + minDown.toLocaleString();
             
-            // Reset term to default
             document.getElementById('calcTerm').value = 36;
             document.getElementById('termDisplay').textContent = '36 months';
             
-            // Reset payment type to down payment
             document.getElementById('paymentTypeDown').checked = true;
             
-            // Calculate initial values
             updateCarCalculator();
             updatePaymentType();
         }
@@ -3018,7 +2943,6 @@
             if (isFull) {
                 financingDiv.style.display = 'none';
                 btcLabel.textContent = 'Full Payment in BTC';
-                // Calculate full price in BTC
                 const vehiclePriceText = document.getElementById('calcVehiclePrice').textContent.replace(/[$,]/g, '');
                 const vehiclePrice = parseInt(vehiclePriceText);
                 const btcFullAmount = (vehiclePrice / BTC_PRICE).toFixed(8);
@@ -3027,7 +2951,7 @@
             } else {
                 financingDiv.style.display = 'block';
                 btcLabel.textContent = 'Down Payment in BTC';
-                updateCarCalculator(); // Recalculate with down payment
+                updateCarCalculator();
             }
         }
         
@@ -3037,41 +2961,34 @@
             const downPayment = parseInt(document.getElementById('calcDownPayment').value);
             const termMonths = parseInt(document.getElementById('calcTerm').value);
             
-            // Get minimum for validation
             const minDown = currentCar ? 
                 (currentCar.tier === 'budget' ? 500 : 
                  currentCar.tier === 'economy' ? 1000 : 5000) : 500;
             
-            // Show warning if below minimum
             const warning = document.getElementById('calcWarning');
             
             if (downPayment < minDown) {
                 warning.classList.add('show');
                 document.getElementById('calcDownPayment').value = minDown;
-                return updateCarCalculator(); // Recalculate with min value
+                return updateCarCalculator();
             } else {
                 warning.classList.remove('show');
             }
             
-            // Update displays
             document.getElementById('calcDownDisplay').textContent = '$' + downPayment.toLocaleString();
             document.getElementById('termDisplay').textContent = termMonths + ' months';
             
-            // Calculate loan and monthly payment
             const loanAmount = vehiclePrice - downPayment;
             const monthlyPayment = loanAmount / termMonths;
             
-            // Update results
             document.getElementById('calcMonthlyPayment').textContent = '$' + Math.round(monthlyPayment).toLocaleString();
             document.getElementById('calcLoanAmount').textContent = loanAmount.toLocaleString();
             document.getElementById('calcTermResult').textContent = termMonths;
             
-            // Calculate BTC for down payment (LIVE RATE)
             const btcDownAmount = (downPayment / BTC_PRICE).toFixed(8);
             document.getElementById('btcDownPaymentAmount').textContent = btcDownAmount + ' BTC';
             document.getElementById('btcDownPaymentUsd').textContent = '$' + downPayment.toLocaleString() + ' USD';
             
-            // Store calculated values for checkout
             calculatedDownPayment = downPayment;
             calculatedMonthly = Math.round(monthlyPayment);
             calculatedTerm = termMonths;
@@ -3089,18 +3006,121 @@
         }
         
         // ============================================
-        // CHECKOUT FROM CALCULATOR
+        // SAVE FOR LATER / FAVORITES FUNCTIONS
         // ============================================
-        function proceedToCheckoutFromCalculator() {
+        function toggleFavorite(carId) {
+            if (!requireAuth('add favorites')) return;
+            
+            const idx = favorites.indexOf(carId);
+            if(idx > -1) {
+                favorites.splice(idx, 1);
+                showToast('Removed from favorites', '💔');
+            } else {
+                favorites.push(carId);
+                showToast('Saved for later!', '❤️');
+            }
+            localStorage.setItem('libertyFavorites', JSON.stringify(favorites));
+            updateFavBadge();
+            renderCars(currentFilter === 'all' ? carDatabase : carDatabase.filter(c => c.tier === currentFilter));
+            
+            // Update modal button if open
+            if (currentCar && currentCar.id === carId) {
+                const isFav = favorites.includes(carId);
+                document.getElementById('modalFavBtnIcon').textContent = isFav ? '❤️' : '🤍';
+                document.getElementById('modalFavBtnText').textContent = isFav ? 'Saved' : 'Save for Later';
+            }
+        }
+        
+        function toggleFavoriteFromModal() {
+            if (currentCar) {
+                toggleFavorite(currentCar.id);
+            }
+        }
+        
+        function updateFavBadge() {
+            const badge = document.getElementById('favBadge');
+            if (favorites.length > 0) {
+                badge.textContent = favorites.length;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        
+        // ============================================
+        // FAVORITES MODAL
+        // ============================================
+        function openFavorites() {
+            if (!requireAuth('view favorites')) return;
+            renderFavorites();
+            document.getElementById('favoritesModal').classList.add('active');
+        }
+        
+        function closeFavoritesModal() {
+            document.getElementById('favoritesModal').classList.remove('active');
+        }
+        
+        function renderFavorites() {
+            const container = document.getElementById('favoritesContainer');
+            
+            if (favorites.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-favorites">
+                        <p>No saved vehicles yet.</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Click the heart icon on any car to save it for later!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const favCars = carDatabase.filter(c => favorites.includes(c.id));
+            container.innerHTML = `<div class="favorites-grid">
+                ${favCars.map(car => {
+                    const discountedPrice = getDiscountedPrice(car.marketPrice);
+                    return `
+                    <div class="favorite-item" onclick="viewFavoriteCar('${car.id}')">
+                        <div class="favorite-item-image">
+                            <img src="images/${car.images[0]}" alt="${car.year} ${car.make}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 75%22><rect fill=%22%23334155%22 width=%22100%22 height=%2275%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>🚗</text></svg>'">
+                        </div>
+                        <div class="favorite-item-info">
+                            <div class="favorite-item-title">${car.year} ${car.make} ${car.model}</div>
+                            <div class="favorite-item-price">$${discountedPrice.toLocaleString()}</div>
+                            <button class="favorite-item-remove" onclick="event.stopPropagation(); removeFavorite('${car.id}')">Remove</button>
+                        </div>
+                    </div>
+                    `;
+                }).join('')}
+            </div>`;
+        }
+        
+        function viewFavoriteCar(carId) {
+            closeFavoritesModal();
+            const car = carDatabase.find(c => c.id === carId);
+            if (car) openCarModal(car);
+        }
+        
+        function removeFavorite(carId) {
+            const idx = favorites.indexOf(carId);
+            if (idx > -1) {
+                favorites.splice(idx, 1);
+                localStorage.setItem('libertyFavorites', JSON.stringify(favorites));
+                updateFavBadge();
+                renderFavorites();
+                renderCars(currentFilter === 'all' ? carDatabase : carDatabase.filter(c => c.tier === currentFilter));
+                showToast('Removed from favorites', '💔');
+            }
+        }
+        
+        // ============================================
+        // BUY NOW - DIRECT CHECKOUT
+        // ============================================
+        function buyNow() {
             if (!requireAuth('purchase')) return;
             
             const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
             
-            let carWithFinancing;
-            
             if (currentPaymentType === 'full') {
-                // Full payment - no financing
-                carWithFinancing = {
+                checkoutCar = {
                     ...currentCar,
                     finalPrice: discountedPrice,
                     downPayment: discountedPrice,
@@ -3109,9 +3129,8 @@
                     paymentType: 'full'
                 };
             } else {
-                // Down payment + financing
                 const loanAmount = discountedPrice - calculatedDownPayment;
-                carWithFinancing = {
+                checkoutCar = {
                     ...currentCar,
                     finalPrice: discountedPrice,
                     downPayment: calculatedDownPayment,
@@ -3121,15 +3140,12 @@
                 };
             }
             
-            cart = [carWithFinancing];
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            updateCartBadge();
             closeModal();
             openPaymentWithCalculatedValues();
         }
         
         // ============================================
-        // USER AUTHENTICATION REQUIRED ACTIONS
+        // USER AUTHENTICATION
         // ============================================
         function requireAuth(action) {
             if (!currentUser) {
@@ -3140,103 +3156,53 @@
             return true;
         }
         
-        function toggleFavorite(carId) {
-            if (!requireAuth('add favorites')) return;
-            
-            const idx = favorites.indexOf(carId);
-            if(idx > -1) {
-                favorites.splice(idx, 1);
-                showToast('Removed from favorites', '❤️');
-            } else {
-                favorites.push(carId);
-                showToast('Added to favorites', '❤️');
-            }
-            localStorage.setItem('libertyFavorites', JSON.stringify(favorites));
-            renderCars(currentFilter === 'all' ? carDatabase : carDatabase.filter(c => c.tier === currentFilter));
-        }
-        
-        function addToCart() {
-            if (!requireAuth('add to cart')) return;
-            
-            const existing = cart.find(item => item.id === currentCar.id);
-            if(existing) {
-                showToast('This car is already in your cart', '⚠️');
-                return;
-            }
-            
-            const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
-            cart.push({...currentCar, finalPrice: discountedPrice});
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            updateCartBadge();
-            showToast('Added to cart!', '🛒');
-            closeModal();
-        }
-        
-        function buyNow() {
-            proceedToCheckoutFromCalculator();
-        }
-        
-        // ============================================
-        // CART FUNCTIONS
-        // ============================================
-        function openCart() {
-            if (!requireAuth('view cart')) return;
-            renderCart();
-            document.getElementById('cartModal').classList.add('active');
-        }
-        
-        function closeCart() {
-            document.getElementById('cartModal').classList.remove('active');
-        }
-        
-        function renderCart() {
-            const container = document.getElementById('cartItems');
-            if(cart.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">Your cart is empty</p>';
-                document.getElementById('cartTotal').textContent = '$0';
-                return;
-            }
-            
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="images/${item.images[0]}" alt="${item.year} ${item.make}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 75%22><rect fill=%22%23334155%22 width=%22100%22 height=%2275%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>🚗</text></svg>'">
-                    </div>
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.year} ${item.make} ${item.model}</div>
-                        <div class="cart-item-price">$${item.finalPrice.toLocaleString()}</div>
-                        <div style="color: var(--accent); font-size: 0.8rem; text-transform: uppercase;">${item.tier} Tier</div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">🗑️</button>
-                </div>
-            `).join('');
-            
-            const total = cart.reduce((sum, item) => sum + item.finalPrice, 0);
-            document.getElementById('cartTotal').textContent = '$' + total.toLocaleString();
-        }
-        
-        function removeFromCart(carId) {
-            cart = cart.filter(item => item.id !== carId);
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            renderCart();
-            updateCartBadge();
-            showToast('Removed from cart', '🗑️');
-        }
-        
-        function proceedToCheckout() {
-            if(cart.length === 0) {
-                showToast('Your cart is empty', '⚠️');
-                return;
-            }
-            closeCart();
-            openPaymentWithCalculatedValues();
-        }
-        
         // ============================================
         // PAYMENT FUNCTIONS
         // ============================================
-        function openPayment() {
-            openPaymentWithCalculatedValues();
+        function openPaymentWithCalculatedValues() {
+            if (!checkoutCar) return;
+            
+            const item = checkoutCar;
+            const total = item.finalPrice;
+            
+            let btcAmount, summaryHtml;
+            
+            if (item.paymentType === 'full') {
+                btcAmount = (total / BTC_PRICE).toFixed(8);
+                summaryHtml = `
+                    <h4>📊 Payment Summary</h4>
+                    <p>Vehicle: ${item.year} ${item.make} ${item.model}<br>
+                    Price: $${total.toLocaleString()}<br>
+                    <strong>Payment Type: Full Payment</strong><br>
+                    <strong>Total BTC Required: ${btcAmount} BTC</strong></p>
+                `;
+            } else {
+                const totalLoanAmount = total - item.downPayment;
+                btcAmount = (item.downPayment / BTC_PRICE).toFixed(8);
+                summaryHtml = `
+                    <h4>📊 Financing Summary</h4>
+                    <p>Vehicle: ${item.year} ${item.make} ${item.model}<br>
+                    Price: $${total.toLocaleString()}<br>
+                    Down Payment: $${item.downPayment.toLocaleString()}<br>
+                    Monthly: $${item.monthlyPayment.toLocaleString()}/mo for ${item.termMonths} months<br>
+                    <strong>Down Payment BTC Required: ${btcAmount} BTC</strong></p>
+                `;
+            }
+            
+            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
+            document.getElementById('btcUsdAmount').textContent = '$' + (item.paymentType === 'full' ? total : item.downPayment).toLocaleString() + ' USD';
+            
+            // Insert summary before buyer info
+            const cryptoSection = document.getElementById('cryptoSection');
+            let summaryDiv = cryptoSection.querySelector('.financing-summary');
+            if (!summaryDiv) {
+                summaryDiv = document.createElement('div');
+                summaryDiv.className = 'btc-instructions financing-summary';
+                cryptoSection.insertBefore(summaryDiv, cryptoSection.firstChild);
+            }
+            summaryDiv.innerHTML = summaryHtml;
+            
+            document.getElementById('paymentModal').classList.add('active');
         }
         
         function closePayment() {
@@ -3246,51 +3212,6 @@
         function copyBTC() {
             navigator.clipboard.writeText(STATIC_BTC_ADDRESS);
             showToast('BTC address copied!', '📋');
-        }
-        
-        function openPaymentWithCalculatedValues() {
-            const item = cart[0];
-            const total = item.finalPrice;
-            
-            let btcAmount, summaryHtml;
-            
-            if (item.paymentType === 'full') {
-                // Full payment
-                btcAmount = (total / BTC_PRICE).toFixed(8);
-                summaryHtml = `
-                    <h4>📊 Payment Summary</h4>
-                    <p>Vehicle Price: $${total.toLocaleString()}<br>
-                    <strong>Payment Type: Full Payment</strong><br>
-                    <strong>Total BTC Required: ${btcAmount} BTC</strong></p>
-                `;
-            } else {
-                // Financing
-                const totalLoanAmount = total - item.downPayment;
-                const totalPayments = item.downPayment + (item.monthlyPayment * item.termMonths);
-                btcAmount = (item.downPayment / BTC_PRICE).toFixed(8);
-                summaryHtml = `
-                    <h4>📊 Financing Summary</h4>
-                    <p>Vehicle Price: $${total.toLocaleString()}<br>
-                    Down Payment: $${item.downPayment.toLocaleString()}<br>
-                    Monthly Payment: $${item.monthlyPayment.toLocaleString()}/mo for ${item.termMonths} months<br>
-                    <strong>Down Payment BTC Required: ${btcAmount} BTC</strong></p>
-                `;
-            }
-            
-            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
-            document.getElementById('btcUsdAmount').textContent = '$' + (item.paymentType === 'full' ? total : item.downPayment).toLocaleString() + ' USD';
-            
-            const summaryDiv = document.createElement('div');
-            summaryDiv.className = 'btc-instructions financing-summary';
-            summaryDiv.style.marginBottom = '1.5rem';
-            summaryDiv.innerHTML = summaryHtml;
-            
-            const cryptoSection = document.getElementById('cryptoSection');
-            const existingSummary = cryptoSection.querySelector('.financing-summary');
-            if (existingSummary) existingSummary.remove();
-            cryptoSection.insertBefore(summaryDiv, cryptoSection.children[1]);
-            
-            document.getElementById('paymentModal').classList.add('active');
         }
         
         function confirmPayment() {
@@ -3336,7 +3257,6 @@
         }
         
         function updateProfileUI() {
-            document.getElementById('profileCartCount').textContent = cart.length;
             document.getElementById('profileFavCount').textContent = favorites.length;
             document.getElementById('profileOrderCount').textContent = '0';
             
@@ -3359,11 +3279,9 @@
         function logout() {
             currentUser = null;
             localStorage.removeItem('libertyUser');
-            cart = [];
             favorites = [];
-            localStorage.removeItem('libertyCart');
             localStorage.removeItem('libertyFavorites');
-            updateCartBadge();
+            updateFavBadge();
             updateProfileUI();
             closeProfile();
             showToast('Logged out successfully', '👋');
@@ -3432,18 +3350,6 @@
             }
         }
         
-        function openFavorites() {
-            if (!requireAuth('view favorites')) return;
-            if(favorites.length === 0) {
-                showToast('No favorites yet', '💔');
-                return;
-            }
-            const favCars = carDatabase.filter(c => favorites.includes(c.id));
-            renderCars(favCars);
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            showToast('Showing ' + favCars.length + ' favorites', '❤️');
-        }
-        
         // ============================================
         // UTILITIES
         // ============================================
@@ -3457,7 +3363,7 @@
         
         window.onclick = (e) => {
             if(e.target.classList.contains('modal-overlay')) closeModal();
-            if(e.target.classList.contains('cart-modal')) closeCart();
+            if(e.target.classList.contains('favorites-modal')) closeFavoritesModal();
             if(e.target.classList.contains('payment-modal')) closePayment();
             if(e.target.classList.contains('auth-modal')) closeAuth();
             if(e.target.classList.contains('profile-modal')) closeProfile();
