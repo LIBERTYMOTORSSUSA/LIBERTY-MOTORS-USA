@@ -426,18 +426,19 @@
         }
         
         .car-image-container {
-            position: relative;
-            height: 320px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            overflow: hidden;
-        }
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    overflow: hidden;
+}
         
         .car-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
         
         .car-card:hover .car-image { transform: scale(1.05); }
         
@@ -595,9 +596,8 @@
         
         .modal-main-image {
     width: 100%;
-    max-width: 900px;
-    min-height: 500px;
-    max-height: 700px;
+    max-width: 100%;
+    height: auto;
             background: linear-gradient(145deg, #1e293b, #0f172a);
             border-radius: 16px;
             display: flex;
@@ -608,11 +608,10 @@
             border: 2px solid rgba(245,158,11,0.2);
         }
         
-        .modal-main-image img {
+       .modal-main-image img {
     width: 100%;
     height: auto;
-    max-height: 700px;
-    object-fit: contain;
+    display: block;
 }
         
         .image-gallery {
@@ -3371,4 +3370,3 @@
     </script>
 </body>
 </html>
-
