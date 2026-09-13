@@ -1920,64 +1920,77 @@
                         <h3>Key Features</h3>
                         <div class="features-grid" id="modalFeatures"></div>
                     </div>
-                    
-                    <div class="action-buttons">
-                        <button class="btn btn-secondary btn-full" onclick="addToCart()">🛒 Add to Cart</button>
-                        <button class="btn btn-primary btn-full" onclick="proceedToCheckoutFromCalculator()">⚡ Buy Now</button>
-                    </div>
                 </div>
                 
                 <!-- Right: Payment Calculator -->
                 <div class="calculator-section">
                     <h3>📊 Payment Calculator</h3>
                     
+                    <!-- NEW: Payment Type Selection -->
+                    <div class="calc-box">
+                        <h4>Payment Option</h4>
+                        <div class="calc-field" style="display: flex; gap: 2rem; margin-bottom: 0;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="paymentType" value="full" id="paymentTypeFull" onchange="updatePaymentType()" style="width: auto;">
+                                <span>Full Payment</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="paymentType" value="down" id="paymentTypeDown" checked onchange="updatePaymentType()" style="width: auto;">
+                                <span>Down Payment + Financing</span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <div class="calc-box">
                         <h4>Vehicle Price (Fixed)</h4>
                         <div class="calc-vehicle-price" id="calcVehiclePrice">$0</div>
                     </div>
                     
-                    <div class="calc-box">
-                        <h4>Down Payment</h4>
-                        <div class="calc-field">
-                            <label>
-                                <span>Adjust Down Payment</span>
-                                <span id="downPaymentLabel">Min: $500</span>
-                            </label>
-                            <input type="range" id="calcDownPayment" min="500" max="25000" value="5000" step="100" oninput="updateCarCalculator()">
-                            <div class="calc-value-display" id="calcDownDisplay">$5,000</div>
-                            <div class="calc-warning" id="calcWarning">
-                                ⚠️ Minimum down payment for this tier is $<span id="minDownWarningAmount">500</span>
+                    <!-- WRAPPED FINANCING OPTIONS -->
+                    <div id="financingOptions">
+                        <div class="calc-box">
+                            <h4>Down Payment</h4>
+                            <div class="calc-field">
+                                <label>
+                                    <span>Adjust Down Payment</span>
+                                    <span id="downPaymentLabel">Min: $500</span>
+                                </label>
+                                <input type="range" id="calcDownPayment" min="500" max="25000" value="5000" step="1" oninput="updateCarCalculator()">
+                                <div class="calc-value-display" id="calcDownDisplay">$5,000</div>
+                                <div class="calc-warning" id="calcWarning">
+                                    ⚠️ Minimum down payment for this tier is $<span id="minDownWarningAmount">500</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-box">
+                            <h4>Loan Term</h4>
+                            <div class="calc-field">
+                                <label>
+                                    <span>Select Term</span>
+                                    <span id="termDisplay">36 months</span>
+                                </label>
+                                <input type="range" id="calcTerm" min="12" max="72" value="36" step="6" oninput="updateCarCalculator()">
+                                <div style="display: flex; justify-content: space-between; color: var(--gray); font-size: 0.75rem; margin-top: 0.5rem;">
+                                    <span>12 mo</span>
+                                    <span>36 mo</span>
+                                    <span>72 mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-result-box">
+                            <div class="calc-result-label">Monthly Payment</div>
+                            <div class="calc-result-amount" id="calcMonthlyPayment">$556</div>
+                            <div class="calc-result-details">
+                                Loan Amount: $<span id="calcLoanAmount">20,000</span> | 
+                                <span id="calcTermResult">36</span> months
                             </div>
                         </div>
                     </div>
                     
-                    <div class="calc-box">
-                        <h4>Loan Term</h4>
-                        <div class="calc-field">
-                            <label>
-                                <span>Select Term</span>
-                                <span id="termDisplay">36 months</span>
-                            </label>
-                            <input type="range" id="calcTerm" min="12" max="72" value="36" step="6" oninput="updateCarCalculator()">
-                            <div style="display: flex; justify-content: space-between; color: var(--gray); font-size: 0.75rem; margin-top: 0.5rem;">
-                                <span>12 mo</span>
-                                <span>36 mo</span>
-                                <span>72 mo</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="calc-result-box">
-                        <div class="calc-result-label">Monthly Payment</div>
-                        <div class="calc-result-amount" id="calcMonthlyPayment">$556</div>
-                        <div class="calc-result-details">
-                            Loan Amount: $<span id="calcLoanAmount">20,000</span> | 
-                            <span id="calcTermResult">36</span> months
-                        </div>
-                    </div>
-                    
-                    <div class="btc-payment-box">
-                        <div class="label">Down Payment in BTC</div>
+                    <div class="btc-payment-box" id="btcPaymentBox">
+                        <div class="label" id="btcPaymentLabel">Down Payment in BTC</div>
                         <div class="amount" id="btcDownPaymentAmount">0.11627907 BTC</div>
                         <div class="usd">$<span id="btcDownPaymentUsd">5,000</span> USD</div>
                     </div>
@@ -1985,6 +1998,11 @@
                     <div class="btc-rate-info">
                         Live BTC Rate: $<span id="btcRateDisplay">43,000</span> USD/BTC<br>
                         <small>Rate updates on page refresh</small>
+                    </div>
+                    
+                    <div class="action-buttons" style="margin-top: 1.5rem;">
+                        <button class="btn btn-secondary btn-full" onclick="addToCart()">🛒 Add to Cart</button>
+                        <button class="btn btn-primary btn-full" onclick="proceedToCheckoutFromCalculator()">⚡ Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -2266,6 +2284,7 @@
         let calculatedDownPayment = 0;
         let calculatedMonthly = 0;
         let calculatedTerm = 36;
+        let currentPaymentType = 'down';
         
         // ============================================
         // CAR DATABASE - 60 CARS (20 PER TIER)
@@ -2557,7 +2576,7 @@
                 marketPrice: 8800, miles: '92,000', engine: '2.5L V6', transmission: 'Automatic',
                 drivetrain: 'RWD', mpg: '20/29', vin: 'JN1CV6AR7CM123456', color: 'Graphite Shadow',
                 interior: 'Stone Leather', condition: 'Excellent', warranty: '60-Day', location: 'Georgia',
-                features: ['V6 Power', 'Bose Audio', 'Around View Monitor', 'Adaptive Steering', 'Dual Screens'],
+                features: ['V6 Power', 'Bose Studio Sound', 'Around View Monitor', 'Adaptive Steering', 'Dual Screens'],
                 images: ['infiniti_g25_2012_1.jpg', 'infiniti_g25_2012_2.jpg', 'infiniti_g25_2012_3.jpg', 'infiniti_g25_2012_4.jpg', 'infiniti_g25_2012_5.jpg']
             },
             {
@@ -2979,8 +2998,37 @@
             document.getElementById('calcTerm').value = 36;
             document.getElementById('termDisplay').textContent = '36 months';
             
+            // Reset payment type to down payment
+            document.getElementById('paymentTypeDown').checked = true;
+            
             // Calculate initial values
             updateCarCalculator();
+            updatePaymentType();
+        }
+        
+        function updatePaymentType() {
+            const isFull = document.getElementById('paymentTypeFull').checked;
+            currentPaymentType = isFull ? 'full' : 'down';
+            
+            const financingDiv = document.getElementById('financingOptions');
+            const btcLabel = document.getElementById('btcPaymentLabel');
+            const btcAmount = document.getElementById('btcDownPaymentAmount');
+            const btcUsd = document.getElementById('btcDownPaymentUsd');
+            
+            if (isFull) {
+                financingDiv.style.display = 'none';
+                btcLabel.textContent = 'Full Payment in BTC';
+                // Calculate full price in BTC
+                const vehiclePriceText = document.getElementById('calcVehiclePrice').textContent.replace(/[$,]/g, '');
+                const vehiclePrice = parseInt(vehiclePriceText);
+                const btcFullAmount = (vehiclePrice / BTC_PRICE).toFixed(8);
+                btcAmount.textContent = btcFullAmount + ' BTC';
+                btcUsd.textContent = '$' + vehiclePrice.toLocaleString() + ' USD';
+            } else {
+                financingDiv.style.display = 'block';
+                btcLabel.textContent = 'Down Payment in BTC';
+                updateCarCalculator(); // Recalculate with down payment
+            }
         }
         
         function updateCarCalculator() {
@@ -2990,17 +3038,12 @@
             const termMonths = parseInt(document.getElementById('calcTerm').value);
             
             // Get minimum for validation
-            const minDownPayments = {
-                budget: currentCar && currentCar.tier === 'budget' ? 500 : 
-                       currentCar && currentCar.tier === 'economy' ? 1000 : 
-                       currentCar && currentCar.tier === 'premium' ? 5000 : 500
-            };
-            
-            // Show warning if below minimum
-            const warning = document.getElementById('calcWarning');
             const minDown = currentCar ? 
                 (currentCar.tier === 'budget' ? 500 : 
                  currentCar.tier === 'economy' ? 1000 : 5000) : 500;
+            
+            // Show warning if below minimum
+            const warning = document.getElementById('calcWarning');
             
             if (downPayment < minDown) {
                 warning.classList.add('show');
@@ -3051,56 +3094,38 @@
         function proceedToCheckoutFromCalculator() {
             if (!requireAuth('purchase')) return;
             
-            // Add current car to cart with calculated values
             const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
-            const carWithFinancing = {
-                ...currentCar,
-                finalPrice: discountedPrice,
-                downPayment: calculatedDownPayment,
-                monthlyPayment: calculatedMonthly,
-                termMonths: calculatedTerm
-            };
+            
+            let carWithFinancing;
+            
+            if (currentPaymentType === 'full') {
+                // Full payment - no financing
+                carWithFinancing = {
+                    ...currentCar,
+                    finalPrice: discountedPrice,
+                    downPayment: discountedPrice,
+                    monthlyPayment: 0,
+                    termMonths: 0,
+                    paymentType: 'full'
+                };
+            } else {
+                // Down payment + financing
+                const loanAmount = discountedPrice - calculatedDownPayment;
+                carWithFinancing = {
+                    ...currentCar,
+                    finalPrice: discountedPrice,
+                    downPayment: calculatedDownPayment,
+                    monthlyPayment: calculatedMonthly,
+                    termMonths: calculatedTerm,
+                    paymentType: 'financing'
+                };
+            }
             
             cart = [carWithFinancing];
             localStorage.setItem('libertyCart', JSON.stringify(cart));
             updateCartBadge();
             closeModal();
-            
-            // Open payment with calculated values
             openPaymentWithCalculatedValues();
-        }
-        
-        function openPaymentWithCalculatedValues() {
-            const item = cart[0];
-            const total = item.finalPrice;
-            
-            // Calculate total BTC needed (down payment + all monthly payments in BTC)
-            const totalLoanAmount = total - item.downPayment;
-            const totalPayments = item.downPayment + totalLoanAmount; // Full price in BTC
-            const btcAmount = (totalPayments / BTC_PRICE).toFixed(8);
-            
-            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
-            document.getElementById('btcUsdAmount').textContent = '$' + totalPayments.toLocaleString() + ' USD';
-            
-            // Show financing summary in payment modal
-            const summaryDiv = document.createElement('div');
-            summaryDiv.className = 'btc-instructions';
-            summaryDiv.style.marginBottom = '1.5rem';
-            summaryDiv.innerHTML = `
-                <h4>📊 Financing Summary</h4>
-                <p>Vehicle Price: $${total.toLocaleString()}<br>
-                Down Payment: $${item.downPayment.toLocaleString()}<br>
-                Monthly Payment: $${item.monthlyPayment.toLocaleString()}/mo for ${item.termMonths} months<br>
-                <strong>Total BTC Required: ${btcAmount} BTC</strong></p>
-            `;
-            
-            const cryptoSection = document.getElementById('cryptoSection');
-            const existingSummary = cryptoSection.querySelector('.financing-summary');
-            if (existingSummary) existingSummary.remove();
-            summaryDiv.classList.add('financing-summary');
-            cryptoSection.insertBefore(summaryDiv, cryptoSection.children[1]);
-            
-            document.getElementById('paymentModal').classList.add('active');
         }
         
         // ============================================
@@ -3198,16 +3223,6 @@
             showToast('Removed from cart', '🗑️');
         }
         
-        function updateCartBadge() {
-            const badge = document.getElementById('cartBadge');
-            if(cart.length > 0) {
-                badge.textContent = cart.length;
-                badge.style.display = 'flex';
-            } else {
-                badge.style.display = 'none';
-            }
-        }
-        
         function proceedToCheckout() {
             if(cart.length === 0) {
                 showToast('Your cart is empty', '⚠️');
@@ -3231,6 +3246,51 @@
         function copyBTC() {
             navigator.clipboard.writeText(STATIC_BTC_ADDRESS);
             showToast('BTC address copied!', '📋');
+        }
+        
+        function openPaymentWithCalculatedValues() {
+            const item = cart[0];
+            const total = item.finalPrice;
+            
+            let btcAmount, summaryHtml;
+            
+            if (item.paymentType === 'full') {
+                // Full payment
+                btcAmount = (total / BTC_PRICE).toFixed(8);
+                summaryHtml = `
+                    <h4>📊 Payment Summary</h4>
+                    <p>Vehicle Price: $${total.toLocaleString()}<br>
+                    <strong>Payment Type: Full Payment</strong><br>
+                    <strong>Total BTC Required: ${btcAmount} BTC</strong></p>
+                `;
+            } else {
+                // Financing
+                const totalLoanAmount = total - item.downPayment;
+                const totalPayments = item.downPayment + (item.monthlyPayment * item.termMonths);
+                btcAmount = (item.downPayment / BTC_PRICE).toFixed(8);
+                summaryHtml = `
+                    <h4>📊 Financing Summary</h4>
+                    <p>Vehicle Price: $${total.toLocaleString()}<br>
+                    Down Payment: $${item.downPayment.toLocaleString()}<br>
+                    Monthly Payment: $${item.monthlyPayment.toLocaleString()}/mo for ${item.termMonths} months<br>
+                    <strong>Down Payment BTC Required: ${btcAmount} BTC</strong></p>
+                `;
+            }
+            
+            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
+            document.getElementById('btcUsdAmount').textContent = '$' + (item.paymentType === 'full' ? total : item.downPayment).toLocaleString() + ' USD';
+            
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = 'btc-instructions financing-summary';
+            summaryDiv.style.marginBottom = '1.5rem';
+            summaryDiv.innerHTML = summaryHtml;
+            
+            const cryptoSection = document.getElementById('cryptoSection');
+            const existingSummary = cryptoSection.querySelector('.financing-summary');
+            if (existingSummary) existingSummary.remove();
+            cryptoSection.insertBefore(summaryDiv, cryptoSection.children[1]);
+            
+            document.getElementById('paymentModal').classList.add('active');
         }
         
         function confirmPayment() {
