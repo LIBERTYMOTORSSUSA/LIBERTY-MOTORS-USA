@@ -427,7 +427,7 @@
         
         .car-image-container {
             position: relative;
-            height: 240px;
+            height: 320px;
             background: linear-gradient(135deg, #1e293b, #0f172a);
             overflow: hidden;
         }
@@ -581,7 +581,7 @@
         /* MODIFIED: Three column layout for car details + calculator */
         .modal-body {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1.5fr 1fr 1fr;
             min-height: calc(100vh - 80px);
         }
         
@@ -594,9 +594,10 @@
         }
         
         .modal-main-image {
-            width: 100%;
-            max-width: 500px;
-            height: 350px;
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+    max-height: 700px;
             background: linear-gradient(145deg, #1e293b, #0f172a);
             border-radius: 16px;
             display: flex;
@@ -608,10 +609,11 @@
         }
         
         .modal-main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    width: 100%;
+    height: auto;
+    max-height: 700px;
+    object-fit: contain;
+}
         
         .image-gallery {
             display: flex;
