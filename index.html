@@ -540,6 +540,7 @@
             font-weight: 600;
         }
         
+        /* MODIFIED: Car Detail Modal with Payment Calculator */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -577,15 +578,16 @@
             font-size: 1.5rem;
         }
         
+        /* MODIFIED: Three column layout for car details + calculator */
         .modal-body {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             min-height: calc(100vh - 80px);
         }
         
         .modal-image-section {
             background: var(--secondary);
-            padding: 3rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -593,15 +595,15 @@
         
         .modal-main-image {
             width: 100%;
-            max-width: 700px;
-            height: 450px;
+            max-width: 500px;
+            height: 350px;
             background: linear-gradient(145deg, #1e293b, #0f172a);
-            border-radius: 20px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             border: 2px solid rgba(245,158,11,0.2);
         }
         
@@ -613,14 +615,15 @@
         
         .image-gallery {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
             justify-content: center;
+            max-width: 500px;
         }
         
         .gallery-thumb {
-            width: 100px;
-            height: 75px;
+            width: 90px;
+            height: 65px;
             background: #1e293b;
             border-radius: 8px;
             cursor: pointer;
@@ -641,11 +644,12 @@
         }
         
         .modal-details-section {
-            padding: 3rem;
+            padding: 2rem;
             overflow-y: auto;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
         
-        .car-header-info { margin-bottom: 2rem; }
+        .car-header-info { margin-bottom: 1.5rem; }
         
         .car-header-info .category {
             color: var(--accent);
@@ -657,43 +661,43 @@
         }
         
         .car-header-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
         
         .car-header-info .subtitle {
             color: var(--gray);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .pricing-box {
             background: linear-gradient(145deg, rgba(245,158,11,0.1), rgba(245,158,11,0.05));
             border: 2px solid rgba(245,158,11,0.3);
             border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .pricing-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
         
         .pricing-row:last-child {
             margin-bottom: 0;
-            padding-top: 1rem;
+            padding-top: 0.75rem;
             border-top: 1px solid rgba(245,158,11,0.2);
         }
         
         .price-label {
             color: var(--gray);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .price-value {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
         }
         
@@ -703,7 +707,7 @@
         }
         
         .price-value.current {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--success);
             font-weight: 800;
         }
@@ -711,49 +715,50 @@
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .spec-item {
             background: rgba(255,255,255,0.05);
-            padding: 1.25rem;
+            padding: 1rem;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.1);
         }
         
         .spec-label {
             color: var(--gray);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
         
         .spec-value {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
         }
         
-        .features-list { margin-bottom: 2rem; }
+        .features-list { margin-bottom: 1.5rem; }
         
         .features-list h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: var(--accent);
+            font-size: 1rem;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
         
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
             color: #cbd5e1;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         .feature-icon { color: var(--success); }
@@ -761,12 +766,170 @@
         .action-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: auto;
         }
         
         .btn-full {
             flex: 1;
             justify-content: center;
+        }
+        
+        /* NEW: Payment Calculator Section in Modal */
+        .calculator-section {
+            padding: 2rem;
+            background: rgba(255,255,255,0.02);
+        }
+        
+        .calculator-section h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .calc-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .calc-box h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .calc-vehicle-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--success);
+            text-align: center;
+            padding: 1rem;
+            background: rgba(16,185,129,0.1);
+            border-radius: 12px;
+            border: 2px solid var(--success);
+        }
+        
+        .calc-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .calc-field label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .calc-field label span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .calc-field input[type="range"] {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
+            outline: none;
+        }
+        
+        .calc-field input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+        }
+        
+        .calc-value-display {
+            text-align: center;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .calc-warning {
+            color: var(--danger);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .calc-warning.show { display: block; }
+        
+        .calc-result-box {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .calc-result-label {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .calc-result-amount {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        .calc-result-details {
+            color: var(--primary);
+            opacity: 0.9;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        
+        .btc-payment-box {
+            background: rgba(247,147,26,0.15);
+            border: 2px solid var(--btc-orange);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .btc-payment-box .label {
+            color: var(--btc-orange);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .btc-payment-box .amount {
+            color: var(--btc-orange);
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: monospace;
+        }
+        
+        .btc-payment-box .usd {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        .btc-rate-info {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
         }
         
         .payment-modal, .auth-modal, .cart-modal, .profile-modal {
@@ -792,7 +955,7 @@
             background: var(--secondary);
             border-radius: 24px;
             width: 100%;
-            max-width: 900px;
+            max-width: 600px;
             max-height: 95vh;
             overflow-y: auto;
             border: 2px solid rgba(245,158,11,0.3);
@@ -937,38 +1100,6 @@
             border: 1px dashed var(--btc-orange);
         }
         
-        .btc-qr-placeholder {
-            width: 200px;
-            height: 200px;
-            background: white;
-            margin: 0 auto 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-size: 4rem;
-        }
-        
-        .btc-instructions {
-            background: rgba(247,147,26,0.1);
-            border-left: 4px solid var(--btc-orange);
-            padding: 1.25rem;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btc-instructions h4 {
-            color: var(--btc-orange);
-            margin-bottom: 0.5rem;
-        }
-        
-        .btc-instructions p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
         .btc-amount {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -1024,160 +1155,24 @@
             margin: 0;
         }
         
-        /* PAYMENT CALCULATOR IN MODAL */
-        .payment-calculator {
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .payment-calculator h3 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .calc-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .calc-field label {
-            color: var(--gray);
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .calc-field input[type="range"] {
-            width: 100%;
-            margin-bottom: 0.5rem;
-            -webkit-appearance: none;
-            height: 8px;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.1);
-            outline: none;
-        }
-        
-        .calc-field input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--accent);
-            cursor: pointer;
-        }
-        
-        .calc-value {
-            text-align: center;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .calc-result-box {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-        
-        .calc-result-label {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-        
-        .calc-result-amount {
-            color: var(--primary);
-            font-size: 2.5rem;
-            font-weight: 800;
-        }
-        
-        .calc-result-details {
-            color: var(--primary);
-            opacity: 0.8;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-        
-        .btc-calc-box {
+        .btc-instructions {
             background: rgba(247,147,26,0.1);
-            border: 2px solid var(--btc-orange);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        
-        .btc-calc-box .label {
-            color: var(--btc-orange);
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .btc-calc-box .value {
-            color: var(--btc-orange);
-            font-size: 1.3rem;
-            font-weight: 700;
-            font-family: monospace;
-        }
-        
-        .min-down-warning {
-            background: rgba(239,68,68,0.1);
-            border: 1px solid var(--danger);
-            color: var(--danger);
-            padding: 0.75rem;
-            border-radius: 8px;
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            display: none;
-        }
-        
-        .min-down-warning.show { display: block; }
-        
-        .tier-info {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            border-left: 4px solid var(--btc-orange);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
             margin-bottom: 1.5rem;
         }
         
-        .tier-info-item {
-            background: rgba(255,255,255,0.05);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
+        .btc-instructions h4 {
+            color: var(--btc-orange);
+            margin-bottom: 0.5rem;
         }
         
-        .tier-info-item.budget { border: 1px solid var(--success); }
-        .tier-info-item.economy { border: 1px solid var(--accent); }
-        .tier-info-item.premium { border: 1px solid #a855f7; }
-        
-        .tier-info-item .tier-name {
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin-bottom: 0.25rem;
+        .btc-instructions p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
-        
-        .tier-info-item .tier-min {
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-        
-        .tier-info-item.budget .tier-min { color: var(--success); }
-        .tier-info-item.economy .tier-min { color: var(--accent); }
-        .tier-info-item.premium .tier-min { color: #a855f7; }
         
         /* Loading Screen */
         .loading-screen {
@@ -1376,7 +1371,7 @@
             font-weight: 600;
         }
         
-        /* Profile Modal Styles */
+        /* Profile Modal */
         .profile-header {
             text-align: center;
             margin-bottom: 2rem;
@@ -1563,7 +1558,7 @@
             font-style: italic;
         }
         
-        /* Buyer Info Form in Payment Modal */
+        /* Buyer Info Form */
         .buyer-info-section {
             background: rgba(255,255,255,0.05);
             border-radius: 16px;
@@ -1653,7 +1648,7 @@
             color: var(--dark-gray);
         }
         
-        /* Toast Notification */
+        /* Toast */
         .toast {
             position: fixed;
             bottom: 100px;
@@ -1675,17 +1670,18 @@
         .toast-icon { font-size: 1.5rem; }
         
         /* Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
+            .modal-body { grid-template-columns: 1fr 1fr; }
+            .calculator-section { grid-column: 1 / -1; }
+        }
+        
+        @media (max-width: 768px) {
             .modal-body { grid-template-columns: 1fr; }
             .modal-image-section { min-height: 400px; }
             .calc-row { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .form-row.three-col { grid-template-columns: 1fr; }
             .profile-stats { grid-template-columns: 1fr; }
-            .tier-info { grid-template-columns: 1fr; }
-        }
-        
-        @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             .car-grid { grid-template-columns: 1fr; }
@@ -1756,7 +1752,7 @@
     <!-- Stats -->
     <div class="stats-bar">
         <div class="stat">
-            <span class="stat-value">500+</span>
+            <span class="stat-value">60</span>
             <span class="stat-label">Vehicles</span>
         </div>
         <div class="stat">
@@ -1879,20 +1875,23 @@
         </div>
     </footer>
 
-    <!-- Car Detail Modal -->
+    <!-- MODIFIED: Car Detail Modal with Payment Calculator -->
     <div class="modal-overlay" id="carModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Vehicle Details</h2>
+                <h2>Vehicle Details & Financing</h2>
                 <button class="btn btn-secondary" onclick="closeModal()">Close</button>
             </div>
             <div class="modal-body">
+                <!-- Left: Images -->
                 <div class="modal-image-section">
                     <div class="modal-main-image" id="modalMainImage">
                         <img src="" alt="Car Image" id="mainCarImage">
                     </div>
                     <div class="image-gallery" id="imageGallery"></div>
                 </div>
+                
+                <!-- Middle: Car Details -->
                 <div class="modal-details-section">
                     <div class="car-header-info">
                         <div class="category" id="modalCategory">Category</div>
@@ -1924,7 +1923,68 @@
                     
                     <div class="action-buttons">
                         <button class="btn btn-secondary btn-full" onclick="addToCart()">🛒 Add to Cart</button>
-                        <button class="btn btn-primary btn-full" onclick="buyNow()">⚡ Buy Now</button>
+                        <button class="btn btn-primary btn-full" onclick="proceedToCheckoutFromCalculator()">⚡ Buy Now</button>
+                    </div>
+                </div>
+                
+                <!-- Right: Payment Calculator -->
+                <div class="calculator-section">
+                    <h3>📊 Payment Calculator</h3>
+                    
+                    <div class="calc-box">
+                        <h4>Vehicle Price (Fixed)</h4>
+                        <div class="calc-vehicle-price" id="calcVehiclePrice">$0</div>
+                    </div>
+                    
+                    <div class="calc-box">
+                        <h4>Down Payment</h4>
+                        <div class="calc-field">
+                            <label>
+                                <span>Adjust Down Payment</span>
+                                <span id="downPaymentLabel">Min: $500</span>
+                            </label>
+                            <input type="range" id="calcDownPayment" min="500" max="25000" value="5000" step="100" oninput="updateCarCalculator()">
+                            <div class="calc-value-display" id="calcDownDisplay">$5,000</div>
+                            <div class="calc-warning" id="calcWarning">
+                                ⚠️ Minimum down payment for this tier is $<span id="minDownWarningAmount">500</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-box">
+                        <h4>Loan Term</h4>
+                        <div class="calc-field">
+                            <label>
+                                <span>Select Term</span>
+                                <span id="termDisplay">36 months</span>
+                            </label>
+                            <input type="range" id="calcTerm" min="12" max="72" value="36" step="6" oninput="updateCarCalculator()">
+                            <div style="display: flex; justify-content: space-between; color: var(--gray); font-size: 0.75rem; margin-top: 0.5rem;">
+                                <span>12 mo</span>
+                                <span>36 mo</span>
+                                <span>72 mo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-result-box">
+                        <div class="calc-result-label">Monthly Payment</div>
+                        <div class="calc-result-amount" id="calcMonthlyPayment">$556</div>
+                        <div class="calc-result-details">
+                            Loan Amount: $<span id="calcLoanAmount">20,000</span> | 
+                            <span id="calcTermResult">36</span> months
+                        </div>
+                    </div>
+                    
+                    <div class="btc-payment-box">
+                        <div class="label">Down Payment in BTC</div>
+                        <div class="amount" id="btcDownPaymentAmount">0.11627907 BTC</div>
+                        <div class="usd">$<span id="btcDownPaymentUsd">5,000</span> USD</div>
+                    </div>
+                    
+                    <div class="btc-rate-info">
+                        Live BTC Rate: $<span id="btcRateDisplay">43,000</span> USD/BTC<br>
+                        <small>Rate updates on page refresh</small>
                     </div>
                 </div>
             </div>
@@ -1951,11 +2011,11 @@
         </div>
     </div>
 
-    <!-- Payment Modal WITH INTEGRATED CALCULATOR -->
+    <!-- Payment Modal (Simplified - No Calculator) -->
     <div class="payment-modal" id="paymentModal">
         <div class="modal-box">
             <div class="modal-box-header">
-                <h2>💳 Payment & Financing</h2>
+                <h2>💳 Complete Payment</h2>
                 <button class="btn btn-secondary" onclick="closePayment()">✕</button>
             </div>
             <div class="modal-box-body">
@@ -1973,71 +2033,6 @@
                 </div>
                 
                 <div class="crypto-section active" id="cryptoSection">
-                    <!-- PAYMENT CALCULATOR SECTION -->
-                    <div class="payment-calculator">
-                        <h3>📊 Payment Calculator</h3>
-                        
-                        <!-- Tier Minimum Info -->
-                        <div class="tier-info">
-                            <div class="tier-info-item budget">
-                                <div class="tier-name">Budget Tier</div>
-                                <div class="tier-min">$500 min</div>
-                            </div>
-                            <div class="tier-info-item economy">
-                                <div class="tier-name">Economy Tier</div>
-                                <div class="tier-min">$1,000 min</div>
-                            </div>
-                            <div class="tier-info-item premium">
-                                <div class="tier-name">Premium Tier</div>
-                                <div class="tier-min">$5,000 min</div>
-                            </div>
-                        </div>
-                        
-                        <div class="calc-row">
-                            <div class="calc-field">
-                                <label>Vehicle Price</label>
-                                <input type="range" id="calcPrice" min="500" max="100000" value="25000" step="100" oninput="updateCalculator()" disabled>
-                                <div class="calc-value">$<span id="calcPriceDisplay">25,000</span></div>
-                            </div>
-                            <div class="calc-field">
-                                <label>Down Payment <span id="minDownLabel" style="color: var(--gray); font-size: 0.8rem;">(Min: $500)</span></label>
-                                <input type="range" id="calcDown" min="500" max="50000" value="5000" step="100" oninput="updateCalculator()">
-                                <div class="calc-value">$<span id="calcDownDisplay">5,000</span></div>
-                                <div class="min-down-warning" id="minDownWarning">
-                                    ⚠️ Minimum down payment for this tier is $<span id="minDownAmount">500</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="calc-field" style="margin-bottom: 1.5rem;">
-                            <label>Loan Term (Months)</label>
-                            <input type="range" id="calcTerm" min="12" max="72" value="36" step="6" oninput="updateCalculator()">
-                            <div style="display: flex; justify-content: space-between; color: var(--accent); font-weight: 700;">
-                                <span>12 mo</span>
-                                <span id="calcTermDisplay">36 months</span>
-                                <span>72 mo</span>
-                            </div>
-                        </div>
-                        
-                        <div class="calc-result-box">
-                            <div class="calc-result-label">Monthly Payment</div>
-                            <div class="calc-result-amount" id="calcMonthly">$556</div>
-                            <div class="calc-result-details">
-                                Loan: $<span id="calcLoanAmount">20,000</span> | 
-                                Down Payment: $<span id="calcDownResult">5,000</span> |
-                                Term: <span id="calcTermResult">36</span> months
-                            </div>
-                        </div>
-                        
-                        <div class="btc-calc-box">
-                            <div class="label">Down Payment in BTC</div>
-                            <div class="value" id="btcDownPayment">0.00000000 BTC</div>
-                            <div style="color: var(--gray); font-size: 0.8rem; margin-top: 0.25rem;">
-                                Rate: ~$<span id="btcRateDisplay">43,000</span>/BTC
-                            </div>
-                        </div>
-                    </div>
-                    
                     <!-- Buyer Information Form -->
                     <div class="buyer-info-section">
                         <h3>👤 Buyer Information</h3>
@@ -2108,13 +2103,9 @@
                     </div>
                     
                     <div class="btc-amount">
-                        <div class="btc-amount-label">Total Amount to Pay (Including Down Payment)</div>
+                        <div class="btc-amount-label">Total Amount to Pay</div>
                         <div class="btc-amount-value" id="btcAmount">0.00000000 BTC</div>
                         <div class="btc-amount-usd" id="btcUsdAmount">$0.00 USD</div>
-                    </div>
-                    
-                    <div class="btc-qr-placeholder">
-                        <img src="images/qr-btc.png" alt="BTC QR Code" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.parentElement.innerHTML='📱'">
                     </div>
                     
                     <div class="btc-address-box">
@@ -2131,11 +2122,10 @@
                     
                     <div class="btc-instructions">
                         <h4>⚠️ Important Instructions</h4>
-                        <p>1. Minimum down payment required based on vehicle tier (see calculator above)<br>
-                        2. Send the exact BTC amount shown above<br>
-                        3. Include your Transaction Reference in payment memo<br>
-                        4. Monthly payments will be automatically deducted<br>
-                        5. Email confirmation to management01098@gmail.com</p>
+                        <p>1. Send the exact BTC amount shown above<br>
+                        2. Include your Transaction Reference in payment memo<br>
+                        3. Monthly payments will be automatically deducted from your wallet<br>
+                        4. Email confirmation to management01098@gmail.com</p>
                     </div>
                     
                     <button class="btn btn-primary" style="width: 100%;" onclick="confirmPayment()">
@@ -2262,7 +2252,7 @@
         // CONFIGURATION
         // ============================================
         const STATIC_BTC_ADDRESS = 'bc1qnwwesz4qankx7v8cyevgfhw3vsra26g8xaz9s6';
-        let BTC_PRICE = 43000;
+        let BTC_PRICE = 43000; // Will be updated on load
         
         // ============================================
         // STATE MANAGEMENT
@@ -2273,12 +2263,13 @@
         let currentUser = JSON.parse(localStorage.getItem('libertyUser')) || null;
         let isLoginMode = true;
         let currentFilter = 'all';
-        let currentCartTotal = 0;
-        let currentCarTier = 'budget';
+        let calculatedDownPayment = 0;
+        let calculatedMonthly = 0;
+        let calculatedTerm = 36;
         
         // ============================================
-        // CAR DATABASE - 60 CARS TOTAL (20 PER TIER)
-        // EASY TO ADD: Copy template, update values, add to array
+        // CAR DATABASE - 60 CARS (20 PER TIER)
+        // Each car has 5 images - first is display
         // ============================================
         
         const carDatabase = [
@@ -2291,7 +2282,7 @@
                 drivetrain: 'FWD', mpg: '28/35', vin: '1NXBR12E8VZ123456', color: 'Silver',
                 interior: 'Gray Cloth', condition: 'Good', warranty: '30-Day', location: 'Texas',
                 features: ['Reliable Engine', 'Great MPG', 'Low Maintenance', 'CD Player', 'Power Windows'],
-                images: ['toyota_corolla_1998_1.jpg']
+                images: ['toyota_corolla_1998_1.jpg', 'toyota_corolla_1998_2.jpg', 'toyota_corolla_1998_3.jpg', 'toyota_corolla_1998_4.jpg', 'toyota_corolla_1998_5.jpg']
             },
             {
                 id: 'b002', tier: 'budget', make: 'Honda', model: 'Civic', year: 1999,
@@ -2299,7 +2290,7 @@
                 drivetrain: 'FWD', mpg: '30/38', vin: '1HGEJ6125WL012345', color: 'Blue',
                 interior: 'Black Cloth', condition: 'Good', warranty: '30-Day', location: 'Florida',
                 features: ['Sporty Handling', 'Fuel Efficient', 'Aftermarket Stereo', 'Alloy Wheels', 'Sunroof'],
-                images: ['honda_civic_1999_1.jpg']
+                images: ['honda_civic_1999_1.jpg', 'honda_civic_1999_2.jpg', 'honda_civic_1999_3.jpg', 'honda_civic_1999_4.jpg', 'honda_civic_1999_5.jpg']
             },
             {
                 id: 'b003', tier: 'budget', make: 'Ford', model: 'Focus', year: 2005,
@@ -2307,7 +2298,7 @@
                 drivetrain: 'FWD', mpg: '26/32', vin: '1FAFP34N45W123456', color: 'Red',
                 interior: 'Gray Cloth', condition: 'Fair', warranty: '30-Day', location: 'Ohio',
                 features: ['Compact Size', 'Easy Parking', 'A/C Working', 'New Tires', 'Clean Title'],
-                images: ['ford_focus_2005_1.jpg']
+                images: ['ford_focus_2005_1.jpg', 'ford_focus_2005_2.jpg', 'ford_focus_2005_3.jpg', 'ford_focus_2005_4.jpg', 'ford_focus_2005_5.jpg']
             },
             {
                 id: 'b004', tier: 'budget', make: 'Chevrolet', model: 'Malibu', year: 2004,
@@ -2315,7 +2306,7 @@
                 drivetrain: 'FWD', mpg: '24/32', vin: '1G1ND52F14M123456', color: 'White',
                 interior: 'Beige Cloth', condition: 'Good', warranty: '30-Day', location: 'Michigan',
                 features: ['Spacious Interior', 'Comfortable Ride', 'Cruise Control', 'Keyless Entry', 'ABS Brakes'],
-                images: ['chevrolet_malibu_2004_1.jpg']
+                images: ['chevrolet_malibu_2004_1.jpg', 'chevrolet_malibu_2004_2.jpg', 'chevrolet_malibu_2004_3.jpg', 'chevrolet_malibu_2004_4.jpg', 'chevrolet_malibu_2004_5.jpg']
             },
             {
                 id: 'b005', tier: 'budget', make: 'Nissan', model: 'Sentra', year: 2006,
@@ -2323,7 +2314,7 @@
                 drivetrain: 'FWD', mpg: '27/34', vin: '3N1AB61E06L123456', color: 'Black',
                 interior: 'Gray Cloth', condition: 'Good', warranty: '30-Day', location: 'Georgia',
                 features: ['Reliable', 'Good Resale', 'Power Steering', 'Air Conditioning', 'Dual Airbags'],
-                images: ['nissan_sentra_2006_1.jpg']
+                images: ['nissan_sentra_2006_1.jpg', 'nissan_sentra_2006_2.jpg', 'nissan_sentra_2006_3.jpg', 'nissan_sentra_2006_4.jpg', 'nissan_sentra_2006_5.jpg']
             },
             {
                 id: 'b006', tier: 'budget', make: 'Hyundai', model: 'Elantra', year: 2003,
@@ -2331,7 +2322,7 @@
                 drivetrain: 'FWD', mpg: '25/33', vin: 'KMHDN45D03U123456', color: 'Gold',
                 interior: 'Tan Cloth', condition: 'Fair', warranty: '30-Day', location: 'Arizona',
                 features: ['Great Value', 'Fuel Efficient', 'Power Windows', 'CD Player', 'Cruise Control'],
-                images: ['hyundai_elantra_2003_1.jpg']
+                images: ['hyundai_elantra_2003_1.jpg', 'hyundai_elantra_2003_2.jpg', 'hyundai_elantra_2003_3.jpg', 'hyundai_elantra_2003_4.jpg', 'hyundai_elantra_2003_5.jpg']
             },
             {
                 id: 'b007', tier: 'budget', make: 'Kia', model: 'Spectra', year: 2005,
@@ -2339,7 +2330,7 @@
                 drivetrain: 'FWD', mpg: '24/32', vin: 'KNAFB121655123456', color: 'Green',
                 interior: 'Gray Cloth', condition: 'Good', warranty: '30-Day', location: 'North Carolina',
                 features: ['Compact Sedan', 'Reliable', 'A/C Cold', 'Clean Interior', 'New Brakes'],
-                images: ['kia_spectra_2005_1.jpg']
+                images: ['kia_spectra_2005_1.jpg', 'kia_spectra_2005_2.jpg', 'kia_spectra_2005_3.jpg', 'kia_spectra_2005_4.jpg', 'kia_spectra_2005_5.jpg']
             },
             {
                 id: 'b008', tier: 'budget', make: 'Mazda', model: 'Protege', year: 2002,
@@ -2347,7 +2338,7 @@
                 drivetrain: 'FWD', mpg: '28/35', vin: 'JM1BJ222820123456', color: 'Silver',
                 interior: 'Black Cloth', condition: 'Fair', warranty: '30-Day', location: 'Oregon',
                 features: ['Sporty Handling', 'Manual Transmission', 'Fuel Saver', 'Low Insurance', 'Reliable'],
-                images: ['mazda_protege_2002_1.jpg']
+                images: ['mazda_protege_2002_1.jpg', 'mazda_protege_2002_2.jpg', 'mazda_protege_2002_3.jpg', 'mazda_protege_2002_4.jpg', 'mazda_protege_2002_5.jpg']
             },
             {
                 id: 'b009', tier: 'budget', make: 'Dodge', model: 'Neon', year: 2004,
@@ -2355,7 +2346,7 @@
                 drivetrain: 'FWD', mpg: '25/32', vin: '1B3ES56C04D123456', color: 'Blue',
                 interior: 'Gray Cloth', condition: 'Fair', warranty: '30-Day', location: 'Nevada',
                 features: ['Compact', 'Easy to Drive', 'Power Steering', 'AM/FM Radio', 'Good Tires'],
-                images: ['dodge_neon_2004_1.jpg']
+                images: ['dodge_neon_2004_1.jpg', 'dodge_neon_2004_2.jpg', 'dodge_neon_2004_3.jpg', 'dodge_neon_2004_4.jpg', 'dodge_neon_2004_5.jpg']
             },
             {
                 id: 'b010', tier: 'budget', make: 'Pontiac', model: 'Sunfire', year: 2003,
@@ -2363,7 +2354,7 @@
                 drivetrain: 'FWD', mpg: '24/30', vin: '1G2JB12F637123456', color: 'Red',
                 interior: 'Black Cloth', condition: 'Fair', warranty: '30-Day', location: 'Indiana',
                 features: ['Sporty Look', 'Convertible Option', 'A/C', 'Power Locks', 'CD Player'],
-                images: ['pontiac_sunfire_2003_1.jpg']
+                images: ['pontiac_sunfire_2003_1.jpg', 'pontiac_sunfire_2003_2.jpg', 'pontiac_sunfire_2003_3.jpg', 'pontiac_sunfire_2003_4.jpg', 'pontiac_sunfire_2003_5.jpg']
             },
             {
                 id: 'b011', tier: 'budget', make: 'Saturn', model: 'Ion', year: 2004,
@@ -2371,7 +2362,7 @@
                 drivetrain: 'FWD', mpg: '26/35', vin: '1G8AJ12F04Z123456', color: 'White',
                 interior: 'Gray Cloth', condition: 'Good', warranty: '30-Day', location: 'Illinois',
                 features: ['Plastic Panels', 'No Rust', 'Reliable', 'Good MPG', 'Spacious Trunk'],
-                images: ['saturn_ion_2004_1.jpg']
+                images: ['saturn_ion_2004_1.jpg', 'saturn_ion_2004_2.jpg', 'saturn_ion_2004_3.jpg', 'saturn_ion_2004_4.jpg', 'saturn_ion_2004_5.jpg']
             },
             {
                 id: 'b012', tier: 'budget', make: 'Chrysler', model: 'Sebring', year: 2002,
@@ -2379,7 +2370,7 @@
                 drivetrain: 'FWD', mpg: '21/28', vin: '1C3EL46X02N123456', color: 'Silver',
                 interior: 'Tan Leather', condition: 'Good', warranty: '30-Day', location: 'Florida',
                 features: ['Convertible', 'Leather Seats', 'Power Top', 'Alloy Wheels', 'Cruise Control'],
-                images: ['chrysler_sebring_2002_1.jpg']
+                images: ['chrysler_sebring_2002_1.jpg', 'chrysler_sebring_2002_2.jpg', 'chrysler_sebring_2002_3.jpg', 'chrysler_sebring_2002_4.jpg', 'chrysler_sebring_2002_5.jpg']
             },
             {
                 id: 'b013', tier: 'budget', make: 'Mercury', model: 'Cougar', year: 2001,
@@ -2387,7 +2378,7 @@
                 drivetrain: 'FWD', mpg: '20/26', vin: '1ZWFT60L915123456', color: 'Black',
                 interior: 'Black Cloth', condition: 'Good', warranty: '30-Day', location: 'California',
                 features: ['Sporty Coupe', 'V6 Power', 'Sunroof', 'Spacious', 'Unique Style'],
-                images: ['mercury_cougar_2001_1.jpg']
+                images: ['mercury_cougar_2001_1.jpg', 'mercury_cougar_2001_2.jpg', 'mercury_cougar_2001_3.jpg', 'mercury_cougar_2001_4.jpg', 'mercury_cougar_2001_5.jpg']
             },
             {
                 id: 'b014', tier: 'budget', make: 'Suzuki', model: 'Forenza', year: 2006,
@@ -2395,7 +2386,7 @@
                 drivetrain: 'FWD', mpg: '22/30', vin: 'KL5JD56Z96K123456', color: 'Blue',
                 interior: 'Gray Cloth', condition: 'Good', warranty: '30-Day', location: 'Texas',
                 features: ['Warranty Included', 'Low Miles', 'A/C', 'Power Windows', 'Clean Title'],
-                images: ['suzuki_forenza_2006_1.jpg']
+                images: ['suzuki_forenza_2006_1.jpg', 'suzuki_forenza_2006_2.jpg', 'suzuki_forenza_2006_3.jpg', 'suzuki_forenza_2006_4.jpg', 'suzuki_forenza_2006_5.jpg']
             },
             {
                 id: 'b015', tier: 'budget', make: 'Scion', model: 'xA', year: 2005,
@@ -2403,7 +2394,7 @@
                 drivetrain: 'FWD', mpg: '30/38', vin: 'JTKKT624856123456', color: 'White',
                 interior: 'Black Cloth', condition: 'Excellent', warranty: '30-Day', location: 'Washington',
                 features: ['Toyota Reliability', 'Hatchback', 'Great MPG', 'Low Maintenance', 'Youthful Design'],
-                images: ['scion_xa_2005_1.jpg']
+                images: ['scion_xa_2005_1.jpg', 'scion_xa_2005_2.jpg', 'scion_xa_2005_3.jpg', 'scion_xa_2005_4.jpg', 'scion_xa_2005_5.jpg']
             },
             {
                 id: 'b016', tier: 'budget', make: 'Mitsubishi', model: 'Lancer', year: 2003,
@@ -2411,15 +2402,15 @@
                 drivetrain: 'FWD', mpg: '24/31', vin: 'JA3AJ26E83U123456', color: 'Red',
                 interior: 'Black Cloth', condition: 'Good', warranty: '30-Day', location: 'Colorado',
                 features: ['Sporty Sedan', 'Manual Trans', 'All Wheel Drive Available', 'Spoiler', 'Alloy Wheels'],
-                images: ['mitsubishi_lancer_2003_1.jpg']
+                images: ['mitsubishi_lancer_2003_1.jpg', 'mitsubishi_lancer_2003_2.jpg', 'mitsubishi_lancer_2003_3.jpg', 'mitsubishi_lancer_2003_4.jpg', 'mitsubishi_lancer_2003_5.jpg']
             },
             {
                 id: 'b017', tier: 'budget', make: 'Buick', model: 'Century', year: 2003,
                 marketPrice: 1700, miles: '138,000', engine: '3.1L V6', transmission: 'Automatic',
-                drivetrain: 'FWD', mpg: '20/29', vin: '2G4WS52J631123456', color: 'Gold',
+                drivetrain: 'FWD', mpg: '20/29', vin: '2G4WS5EV9C9123456', color: 'Gold',
                 interior: 'Beige Cloth', condition: 'Good', warranty: '30-Day', location: 'Missouri',
                 features: ['Comfortable Ride', 'V6 Power', 'Spacious', 'Dual Climate', 'Bench Seat'],
-                images: ['buick_century_2003_1.jpg']
+                images: ['buick_century_2003_1.jpg', 'buick_century_2003_2.jpg', 'buick_century_2003_3.jpg', 'buick_century_2003_4.jpg', 'buick_century_2003_5.jpg']
             },
             {
                 id: 'b018', tier: 'budget', make: 'Oldsmobile', model: 'Alero', year: 2003,
@@ -2427,7 +2418,7 @@
                 drivetrain: 'FWD', mpg: '23/32', vin: '1G3NL52T43C123456', color: 'Silver',
                 interior: 'Gray Cloth', condition: 'Fair', warranty: '30-Day', location: 'Ohio',
                 features: ['Reliable', 'Good Condition', 'Power Options', 'CD Player', 'Cruise Control'],
-                images: ['oldsmobile_alero_2003_1.jpg']
+                images: ['oldsmobile_alero_2003_1.jpg', 'oldsmobile_alero_2003_2.jpg', 'oldsmobile_alero_2003_3.jpg', 'oldsmobile_alero_2003_4.jpg', 'oldsmobile_alero_2003_5.jpg']
             },
             {
                 id: 'b019', tier: 'budget', make: 'Volkswagen', model: 'Jetta', year: 2001,
@@ -2435,7 +2426,7 @@
                 drivetrain: 'FWD', mpg: '24/31', vin: '3VWRA69M51M123456', color: 'Green',
                 interior: 'Tan Leather', condition: 'Good', warranty: '30-Day', location: 'Pennsylvania',
                 features: ['German Engineering', 'Manual Trans', 'Leather Interior', 'Sunroof', 'Solid Build'],
-                images: ['vw_jetta_2001_1.jpg']
+                images: ['vw_jetta_2001_1.jpg', 'vw_jetta_2001_2.jpg', 'vw_jetta_2001_3.jpg', 'vw_jetta_2001_4.jpg', 'vw_jetta_2001_5.jpg']
             },
             {
                 id: 'b020', tier: 'budget', make: 'Subaru', model: 'Impreza', year: 2002,
@@ -2443,7 +2434,7 @@
                 drivetrain: 'AWD', mpg: '22/28', vin: 'JF1GD29662G123456', color: 'Blue',
                 interior: 'Gray Cloth', condition: 'Good', warranty: '30-Day', location: 'Vermont',
                 features: ['All Wheel Drive', 'Manual Trans', 'Winter Ready', 'Reliable Boxer Engine', 'Hatchback'],
-                images: ['subaru_impreza_2002_1.jpg']
+                images: ['subaru_impreza_2002_1.jpg', 'subaru_impreza_2002_2.jpg', 'subaru_impreza_2002_3.jpg', 'subaru_impreza_2002_4.jpg', 'subaru_impreza_2002_5.jpg']
             },
             
             // ============================================
@@ -2455,7 +2446,7 @@
                 drivetrain: 'FWD', mpg: '25/35', vin: '4T1BF1FK9DU123456', color: 'Silver',
                 interior: 'Gray Cloth', condition: 'Excellent', warranty: '60-Day', location: 'California',
                 features: ['Bluetooth', 'Backup Camera', 'Keyless Entry', 'Cruise Control', 'Alloy Wheels'],
-                images: ['toyota_camry_2013_1.jpg']
+                images: ['toyota_camry_2013_1.jpg', 'toyota_camry_2013_2.jpg', 'toyota_camry_2013_3.jpg', 'toyota_camry_2013_4.jpg', 'toyota_camry_2013_5.jpg']
             },
             {
                 id: 'e002', tier: 'economy', make: 'Honda', model: 'Accord', year: 2012,
@@ -2463,7 +2454,7 @@
                 drivetrain: 'FWD', mpg: '23/34', vin: '1HGCP2F38CA123456', color: 'Black',
                 interior: 'Black Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Texas',
                 features: ['Lane Watch', 'Dual-Zone A/C', 'Sunroof', 'Push Button Start', 'USB Audio'],
-                images: ['honda_accord_2012_1.jpg']
+                images: ['honda_accord_2012_1.jpg', 'honda_accord_2012_2.jpg', 'honda_accord_2012_3.jpg', 'honda_accord_2012_4.jpg', 'honda_accord_2012_5.jpg']
             },
             {
                 id: 'e003', tier: 'economy', make: 'Nissan', model: 'Altima', year: 2014,
@@ -2471,7 +2462,7 @@
                 drivetrain: 'FWD', mpg: '27/38', vin: '1N4AL3AP4EC123456', color: 'White',
                 interior: 'Beige Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Florida',
                 features: ['Remote Start', 'Navigation', 'Heated Seats', 'Bose Audio', 'Smart Key'],
-                images: ['nissan_altima_2014_1.jpg']
+                images: ['nissan_altima_2014_1.jpg', 'nissan_altima_2014_2.jpg', 'nissan_altima_2014_3.jpg', 'nissan_altima_2014_4.jpg', 'nissan_altima_2014_5.jpg']
             },
             {
                 id: 'e004', tier: 'economy', make: 'Ford', model: 'Fusion', year: 2013,
@@ -2479,7 +2470,7 @@
                 drivetrain: 'FWD', mpg: '22/34', vin: '3FA6P0H71DR123456', color: 'Blue',
                 interior: 'Charcoal Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Michigan',
                 features: ['SYNC', 'Backup Camera', 'Heated Seats', 'Remote Start', '18" Wheels'],
-                images: ['ford_fusion_2013_1.jpg']
+                images: ['ford_fusion_2013_1.jpg', 'ford_fusion_2013_2.jpg', 'ford_fusion_2013_3.jpg', 'ford_fusion_2013_4.jpg', 'ford_fusion_2013_5.jpg']
             },
             {
                 id: 'e005', tier: 'economy', make: 'Chevrolet', model: 'Malibu', year: 2014,
@@ -2487,7 +2478,7 @@
                 drivetrain: 'FWD', mpg: '25/36', vin: '1G11C5SL5EF123456', color: 'Red',
                 interior: 'Jet Black Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Ohio',
                 features: ['MyLink', 'WiFi Hotspot', 'Wireless Charging', 'Teen Driver Mode', 'Touchscreen'],
-                images: ['chevrolet_malibu_2014_1.jpg']
+                images: ['chevrolet_malibu_2014_1.jpg', 'chevrolet_malibu_2014_2.jpg', 'chevrolet_malibu_2014_3.jpg', 'chevrolet_malibu_2014_4.jpg', 'chevrolet_malibu_2014_5.jpg']
             },
             {
                 id: 'e006', tier: 'economy', make: 'Hyundai', model: 'Sonata', year: 2013,
@@ -2495,7 +2486,7 @@
                 drivetrain: 'FWD', mpg: '24/35', vin: '5NPEB4AC3DH123456', color: 'Silver',
                 interior: 'Gray Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Georgia',
                 features: ['Blind Spot Detection', 'Infinity Audio', 'Panoramic Roof', 'Heated Seats', 'Smart Cruise'],
-                images: ['hyundai_sonata_2013_1.jpg']
+                images: ['hyundai_sonata_2013_1.jpg', 'hyundai_sonata_2013_2.jpg', 'hyundai_sonata_2013_3.jpg', 'hyundai_sonata_2013_4.jpg', 'hyundai_sonata_2013_5.jpg']
             },
             {
                 id: 'e007', tier: 'economy', make: 'Kia', model: 'Optima', year: 2012,
@@ -2503,7 +2494,7 @@
                 drivetrain: 'FWD', mpg: '24/34', vin: '5XXGM4A72CG123456', color: 'White',
                 interior: 'Black Leather', condition: 'Excellent', warranty: '60-Day', location: 'Alabama',
                 features: ['UVO', 'Harman Kardon', 'Ventilated Seats', 'Panoramic Roof', 'Push Button Start'],
-                images: ['kia_optima_2012_1.jpg']
+                images: ['kia_optima_2012_1.jpg', 'kia_optima_2012_2.jpg', 'kia_optima_2012_3.jpg', 'kia_optima_2012_4.jpg', 'kia_optima_2012_5.jpg']
             },
             {
                 id: 'e008', tier: 'economy', make: 'Mazda', model: '6', year: 2014,
@@ -2511,7 +2502,7 @@
                 drivetrain: 'FWD', mpg: '26/38', vin: 'JM1GJ1W64E1123456', color: 'Soul Red',
                 interior: 'Black Cloth', condition: 'Excellent', warranty: '60-Day', location: 'California',
                 features: ['Sport Mode', 'Bose Audio', 'Radar Cruise', 'Lane Assist', '19" Wheels'],
-                images: ['mazda6_2014_1.jpg']
+                images: ['mazda6_2014_1.jpg', 'mazda6_2014_2.jpg', 'mazda6_2014_3.jpg', 'mazda6_2014_4.jpg', 'mazda6_2014_5.jpg']
             },
             {
                 id: 'e009', tier: 'economy', make: 'Subaru', model: 'Legacy', year: 2013,
@@ -2519,7 +2510,7 @@
                 drivetrain: 'AWD', mpg: '24/32', vin: '4S3BMBC67D3123456', color: 'Blue',
                 interior: 'Gray Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Colorado',
                 features: ['AWD', 'EyeSight', 'Navigation', 'Heated Seats', 'Power Moonroof'],
-                images: ['subaru_legacy_2013_1.jpg']
+                images: ['subaru_legacy_2013_1.jpg', 'subaru_legacy_2013_2.jpg', 'subaru_legacy_2013_3.jpg', 'subaru_legacy_2013_4.jpg', 'subaru_legacy_2013_5.jpg']
             },
             {
                 id: 'e010', tier: 'economy', make: 'Volkswagen', model: 'Passat', year: 2013,
@@ -2527,7 +2518,7 @@
                 drivetrain: 'FWD', mpg: '22/31', vin: '1VWAH7A35DC123456', color: 'Black',
                 interior: 'Titan Black Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Wisconsin',
                 features: ['Car-Net', 'Fender Audio', 'Adaptive Cruise', 'V-Tex Leather', 'Remote Start'],
-                images: ['vw_passat_2013_1.jpg']
+                images: ['vw_passat_2013_1.jpg', 'vw_passat_2013_2.jpg', 'vw_passat_2013_3.jpg', 'vw_passat_2013_4.jpg', 'vw_passat_2013_5.jpg']
             },
             {
                 id: 'e011', tier: 'economy', make: 'Chrysler', model: '200', year: 2014,
@@ -2535,7 +2526,7 @@
                 drivetrain: 'FWD', mpg: '23/36', vin: '1C3CCBBB9EN123456', color: 'Silver',
                 interior: 'Black Cloth', condition: 'Excellent', warranty: '60-Day', location: 'Michigan',
                 features: ['9-Speed Auto', 'Uconnect 8.4"', 'Heated Seats', 'Dual-Pane Sunroof', 'SafetyTec'],
-                images: ['chrysler_200_2014_1.jpg']
+                images: ['chrysler_200_2014_1.jpg', 'chrysler_200_2014_2.jpg', 'chrysler_200_2014_3.jpg', 'chrysler_200_2014_4.jpg', 'chrysler_200_2014_5.jpg']
             },
             {
                 id: 'e012', tier: 'economy', make: 'Dodge', model: 'Avenger', year: 2013,
@@ -2543,7 +2534,7 @@
                 drivetrain: 'FWD', mpg: '21/30', vin: '1C3CDZAG4DN123456', color: 'White',
                 interior: 'Dark Slate Gray', condition: 'Excellent', warranty: '60-Day', location: 'Texas',
                 features: ['Sporty Styling', 'Powerful V6 Option', 'Spacious Trunk', 'Touchscreen', 'USB Port'],
-                images: ['dodge_avenger_2013_1.jpg']
+                images: ['dodge_avenger_2013_1.jpg', 'dodge_avenger_2013_2.jpg', 'dodge_avenger_2013_3.jpg', 'dodge_avenger_2013_4.jpg', 'dodge_avenger_2013_5.jpg']
             },
             {
                 id: 'e013', tier: 'economy', make: 'Buick', model: 'Regal', year: 2012,
@@ -2551,7 +2542,7 @@
                 drivetrain: 'FWD', mpg: '19/30', vin: '2G4GS5EV9C9123456', color: 'Quicksilver',
                 interior: 'Ebony Leather', condition: 'Excellent', warranty: '60-Day', location: 'Illinois',
                 features: ['Turbo Engine', 'Buick IntelliLink', 'Heated Steering', 'Avenir Interior', 'QuietTuning'],
-                images: ['buick_regal_2012_1.jpg']
+                images: ['buick_regal_2012_1.jpg', 'buick_regal_2012_2.jpg', 'buick_regal_2012_3.jpg', 'buick_regal_2012_4.jpg', 'buick_regal_2012_5.jpg']
             },
             {
                 id: 'e014', tier: 'economy', make: 'Acura', model: 'TSX', year: 2012,
@@ -2559,7 +2550,7 @@
                 drivetrain: 'FWD', mpg: '22/31', vin: 'JH4CU2F46CC123456', color: 'Polished Metal',
                 interior: 'Ebony Leather', condition: 'Excellent', warranty: '60-Day', location: 'New York',
                 features: ['ELS Audio', 'AcuraWatch', 'Heated Seats', 'Navigation', 'Lane Keeping'],
-                images: ['acura_tsx_2012_1.jpg']
+                images: ['acura_tsx_2012_1.jpg', 'acura_tsx_2012_2.jpg', 'acura_tsx_2012_3.jpg', 'acura_tsx_2012_4.jpg', 'acura_tsx_2012_5.jpg']
             },
             {
                 id: 'e015', tier: 'economy', make: 'Infiniti', model: 'G25', year: 2012,
@@ -2567,7 +2558,7 @@
                 drivetrain: 'RWD', mpg: '20/29', vin: 'JN1CV6AR7CM123456', color: 'Graphite Shadow',
                 interior: 'Stone Leather', condition: 'Excellent', warranty: '60-Day', location: 'Georgia',
                 features: ['V6 Power', 'Bose Audio', 'Around View Monitor', 'Adaptive Steering', 'Dual Screens'],
-                images: ['infiniti_g25_2012_1.jpg']
+                images: ['infiniti_g25_2012_1.jpg', 'infiniti_g25_2012_2.jpg', 'infiniti_g25_2012_3.jpg', 'infiniti_g25_2012_4.jpg', 'infiniti_g25_2012_5.jpg']
             },
             {
                 id: 'e016', tier: 'economy', make: 'Lexus', model: 'IS 250', year: 2011,
@@ -2575,7 +2566,7 @@
                 drivetrain: 'RWD', mpg: '21/29', vin: 'JTHBF5C22B5123456', color: 'Obsidian',
                 interior: 'Black Leather', condition: 'Excellent', warranty: '60-Day', location: 'California',
                 features: ['Luxury Package', 'Mark Levinson Audio', 'Navigation', 'Heated Seats', 'Backup Camera'],
-                images: ['lexus_is250_2011_1.jpg']
+                images: ['lexus_is250_2011_1.jpg', 'lexus_is250_2011_2.jpg', 'lexus_is250_2011_3.jpg', 'lexus_is250_2011_4.jpg', 'lexus_is250_2011_5.jpg']
             },
             {
                 id: 'e017', tier: 'economy', make: 'Cadillac', model: 'CTS', year: 2012,
@@ -2583,7 +2574,7 @@
                 drivetrain: 'RWD', mpg: '18/27', vin: '1G6DS5ED7C0123456', color: 'Black Raven',
                 interior: 'Cashmere Leather', condition: 'Excellent', warranty: '60-Day', location: 'Texas',
                 features: ['CUE System', 'Bose Audio', 'Magnetic Ride', 'Heated Seats', 'Remote Start'],
-                images: ['cadillac_cts_2012_1.jpg']
+                images: ['cadillac_cts_2012_1.jpg', 'cadillac_cts_2012_2.jpg', 'cadillac_cts_2012_3.jpg', 'cadillac_cts_2012_4.jpg', 'cadillac_cts_2012_5.jpg']
             },
             {
                 id: 'e018', tier: 'economy', make: 'Volvo', model: 'S60', year: 2013,
@@ -2591,7 +2582,7 @@
                 drivetrain: 'FWD', mpg: '21/30', vin: 'YV1612TKXD2123456', color: 'Passion Red',
                 interior: 'Off-Black Leather', condition: 'Excellent', warranty: '60-Day', location: 'Connecticut',
                 features: ['City Safety', 'Sensus Connect', 'Heated Seats', 'Moonroof', 'Blind Spot'],
-                images: ['volvo_s60_2013_1.jpg']
+                images: ['volvo_s60_2013_1.jpg', 'volvo_s60_2013_2.jpg', 'volvo_s60_2013_3.jpg', 'volvo_s60_2013_4.jpg', 'volvo_s60_2013_5.jpg']
             },
             {
                 id: 'e019', tier: 'economy', make: 'Mercedes-Benz', model: 'C250', year: 2012,
@@ -2599,7 +2590,7 @@
                 drivetrain: 'RWD', mpg: '21/31', vin: 'WDDGF4HB7CA123456', color: 'Iridium Silver',
                 interior: 'Black MB-Tex', condition: 'Excellent', warranty: '60-Day', location: 'New Jersey',
                 features: ['Turbo Engine', 'COMAND System', 'Heated Seats', 'Sunroof', 'Bluetooth'],
-                images: ['mb_c250_2012_1.jpg']
+                images: ['mb_c250_2012_1.jpg', 'mb_c250_2012_2.jpg', 'mb_c250_2012_3.jpg', 'mb_c250_2012_4.jpg', 'mb_c250_2012_5.jpg']
             },
             {
                 id: 'e020', tier: 'economy', make: 'BMW', model: '328i', year: 2011,
@@ -2607,7 +2598,7 @@
                 drivetrain: 'RWD', mpg: '18/28', vin: 'WBAWB7C5BE123456', color: 'Alpine White',
                 interior: 'Black Dakota Leather', condition: 'Excellent', warranty: '60-Day', location: 'California',
                 features: ['TwinPower Turbo', 'iDrive', 'Heated Seats', 'Moonroof', 'Xenon Lights'],
-                images: ['bmw_328i_2011_1.jpg']
+                images: ['bmw_328i_2011_1.jpg', 'bmw_328i_2011_2.jpg', 'bmw_328i_2011_3.jpg', 'bmw_328i_2011_4.jpg', 'bmw_328i_2011_5.jpg']
             },
             
             // ============================================
@@ -2619,7 +2610,7 @@
                 drivetrain: 'RWD', mpg: '24/35', vin: 'WBA8E9G52GNT12345', color: 'Alpine White',
                 interior: 'Black Dakota Leather', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['iDrive 5.0', 'Navigation Professional', 'Harman Kardon', 'Heads-Up Display', 'Wireless Charging'],
-                images: ['bmw_3series_2016_1.jpg']
+                images: ['bmw_3series_2016_1.jpg', 'bmw_3series_2016_2.jpg', 'bmw_3series_2016_3.jpg', 'bmw_3series_2016_4.jpg', 'bmw_3series_2016_5.jpg']
             },
             {
                 id: 'p002', tier: 'premium', make: 'Mercedes-Benz', model: 'C300', year: 2017,
@@ -2627,7 +2618,7 @@
                 drivetrain: 'RWD', mpg: '24/33', vin: '55SWF4JB3HU123456', color: 'Polar White',
                 interior: 'Black Leather', condition: 'Excellent', warranty: '90-Day', location: 'Florida',
                 features: ['COMAND Navigation', 'Burmester Audio', 'Panorama Roof', 'LED Headlights', 'Apple CarPlay'],
-                images: ['mb_c300_2017_1.jpg']
+                images: ['mb_c300_2017_1.jpg', 'mb_c300_2017_2.jpg', 'mb_c300_2017_3.jpg', 'mb_c300_2017_4.jpg', 'mb_c300_2017_5.jpg']
             },
             {
                 id: 'p003', tier: 'premium', make: 'Audi', model: 'A4', year: 2017,
@@ -2635,7 +2626,7 @@
                 drivetrain: 'AWD', mpg: '24/31', vin: 'WAUDNAF4XHN123456', color: 'Brilliant Black',
                 interior: 'Rock Gray Leather', condition: 'Excellent', warranty: '90-Day', location: 'New York',
                 features: ['Virtual Cockpit', 'Bang & Olufsen', 'Quattro AWD', 'Matrix LED', 'Audi Connect'],
-                images: ['audi_a4_2017_1.jpg']
+                images: ['audi_a4_2017_1.jpg', 'audi_a4_2017_2.jpg', 'audi_a4_2017_3.jpg', 'audi_a4_2017_4.jpg', 'audi_a4_2017_5.jpg']
             },
             {
                 id: 'p004', tier: 'premium', make: 'Lexus', model: 'ES 350', year: 2018,
@@ -2643,7 +2634,7 @@
                 drivetrain: 'FWD', mpg: '21/30', vin: '58ABK1GG0JU123456', color: 'Eminent White Pearl',
                 interior: 'Flaxen Leather', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['Mark Levinson', 'Safety System+', 'Navigation', 'Heated/Ventilated Seats', 'Panorama Glass'],
-                images: ['lexus_es350_2018_1.jpg']
+                images: ['lexus_es350_2018_1.jpg', 'lexus_es350_2018_2.jpg', 'lexus_es350_2018_3.jpg', 'lexus_es350_2018_4.jpg', 'lexus_es350_2018_5.jpg']
             },
             {
                 id: 'p005', tier: 'premium', make: 'Porsche', model: 'Macan', year: 2017,
@@ -2651,7 +2642,7 @@
                 drivetrain: 'AWD', mpg: '20/25', vin: 'WP1AA2A55HLB12345', color: 'Carrara White',
                 interior: 'Black Leather', condition: 'Excellent', warranty: '90-Day', location: 'Texas',
                 features: ['Sport Chrono', 'BOSE Audio', 'PASM', 'Panoramic Roof', 'Lane Change Assist'],
-                images: ['porsche_macan_2017_1.jpg']
+                images: ['porsche_macan_2017_1.jpg', 'porsche_macan_2017_2.jpg', 'porsche_macan_2017_3.jpg', 'porsche_macan_2017_4.jpg', 'porsche_macan_2017_5.jpg']
             },
             {
                 id: 'p006', tier: 'premium', make: 'Tesla', model: 'Model 3', year: 2019,
@@ -2659,7 +2650,7 @@
                 drivetrain: 'RWD', mpg: '124/116 MPGe', vin: '5YJ3E1EA8KF123456', color: 'Pearl White',
                 interior: 'White Premium', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['Autopilot', 'Glass Roof', '15" Touchscreen', 'Premium Audio', 'Supercharging'],
-                images: ['tesla_model3_2019_1.jpg']
+                images: ['tesla_model3_2019_1.jpg', 'tesla_model3_2019_2.jpg', 'tesla_model3_2019_3.jpg', 'tesla_model3_2019_4.jpg', 'tesla_model3_2019_5.jpg']
             },
             {
                 id: 'p007', tier: 'premium', make: 'Jaguar', model: 'XF', year: 2017,
@@ -2667,7 +2658,7 @@
                 drivetrain: 'RWD', mpg: '20/29', vin: 'SAJBD4BG7HCX12345', color: 'British Racing Green',
                 interior: 'Tan Leather', condition: 'Excellent', warranty: '90-Day', location: 'Florida',
                 features: ['Meridian Audio', 'Soft Grain Leather', 'Panoramic Roof', 'Adaptive Dynamics', 'Rear Entertainment'],
-                images: ['jaguar_xf_2017_1.jpg']
+                images: ['jaguar_xf_2017_1.jpg', 'jaguar_xf_2017_2.jpg', 'jaguar_xf_2017_3.jpg', 'jaguar_xf_2017_4.jpg', 'jaguar_xf_2017_5.jpg']
             },
             {
                 id: 'p008', tier: 'premium', make: 'Maserati', model: 'Ghibli', year: 2016,
@@ -2675,7 +2666,7 @@
                 drivetrain: 'RWD', mpg: '17/24', vin: 'ZN661XUA3GX123456', color: 'Rosso Energia',
                 interior: 'Rosso Leather', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['Ferrari-Built V6', 'Harman Kardon', 'Zegna Silk', 'Skyhook Suspension', 'Sports Exhaust'],
-                images: ['maserati_ghibli_2016_1.jpg']
+                images: ['maserati_ghibli_2016_1.jpg', 'maserati_ghibli_2016_2.jpg', 'maserati_ghibli_2016_3.jpg', 'maserati_ghibli_2016_4.jpg', 'maserati_ghibli_2016_5.jpg']
             },
             {
                 id: 'p009', tier: 'premium', make: 'Genesis', model: 'G80', year: 2018,
@@ -2683,7 +2674,7 @@
                 drivetrain: 'RWD', mpg: '18/26', vin: 'KMHGN4JE3JU123456', color: 'Himalayan Gray',
                 interior: 'Beige Leather', condition: 'Excellent', warranty: '90-Day', location: 'Georgia',
                 features: ['Smart Sense', 'Lexicon Audio', 'Power Doors', 'Mood Curator', 'VIP Rear Seats'],
-                images: ['genesis_g80_2018_1.jpg']
+                images: ['genesis_g80_2018_1.jpg', 'genesis_g80_2018_2.jpg', 'genesis_g80_2018_3.jpg', 'genesis_g80_2018_4.jpg', 'genesis_g80_2018_5.jpg']
             },
             {
                 id: 'p010', tier: 'premium', make: 'Cadillac', model: 'CT6', year: 2018,
@@ -2691,7 +2682,7 @@
                 drivetrain: 'AWD', mpg: '18/27', vin: '1G6KD5RS6JU123456', color: 'Radiant Silver',
                 interior: 'Jet Black Leather', condition: 'Excellent', warranty: '90-Day', location: 'Michigan',
                 features: ['Super Cruise', 'Panaray Audio', 'Night Vision', '34-Speaker Bose', 'Rear Camera Mirror'],
-                images: ['cadillac_ct6_2018_1.jpg']
+                images: ['cadillac_ct6_2018_1.jpg', 'cadillac_ct6_2018_2.jpg', 'cadillac_ct6_2018_3.jpg', 'cadillac_ct6_2018_4.jpg', 'cadillac_ct6_2018_5.jpg']
             },
             {
                 id: 'p011', tier: 'premium', make: 'Acura', model: 'RLX', year: 2017,
@@ -2699,7 +2690,7 @@
                 drivetrain: 'AWD', mpg: '28/29', vin: 'JH4KC1F58HC123456', color: 'Lunar Silver',
                 interior: 'Ebony Leather', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['SH-AWD', 'Krell Audio', 'Advance Package', 'Jewel Eye LED', 'AcuraWatch'],
-                images: ['acura_rlx_2017_1.jpg']
+                images: ['acura_rlx_2017_1.jpg', 'acura_rlx_2017_2.jpg', 'acura_rlx_2017_3.jpg', 'acura_rlx_2017_4.jpg', 'acura_rlx_2017_5.jpg']
             },
             {
                 id: 'p012', tier: 'premium', make: 'Infiniti', model: 'Q70', year: 2017,
@@ -2707,7 +2698,7 @@
                 drivetrain: 'RWD', mpg: '18/25', vin: 'JN1BY1AR7HM123456', color: 'Hermosa Blue',
                 interior: 'Stone Leather', condition: 'Excellent', warranty: '90-Day', location: 'Texas',
                 features: ['V6 Power', 'Bose Studio Sound', 'Climate Seats', 'Forest Air', 'Around View'],
-                images: ['infiniti_q70_2017_1.jpg']
+                images: ['infiniti_q70_2017_1.jpg', 'infiniti_q70_2017_2.jpg', 'infiniti_q70_2017_3.jpg', 'infiniti_q70_2017_4.jpg', 'infiniti_q70_2017_5.jpg']
             },
             {
                 id: 'p013', tier: 'premium', make: 'Lincoln', model: 'Continental', year: 2018,
@@ -2715,7 +2706,7 @@
                 drivetrain: 'AWD', mpg: '17/25', vin: '1LN6L9SK2J5601234', color: 'Chroma Blue',
                 interior: 'Chalet Leather', condition: 'Excellent', warranty: '90-Day', location: 'Michigan',
                 features: ['30-Way Seats', 'Revel Ultima', 'Coach Doors', 'Perfect Position', 'Chalet Theme'],
-                images: ['lincoln_continental_2018_1.jpg']
+                images: ['lincoln_continental_2018_1.jpg', 'lincoln_continental_2018_2.jpg', 'lincoln_continental_2018_3.jpg', 'lincoln_continental_2018_4.jpg', 'lincoln_continental_2018_5.jpg']
             },
             {
                 id: 'p014', tier: 'premium', make: 'Volvo', model: 'S90', year: 2018,
@@ -2723,7 +2714,7 @@
                 drivetrain: 'AWD', mpg: '22/31', vin: 'LVY982MK7JP123456', color: 'Denim Blue',
                 interior: 'Blonde Leather', condition: 'Excellent', warranty: '90-Day', location: 'New Jersey',
                 features: ['Bowers & Wilkins', 'Nappa Leather', 'Pilot Assist', 'Orrefors Crystal', 'Air Suspension'],
-                images: ['volvo_s90_2018_1.jpg']
+                images: ['volvo_s90_2018_1.jpg', 'volvo_s90_2018_2.jpg', 'volvo_s90_2018_3.jpg', 'volvo_s90_2018_4.jpg', 'volvo_s90_2018_5.jpg']
             },
             {
                 id: 'p015', tier: 'premium', make: 'Bentley', model: 'Flying Spur', year: 2014,
@@ -2731,7 +2722,7 @@
                 drivetrain: 'AWD', mpg: '14/24', vin: 'SCBEC9ZA4EC123456', color: 'Midnight Emerald',
                 interior: 'Tan Hide', condition: 'Excellent', warranty: '90-Day', location: 'Florida',
                 features: ['W12 Engine', 'Naim Audio', 'Mulliner Spec', 'Rear Entertainment', 'Breitling Clock'],
-                images: ['bentley_flying_spur_2014_1.jpg']
+                images: ['bentley_flying_spur_2014_1.jpg', 'bentley_flying_spur_2014_2.jpg', 'bentley_flying_spur_2014_3.jpg', 'bentley_flying_spur_2014_4.jpg', 'bentley_flying_spur_2014_5.jpg']
             },
             {
                 id: 'p016', tier: 'premium', make: 'Rolls-Royce', model: 'Ghost', year: 2013,
@@ -2739,7 +2730,7 @@
                 drivetrain: 'RWD', mpg: '13/20', vin: 'SCA664S50DUX12345', color: 'Diamond Black',
                 interior: 'Seashell Leather', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['V12 Power', 'Bespoke Audio', 'Starlight Headliner', 'Spirit of Ecstasy', 'Rear Privacy'],
-                images: ['rolls_royce_ghost_2013_1.jpg']
+                images: ['rolls_royce_ghost_2013_1.jpg', 'rolls_royce_ghost_2013_2.jpg', 'rolls_royce_ghost_2013_3.jpg', 'rolls_royce_ghost_2013_4.jpg', 'rolls_royce_ghost_2013_5.jpg']
             },
             {
                 id: 'p017', tier: 'premium', make: 'Aston Martin', model: 'Rapide', year: 2015,
@@ -2747,7 +2738,7 @@
                 drivetrain: 'RWD', mpg: '13/19', vin: 'SCFFDCCD7FGF12345', color: 'Silver Fox',
                 interior: 'Obsidian Black', condition: 'Excellent', warranty: '90-Day', location: 'New York',
                 features: ['V12 Symphony', 'Bang & Olufsen', 'Hand-Stitched Leather', 'Sports Plus Mode', 'Rear Seats'],
-                images: ['aston_martin_rapide_2015_1.jpg']
+                images: ['aston_martin_rapide_2015_1.jpg', 'aston_martin_rapide_2015_2.jpg', 'aston_martin_rapide_2015_3.jpg', 'aston_martin_rapide_2015_4.jpg', 'aston_martin_rapide_2015_5.jpg']
             },
             {
                 id: 'p018', tier: 'premium', make: 'Lamborghini', model: 'Gallardo', year: 2013,
@@ -2755,7 +2746,7 @@
                 drivetrain: 'AWD', mpg: '12/20', vin: 'ZHWGU11M8DLA12345', color: 'Giallo Midas',
                 interior: 'Nero Ade', condition: 'Excellent', warranty: '90-Day', location: 'Florida',
                 features: ['550 HP', 'E-Gear', 'Carbon Ceramic', 'Lift System', 'Heated Seats'],
-                images: ['lamborghini_gallardo_2013_1.jpg']
+                images: ['lamborghini_gallardo_2013_1.jpg', 'lamborghini_gallardo_2013_2.jpg', 'lamborghini_gallardo_2013_3.jpg', 'lamborghini_gallardo_2013_4.jpg', 'lamborghini_gallardo_2013_5.jpg']
             },
             {
                 id: 'p019', tier: 'premium', make: 'Ferrari', model: 'California', year: 2012,
@@ -2763,7 +2754,7 @@
                 drivetrain: 'RWD', mpg: '13/19', vin: 'ZFF65LJA8C0123456', color: 'Rosso Corsa',
                 interior: 'Crema Leather', condition: 'Excellent', warranty: '90-Day', location: 'California',
                 features: ['460 HP', 'Hardtop Convertible', 'F1 Trac', 'Carbon LED Steering', 'JBL Audio'],
-                images: ['ferrari_california_2012_1.jpg']
+                images: ['ferrari_california_2012_1.jpg', 'ferrari_california_2012_2.jpg', 'ferrari_california_2012_3.jpg', 'ferrari_california_2012_4.jpg', 'ferrari_california_2012_5.jpg']
             },
             {
                 id: 'p020', tier: 'premium', make: 'McLaren', model: 'MP4-12C', year: 2013,
@@ -2771,7 +2762,7 @@
                 drivetrain: 'RWD', mpg: '15/22', vin: 'SBM11AAA1DW123456', color: 'Volcano Orange',
                 interior: 'Carbon Black', condition: 'Excellent', warranty: '90-Day', location: 'Arizona',
                 features: ['616 HP', 'ProActive Chassis', 'IRIS System', 'Dihedral Doors', 'Carbon Ceramic'],
-                images: ['mclaren_mp4_2013_1.jpg']
+                images: ['mclaren_mp4_2013_1.jpg', 'mclaren_mp4_2013_2.jpg', 'mclaren_mp4_2013_3.jpg', 'mclaren_mp4_2013_4.jpg', 'mclaren_mp4_2013_5.jpg']
             }
         ];
         
@@ -2832,6 +2823,7 @@
                     if(!e.target.closest('.favorite-btn')) openCarModal(car);
                 };
                 
+                // Use first image as display
                 card.innerHTML = `
                     <div class="car-image-container">
                         <img src="images/${car.images[0]}" alt="${car.year} ${car.make} ${car.model}" class="car-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect fill=%22%23334155%22 width=%22400%22 height=%22250%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 font-size=%2280%22>🚗</text></svg>'">
@@ -2905,11 +2897,10 @@
         }
         
         // ============================================
-        // CAR DETAIL MODAL
+        // CAR DETAIL MODAL WITH PAYMENT CALCULATOR
         // ============================================
         function openCarModal(car) {
             currentCar = car;
-            currentCarTier = car.tier;
             const discountedPrice = getDiscountedPrice(car.marketPrice);
             const savings = car.marketPrice - discountedPrice;
             
@@ -2920,6 +2911,7 @@
             document.getElementById('modalYourPrice').textContent = `$${discountedPrice.toLocaleString()}`;
             document.getElementById('modalSavings').textContent = `$${savings.toLocaleString()}`;
             
+            // Set up images - first is main, all 5 in gallery
             document.getElementById('mainCarImage').src = `images/${car.images[0]}`;
             document.getElementById('mainCarImage').onerror = function() {
                 this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect fill="%231e293b" width="800" height="500"/><text fill="%23f59e0b" x="50%" y="50%" text-anchor="middle" font-size="120">🚗</text></svg>';
@@ -2952,8 +2944,94 @@
                 <div class="feature-item"><span class="feature-icon">✓</span><span>${f}</span></div>
             `).join('');
             
+            // Initialize Payment Calculator
+            initializeCarCalculator(discountedPrice, car.tier);
+            
             document.getElementById('carModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+        
+        // PAYMENT CALCULATOR FUNCTIONS
+        function initializeCarCalculator(vehiclePrice, tier) {
+            // Set fixed vehicle price display
+            document.getElementById('calcVehiclePrice').textContent = '$' + vehiclePrice.toLocaleString();
+            
+            // Determine minimum down payment based on tier
+            const minDownPayments = {
+                budget: 500,
+                economy: 1000,
+                premium: 5000
+            };
+            const minDown = minDownPayments[tier] || 500;
+            
+            // Set up down payment slider
+            const downSlider = document.getElementById('calcDownPayment');
+            downSlider.min = minDown;
+            downSlider.max = vehiclePrice; // Max = full price
+            downSlider.value = minDown;
+            
+            // Update labels
+            document.getElementById('downPaymentLabel').textContent = `Min: $${minDown.toLocaleString()}`;
+            document.getElementById('minDownWarningAmount').textContent = minDown.toLocaleString();
+            document.getElementById('calcDownDisplay').textContent = '$' + minDown.toLocaleString();
+            
+            // Reset term to default
+            document.getElementById('calcTerm').value = 36;
+            document.getElementById('termDisplay').textContent = '36 months';
+            
+            // Calculate initial values
+            updateCarCalculator();
+        }
+        
+        function updateCarCalculator() {
+            const vehiclePriceText = document.getElementById('calcVehiclePrice').textContent.replace(/[$,]/g, '');
+            const vehiclePrice = parseInt(vehiclePriceText);
+            const downPayment = parseInt(document.getElementById('calcDownPayment').value);
+            const termMonths = parseInt(document.getElementById('calcTerm').value);
+            
+            // Get minimum for validation
+            const minDownPayments = {
+                budget: currentCar && currentCar.tier === 'budget' ? 500 : 
+                       currentCar && currentCar.tier === 'economy' ? 1000 : 
+                       currentCar && currentCar.tier === 'premium' ? 5000 : 500
+            };
+            
+            // Show warning if below minimum
+            const warning = document.getElementById('calcWarning');
+            const minDown = currentCar ? 
+                (currentCar.tier === 'budget' ? 500 : 
+                 currentCar.tier === 'economy' ? 1000 : 5000) : 500;
+            
+            if (downPayment < minDown) {
+                warning.classList.add('show');
+                document.getElementById('calcDownPayment').value = minDown;
+                return updateCarCalculator(); // Recalculate with min value
+            } else {
+                warning.classList.remove('show');
+            }
+            
+            // Update displays
+            document.getElementById('calcDownDisplay').textContent = '$' + downPayment.toLocaleString();
+            document.getElementById('termDisplay').textContent = termMonths + ' months';
+            
+            // Calculate loan and monthly payment
+            const loanAmount = vehiclePrice - downPayment;
+            const monthlyPayment = loanAmount / termMonths;
+            
+            // Update results
+            document.getElementById('calcMonthlyPayment').textContent = '$' + Math.round(monthlyPayment).toLocaleString();
+            document.getElementById('calcLoanAmount').textContent = loanAmount.toLocaleString();
+            document.getElementById('calcTermResult').textContent = termMonths;
+            
+            // Calculate BTC for down payment (LIVE RATE)
+            const btcDownAmount = (downPayment / BTC_PRICE).toFixed(8);
+            document.getElementById('btcDownPaymentAmount').textContent = btcDownAmount + ' BTC';
+            document.getElementById('btcDownPaymentUsd').textContent = '$' + downPayment.toLocaleString() + ' USD';
+            
+            // Store calculated values for checkout
+            calculatedDownPayment = downPayment;
+            calculatedMonthly = Math.round(monthlyPayment);
+            calculatedTerm = termMonths;
         }
         
         function changeMainImage(imgName, thumb) {
@@ -2965,6 +3043,64 @@
         function closeModal() {
             document.getElementById('carModal').classList.remove('active');
             document.body.style.overflow = '';
+        }
+        
+        // ============================================
+        // CHECKOUT FROM CALCULATOR
+        // ============================================
+        function proceedToCheckoutFromCalculator() {
+            if (!requireAuth('purchase')) return;
+            
+            // Add current car to cart with calculated values
+            const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
+            const carWithFinancing = {
+                ...currentCar,
+                finalPrice: discountedPrice,
+                downPayment: calculatedDownPayment,
+                monthlyPayment: calculatedMonthly,
+                termMonths: calculatedTerm
+            };
+            
+            cart = [carWithFinancing];
+            localStorage.setItem('libertyCart', JSON.stringify(cart));
+            updateCartBadge();
+            closeModal();
+            
+            // Open payment with calculated values
+            openPaymentWithCalculatedValues();
+        }
+        
+        function openPaymentWithCalculatedValues() {
+            const item = cart[0];
+            const total = item.finalPrice;
+            
+            // Calculate total BTC needed (down payment + all monthly payments in BTC)
+            const totalLoanAmount = total - item.downPayment;
+            const totalPayments = item.downPayment + totalLoanAmount; // Full price in BTC
+            const btcAmount = (totalPayments / BTC_PRICE).toFixed(8);
+            
+            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
+            document.getElementById('btcUsdAmount').textContent = '$' + totalPayments.toLocaleString() + ' USD';
+            
+            // Show financing summary in payment modal
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = 'btc-instructions';
+            summaryDiv.style.marginBottom = '1.5rem';
+            summaryDiv.innerHTML = `
+                <h4>📊 Financing Summary</h4>
+                <p>Vehicle Price: $${total.toLocaleString()}<br>
+                Down Payment: $${item.downPayment.toLocaleString()}<br>
+                Monthly Payment: $${item.monthlyPayment.toLocaleString()}/mo for ${item.termMonths} months<br>
+                <strong>Total BTC Required: ${btcAmount} BTC</strong></p>
+            `;
+            
+            const cryptoSection = document.getElementById('cryptoSection');
+            const existingSummary = cryptoSection.querySelector('.financing-summary');
+            if (existingSummary) existingSummary.remove();
+            summaryDiv.classList.add('financing-summary');
+            cryptoSection.insertBefore(summaryDiv, cryptoSection.children[1]);
+            
+            document.getElementById('paymentModal').classList.add('active');
         }
         
         // ============================================
@@ -3012,14 +3148,7 @@
         }
         
         function buyNow() {
-            if (!requireAuth('purchase')) return;
-            
-            const discountedPrice = getDiscountedPrice(currentCar.marketPrice);
-            cart = [{...currentCar, finalPrice: discountedPrice}];
-            localStorage.setItem('libertyCart', JSON.stringify(cart));
-            updateCartBadge();
-            closeModal();
-            openCart();
+            proceedToCheckoutFromCalculator();
         }
         
         // ============================================
@@ -3058,7 +3187,6 @@
             `).join('');
             
             const total = cart.reduce((sum, item) => sum + item.finalPrice, 0);
-            currentCartTotal = total;
             document.getElementById('cartTotal').textContent = '$' + total.toLocaleString();
         }
         
@@ -3086,102 +3214,18 @@
                 return;
             }
             closeCart();
-            openPayment();
+            openPaymentWithCalculatedValues();
         }
         
         // ============================================
-        // PAYMENT FUNCTIONS WITH CALCULATOR
+        // PAYMENT FUNCTIONS
         // ============================================
         function openPayment() {
-            const total = cart.reduce((sum, item) => sum + item.finalPrice, 0);
-            currentCartTotal = total;
-            
-            // Determine tier from cart (use first item's tier)
-            if (cart.length > 0) {
-                currentCarTier = cart[0].tier;
-            }
-            
-            // Set vehicle price in calculator
-            document.getElementById('calcPrice').value = total;
-            document.getElementById('calcPriceDisplay').textContent = total.toLocaleString();
-            
-            // Set minimum down payment based on tier
-            const minDownPayments = {
-                budget: 500,
-                economy: 1000,
-                premium: 5000
-            };
-            const minDown = minDownPayments[currentCarTier] || 500;
-            
-            // Update down payment slider
-            const downSlider = document.getElementById('calcDown');
-            downSlider.min = minDown;
-            downSlider.value = minDown;
-            downSlider.max = Math.round(total * 0.5);
-            
-            // Update labels
-            document.getElementById('minDownLabel').textContent = `(Min: $${minDown.toLocaleString()})`;
-            document.getElementById('minDownAmount').textContent = minDown.toLocaleString();
-            document.getElementById('calcDownDisplay').textContent = minDown.toLocaleString();
-            
-            // Calculate initial values
-            updateCalculator();
-            
-            // Update BTC amount for total
-            const btcAmount = (total / BTC_PRICE).toFixed(8);
-            document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
-            document.getElementById('btcUsdAmount').textContent = '$' + total.toLocaleString() + ' USD';
-            
-            document.getElementById('paymentModal').classList.add('active');
+            openPaymentWithCalculatedValues();
         }
         
         function closePayment() {
             document.getElementById('paymentModal').classList.remove('active');
-        }
-        
-        // PAYMENT CALCULATOR FUNCTION
-        function updateCalculator() {
-            const price = parseInt(document.getElementById('calcPrice').value);
-            const down = parseInt(document.getElementById('calcDown').value);
-            const term = parseInt(document.getElementById('calcTerm').value);
-            
-            // Get minimum for current tier
-            const minDownPayments = {
-                budget: 500,
-                economy: 1000,
-                premium: 5000
-            };
-            const minDown = minDownPayments[currentCarTier] || 500;
-            
-            // Show warning if below minimum
-            const warning = document.getElementById('minDownWarning');
-            if (down < minDown) {
-                warning.classList.add('show');
-                document.getElementById('calcDown').value = minDown;
-                return;
-            } else {
-                warning.classList.remove('show');
-            }
-            
-            document.getElementById('calcPriceDisplay').textContent = price.toLocaleString();
-            document.getElementById('calcDownDisplay').textContent = down.toLocaleString();
-            document.getElementById('calcTermDisplay').textContent = term + ' months';
-            
-            const loanAmount = price - down;
-            const monthly = loanAmount / term;
-            
-            document.getElementById('calcMonthly').textContent = '$' + Math.round(monthly).toLocaleString();
-            document.getElementById('calcLoanAmount').textContent = loanAmount.toLocaleString();
-            document.getElementById('calcDownResult').textContent = down.toLocaleString();
-            document.getElementById('calcTermResult').textContent = term;
-            
-            // Calculate BTC for down payment
-            const btcDown = (down / BTC_PRICE).toFixed(8);
-            document.getElementById('btcDownPayment').textContent = btcDown + ' BTC';
-            
-            // Update total BTC amount (down payment + loan in BTC)
-            const totalBtc = (price / BTC_PRICE).toFixed(8);
-            document.getElementById('btcAmount').textContent = totalBtc + ' BTC';
         }
         
         function copyBTC() {
@@ -3200,20 +3244,6 @@
                 }
             }
             
-            // Validate minimum down payment
-            const down = parseInt(document.getElementById('calcDown').value);
-            const minDownPayments = {
-                budget: 500,
-                economy: 1000,
-                premium: 5000
-            };
-            const minDown = minDownPayments[currentCarTier] || 500;
-            
-            if (down < minDown) {
-                showToast(`Minimum down payment is $${minDown} for ${currentCarTier} tier vehicles`, '⚠️');
-                return;
-            }
-            
             localStorage.setItem('currentTxRef', document.getElementById('txRefInput').value.trim());
             localStorage.setItem('buyerInfo', JSON.stringify({
                 firstName: document.getElementById('buyerFirstName').value,
@@ -3226,9 +3256,7 @@
                 zip: document.getElementById('buyerZip').value,
                 deliveryDate: document.getElementById('buyerDeliveryDate').value,
                 altDate: document.getElementById('buyerAltDate').value,
-                notes: document.getElementById('buyerNotes').value,
-                downPayment: down,
-                monthlyPayment: Math.round((currentCartTotal - down) / parseInt(document.getElementById('calcTerm').value))
+                notes: document.getElementById('buyerNotes').value
             }));
             
             closePayment();
