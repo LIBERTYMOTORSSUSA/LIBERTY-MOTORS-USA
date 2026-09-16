@@ -1936,13 +1936,10 @@
                         <small>Rate updates on page refresh</small>
                     </div>
                     
-                    <div class="action-buttons" style="margin-top: 1.5rem; flex-wrap: wrap;">
+                    <div class="action-buttons" style="margin-top: 1.5rem;">
                         <button class="btn btn-secondary btn-full" onclick="toggleFavoriteFromModal()">
                             <span id="modalFavBtnIcon">🤍</span> <span id="modalFavBtnText">Save for Later</span>
                         </button>
-                        <a class="btn btn-secondary btn-full" id="inquireBtn" href="mailto:management01098@gmail.com" style="text-decoration: none; text-align: center;">
-                            ✉️ Ask About This Car
-                        </a>
                         <button class="btn btn-primary btn-full" onclick="buyNow()">⚡ Buy Now</button>
                     </div>
                 </div>
@@ -2897,14 +2894,7 @@
             // Initialize Payment Calculator
             initializeCarCalculator(discountedPrice, car.tier);
             
-  
-updateInquireButton();
-            
             document.getElementById('carModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-          document.getElementById('carModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
         
@@ -3356,33 +3346,6 @@ updateInquireButton();
             }
         }
         
-// ============================================
-        // INQUIRE BUTTON - EMAIL FUNCTION
-        // ============================================
-        function updateInquireButton() {
-            if (!currentCar) return;
-            
-            const subject = `Inquiry about ${currentCar.year} ${currentCar.make} ${currentCar.model}`;
-            const body = `Hello Liberty Motors Team,
-
-I'm interested in learning more about the following vehicle:
-
-Vehicle: ${currentCar.year} ${currentCar.make} ${currentCar.model}
-Price: $${getDiscountedPrice(currentCar.marketPrice).toLocaleString()}
-Location: ${currentCar.location}
-VIN: ${currentCar.vin}
-
-My questions:
-[Your questions here]
-
-Please contact me with more information.
-
-Best regards`;
-
-            const mailtoLink = `mailto:management01098@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            document.getElementById('inquireBtn').href = mailtoLink;
-        }
-
         // ============================================
         // UTILITIES
         // ============================================
@@ -3406,5 +3369,4 @@ Best regards`;
         init();
     </script>
 </body>
-</html>
-
+                                                                                         </html>
