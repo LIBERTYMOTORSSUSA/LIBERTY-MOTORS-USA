@@ -7,24 +7,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a0e27;
-            --secondary: #151b3d;
-            --accent: #f59e0b;
-            --accent-dark: #d97706;
-            --success: #10b981;
-            --danger: #ef4444;
+            --primary: #015998;
+            --primary-dark: #014a7c;
+            --primary-light: #e6f0f8;
+            --secondary: #f8f9fa;
+            --accent: #015998;
+            --accent-dark: #014a7c;
+            --success: #28a745;
+            --danger: #dc3545;
             --btc-orange: #f7931a;
             --light: #ffffff;
-            --gray: #94a3b8;
-            --dark-gray: #64748b;
+            --dark: #1a1a1a;
+            --gray: #6c757d;
+            --dark-gray: #495057;
+            --border: #dee2e6;
+            --shadow: rgba(0,0,0,0.08);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--primary);
-            color: var(--light);
+            background: var(--secondary);
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -33,11 +38,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 39, 0.98);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
             padding: 1rem 0;
+            box-shadow: 0 2px 10px var(--shadow);
         }
         
         nav {
@@ -55,22 +61,23 @@
             gap: 0.75rem;
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--light);
+            color: var(--primary);
             text-decoration: none;
         }
         
         .logo-icon {
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            color: white;
         }
         
-        .logo span { color: var(--accent); }
+        .logo span { color: var(--primary-dark); }
         
         .nav-links {
             display: flex;
@@ -79,13 +86,13 @@
         }
         
         .nav-links a {
-            color: var(--gray);
+            color: var(--dark-gray);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
         
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: var(--primary); }
         
         .nav-icons {
             display: flex;
@@ -97,15 +104,15 @@
             position: relative;
             background: none;
             border: none;
-            color: var(--light);
+            color: var(--dark-gray);
             font-size: 1.5rem;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         
         .icon-btn:hover {
             transform: scale(1.1);
-            color: var(--accent);
+            color: var(--primary);
         }
         
         .badge {
@@ -128,8 +135,9 @@
             margin-top: 80px;
             padding: 6rem 2rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(10,14,39,0.95), rgba(21,27,61,0.9));
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             position: relative;
+            color: white;
         }
         
         .hero::before {
@@ -139,7 +147,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, rgba(245,158,11,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
         }
         
         .hero-content {
@@ -154,16 +162,17 @@
             font-weight: 800;
             margin-bottom: 1rem;
             line-height: 1.1;
+            color: white;
         }
         
         .hero h1 span {
-            color: var(--accent);
+            color: rgba(255,255,255,0.9);
             display: block;
         }
         
         .hero p {
             font-size: 1.25rem;
-            color: var(--gray);
+            color: rgba(255,255,255,0.9);
             margin-bottom: 2rem;
         }
         
@@ -179,11 +188,12 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(245,158,11,0.1);
-            border: 1px solid rgba(245,158,11,0.3);
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
             padding: 0.75rem 1.25rem;
             border-radius: 50px;
             font-size: 0.9rem;
+            color: white;
         }
         
         .btn {
@@ -192,7 +202,7 @@
             gap: 0.5rem;
             padding: 1rem 2rem;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
@@ -201,24 +211,24 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245,158,11,0.4);
+            box-shadow: 0 10px 30px rgba(1,89,152,0.3);
         }
         
         .btn-secondary {
             background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
+            border: 2px solid var(--primary);
+            color: var(--primary);
         }
         
         .btn-secondary:hover {
-            background: var(--accent);
-            color: var(--primary);
+            background: var(--primary);
+            color: white;
         }
         
         .btn-large {
@@ -227,8 +237,8 @@
         }
         
         .contact-bar {
-            background: linear-gradient(90deg, rgba(245,158,11,0.3), rgba(245,158,11,0.15));
-            border-bottom: 3px solid var(--accent);
+            background: var(--primary-light);
+            border-bottom: 2px solid var(--primary);
             padding: 1.5rem 1rem;
             text-align: center;
             margin-top: 80px;
@@ -250,35 +260,35 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: #fff;
+            color: var(--primary-dark);
             font-size: 1.1rem;
             font-weight: 600;
-            background: rgba(0,0,0,0.4);
+            background: white;
             padding: 0.75rem 1.25rem;
             border-radius: 10px;
-            border: 2px solid var(--accent);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .contact-item span { font-size: 1.3rem; }
         
         .contact-item a {
-            color: #fff;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 700;
         }
         
-        .contact-item a:hover { color: var(--accent); }
+        .contact-item a:hover { color: var(--primary-dark); }
         
         .stats-bar {
-            background: var(--secondary);
+            background: white;
             padding: 3rem 2rem;
             display: flex;
             justify-content: center;
             gap: 5rem;
             flex-wrap: wrap;
-            border-top: 1px solid rgba(245,158,11,0.2);
-            border-bottom: 1px solid rgba(245,158,11,0.2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
         
         .stat { text-align: center; }
@@ -286,7 +296,7 @@
         .stat-value {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--primary);
             display: block;
         }
         
@@ -305,6 +315,7 @@
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            color: var(--dark);
         }
         
         .section-header p {
@@ -320,16 +331,17 @@
         
         .search-box {
             display: flex;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(245,158,11,0.3);
+            background: white;
+            border: 2px solid var(--border);
             border-radius: 50px;
             overflow: hidden;
             transition: all 0.3s;
+            box-shadow: 0 2px 10px var(--shadow);
         }
         
         .search-box:focus-within {
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(245,158,11,0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(1,89,152,0.15);
         }
         
         .search-box input {
@@ -337,7 +349,7 @@
             padding: 1rem 1.5rem;
             background: transparent;
             border: none;
-            color: var(--light);
+            color: var(--dark);
             font-size: 1rem;
             outline: none;
         }
@@ -346,15 +358,15 @@
         
         .search-box button {
             padding: 1rem 1.5rem;
-            background: var(--accent);
+            background: var(--primary);
             border: none;
-            color: var(--primary);
+            color: white;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
         }
         
-        .search-box button:hover { background: var(--accent-dark); }
+        .search-box button:hover { background: var(--primary-dark); }
         
         .filters {
             padding: 1.5rem 2rem;
@@ -368,9 +380,9 @@
         
         .filter-btn {
             padding: 0.9rem 1.75rem;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(245,158,11,0.3);
-            color: var(--light);
+            background: white;
+            border: 2px solid var(--border);
+            color: var(--dark-gray);
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
@@ -379,11 +391,11 @@
         }
         
         .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-color: var(--accent);
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-color: var(--primary);
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+            box-shadow: 0 4px 15px rgba(1,89,152,0.3);
         }
         
         .car-grid {
@@ -396,13 +408,14 @@
         }
         
         .car-card {
-            background: var(--secondary);
+            background: white;
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border);
             transition: all 0.4s;
             cursor: pointer;
             position: relative;
+            box-shadow: 0 4px 20px var(--shadow);
         }
         
         .car-card::before {
@@ -411,8 +424,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
             transform: scaleX(0);
             transition: transform 0.3s;
         }
@@ -421,24 +434,24 @@
         
         .car-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border-color: rgba(245,158,11,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-color: var(--primary);
         }
         
         .car-image-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    overflow: hidden;
-}
+            position: relative;
+            width: 100%;
+            height: auto;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            overflow: hidden;
+        }
         
         .car-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s;
-}
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
         
         .car-card:hover .car-image { transform: scale(1.05); }
         
@@ -461,7 +474,7 @@
             right: 1rem;
             width: 45px;
             height: 45px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(255,255,255,0.9);
             border: none;
             border-radius: 50%;
             display: flex;
@@ -471,6 +484,7 @@
             transition: all 0.3s;
             font-size: 1.3rem;
             z-index: 2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .favorite-btn:hover, .favorite-btn.active {
@@ -481,7 +495,7 @@
         .car-info { padding: 1.75rem; }
         
         .car-category {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -493,6 +507,7 @@
             font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
+            color: var(--dark);
         }
         
         .car-specs {
@@ -515,7 +530,7 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--border);
         }
         
         .price-container {
@@ -531,17 +546,17 @@
         
         .price-original {
             text-decoration: line-through;
-            color: var(--dark-gray);
+            color: var(--gray);
             font-size: 0.95rem;
         }
         
         .savings {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 0.85rem;
             font-weight: 600;
         }
         
-        /* MODIFIED: Car Detail Modal with Payment Calculator */
+        /* Modal - White Background */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -549,7 +564,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.98);
+            background: rgba(0,0,0,0.8);
             z-index: 2000;
             overflow-y: auto;
         }
@@ -558,28 +573,28 @@
         
         .modal-content {
             min-height: 100vh;
-            background: var(--primary);
+            background: var(--secondary);
         }
         
         .modal-header {
             position: sticky;
             top: 0;
-            background: rgba(10,14,39,0.98);
+            background: white;
             backdrop-filter: blur(20px);
             padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(245,158,11,0.2);
+            border-bottom: 1px solid var(--border);
             z-index: 10;
+            box-shadow: 0 2px 10px var(--shadow);
         }
         
         .modal-header h2 {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.5rem;
         }
         
-        /* MODIFIED: Three column layout for car details + calculator */
         .modal-body {
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr;
@@ -587,7 +602,7 @@
         }
         
         .modal-image-section {
-            background: var(--secondary);
+            background: white;
             padding: 2rem;
             display: flex;
             flex-direction: column;
@@ -595,24 +610,24 @@
         }
         
         .modal-main-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-            background: linear-gradient(145deg, #1e293b, #0f172a);
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             margin-bottom: 1rem;
-            border: 2px solid rgba(245,158,11,0.2);
+            border: 2px solid var(--border);
         }
         
-       .modal-main-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+        .modal-main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
         
         .image-gallery {
             display: flex;
@@ -625,7 +640,7 @@
         .gallery-thumb {
             width: 90px;
             height: 65px;
-            background: #1e293b;
+            background: #f8f9fa;
             border-radius: 8px;
             cursor: pointer;
             border: 3px solid transparent;
@@ -640,20 +655,21 @@
         }
         
         .gallery-thumb:hover, .gallery-thumb.active {
-            border-color: var(--accent);
+            border-color: var(--primary);
             transform: scale(1.05);
         }
         
         .modal-details-section {
             padding: 2rem;
             overflow-y: auto;
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid var(--border);
+            background: white;
         }
         
         .car-header-info { margin-bottom: 1.5rem; }
         
         .car-header-info .category {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -664,6 +680,7 @@
         .car-header-info h1 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
+            color: var(--dark);
         }
         
         .car-header-info .subtitle {
@@ -672,8 +689,8 @@
         }
         
         .pricing-box {
-            background: linear-gradient(145deg, rgba(245,158,11,0.1), rgba(245,158,11,0.05));
-            border: 2px solid rgba(245,158,11,0.3);
+            background: linear-gradient(145deg, var(--primary-light), white);
+            border: 2px solid var(--primary);
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -689,7 +706,7 @@
         .pricing-row:last-child {
             margin-bottom: 0;
             padding-top: 0.75rem;
-            border-top: 1px solid rgba(245,158,11,0.2);
+            border-top: 1px solid var(--primary);
         }
         
         .price-label {
@@ -700,11 +717,12 @@
         .price-value {
             font-size: 1.1rem;
             font-weight: 600;
+            color: var(--dark);
         }
         
         .price-value.strike {
             text-decoration: line-through;
-            color: var(--dark-gray);
+            color: var(--gray);
         }
         
         .price-value.current {
@@ -721,10 +739,10 @@
         }
         
         .spec-item {
-            background: rgba(255,255,255,0.05);
+            background: var(--secondary);
             padding: 1rem;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border);
         }
         
         .spec-label {
@@ -738,13 +756,14 @@
         .spec-value {
             font-size: 1rem;
             font-weight: 600;
+            color: var(--dark);
         }
         
         .features-list { margin-bottom: 1.5rem; }
         
         .features-list h3 {
             margin-bottom: 0.75rem;
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1rem;
         }
         
@@ -758,7 +777,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #cbd5e1;
+            color: var(--dark-gray);
             font-size: 0.9rem;
         }
         
@@ -767,21 +786,23 @@
         .action-buttons {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
         
         .btn-full {
             flex: 1;
             justify-content: center;
+            min-width: 140px;
         }
         
-        /* NEW: Payment Calculator Section in Modal */
+        /* Calculator Section */
         .calculator-section {
             padding: 2rem;
-            background: rgba(255,255,255,0.02);
+            background: white;
         }
         
         .calculator-section h3 {
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1.5rem;
             font-size: 1.3rem;
             display: flex;
@@ -790,15 +811,15 @@
         }
         
         .calc-box {
-            background: rgba(255,255,255,0.05);
+            background: var(--secondary);
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border);
         }
         
         .calc-box h4 {
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -810,7 +831,7 @@
             color: var(--success);
             text-align: center;
             padding: 1rem;
-            background: rgba(16,185,129,0.1);
+            background: rgba(40,167,69,0.1);
             border-radius: 12px;
             border: 2px solid var(--success);
         }
@@ -829,7 +850,7 @@
         }
         
         .calc-field label span {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
         }
         
@@ -839,7 +860,7 @@
             -webkit-appearance: none;
             height: 8px;
             border-radius: 4px;
-            background: rgba(255,255,255,0.1);
+            background: var(--border);
             outline: none;
         }
         
@@ -848,13 +869,13 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: var(--accent);
+            background: var(--primary);
             cursor: pointer;
         }
         
         .calc-value-display {
             text-align: center;
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 700;
             font-size: 1.3rem;
         }
@@ -869,7 +890,7 @@
         .calc-warning.show { display: block; }
         
         .calc-result-box {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 16px;
             padding: 1.5rem;
             text-align: center;
@@ -877,7 +898,7 @@
         }
         
         .calc-result-label {
-            color: var(--primary);
+            color: rgba(255,255,255,0.9);
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -885,20 +906,19 @@
         }
         
         .calc-result-amount {
-            color: var(--primary);
+            color: white;
             font-size: 2rem;
             font-weight: 800;
         }
         
         .calc-result-details {
-            color: var(--primary);
-            opacity: 0.9;
+            color: rgba(255,255,255,0.9);
             font-size: 0.85rem;
             margin-top: 0.5rem;
         }
         
         .btc-payment-box {
-            background: rgba(247,147,26,0.15);
+            background: rgba(247,147,26,0.1);
             border: 2px solid var(--btc-orange);
             border-radius: 16px;
             padding: 1.5rem;
@@ -933,6 +953,7 @@
             margin-top: 0.5rem;
         }
         
+        /* Modals */
         .payment-modal, .auth-modal, .favorites-modal, .profile-modal {
             display: none;
             position: fixed;
@@ -940,7 +961,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0,0,0,0.8);
             z-index: 3000;
             align-items: center;
             justify-content: center;
@@ -953,30 +974,31 @@
         }
         
         .modal-box {
-            background: var(--secondary);
+            background: white;
             border-radius: 24px;
             width: 100%;
             max-width: 600px;
             max-height: 95vh;
             overflow-y: auto;
-            border: 2px solid rgba(245,158,11,0.3);
-            box-shadow: 0 25px 100px rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 100px rgba(0,0,0,0.3);
         }
         
         .modal-box-header {
             padding: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            background: var(--secondary);
+            background: white;
             z-index: 10;
         }
         
         .modal-box-header h2 {
             font-size: 1.75rem;
+            color: var(--dark);
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -992,8 +1014,8 @@
         }
         
         .payment-option {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.1);
+            background: var(--secondary);
+            border: 2px solid var(--border);
             border-radius: 16px;
             padding: 2rem;
             text-align: center;
@@ -1003,7 +1025,7 @@
         }
         
         .payment-option:hover:not(.disabled) {
-            border-color: var(--accent);
+            border-color: var(--primary);
             transform: translateY(-4px);
         }
         
@@ -1028,8 +1050,8 @@
         }
         
         .payment-option.selected {
-            border-color: var(--accent);
-            background: rgba(245,158,11,0.1);
+            border-color: var(--primary);
+            background: var(--primary-light);
         }
         
         .payment-icon {
@@ -1037,7 +1059,10 @@
             margin-bottom: 1rem;
         }
         
-        .payment-option h3 { margin-bottom: 0.5rem; }
+        .payment-option h3 { 
+            margin-bottom: 0.5rem; 
+            color: var(--dark);
+        }
         
         .payment-option p {
             color: var(--gray);
@@ -1075,7 +1100,7 @@
         }
         
         .btc-address-box {
-            background: rgba(0,0,0,0.4);
+            background: var(--secondary);
             border: 2px solid var(--btc-orange);
             border-radius: 12px;
             padding: 1.5rem;
@@ -1119,20 +1144,20 @@
         }
         
         .btc-amount-usd {
-            color: var(--dark-gray);
+            color: var(--gray);
             font-size: 0.9rem;
         }
         
         .tx-reference {
-            background: rgba(255,255,255,0.1);
+            background: var(--primary-light);
             padding: 1.5rem;
             border-radius: 12px;
             margin: 1.5rem 0;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--primary);
         }
         
         .tx-reference-label {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 700;
             margin-bottom: 0.75rem;
             font-size: 1.1rem;
@@ -1142,9 +1167,9 @@
             width: 100%;
             padding: 1rem;
             border-radius: 8px;
-            border: 2px solid var(--accent);
-            background: rgba(0,0,0,0.3);
-            color: #fff;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--dark);
             font-family: monospace;
             font-size: 1rem;
             margin-bottom: 0.5rem;
@@ -1170,7 +1195,7 @@
         }
         
         .btc-instructions p {
-            color: #cbd5e1;
+            color: var(--dark-gray);
             font-size: 0.95rem;
             line-height: 1.6;
         }
@@ -1183,7 +1208,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary);
+            background: var(--secondary);
             z-index: 4000;
             flex-direction: column;
             align-items: center;
@@ -1231,7 +1256,7 @@
         
         @keyframes blockchainPulse {
             0%, 100% { transform: scale(1); opacity: 1; border-color: var(--btc-orange); }
-            50% { transform: scale(1.1); opacity: 0.5; border-color: var(--accent); }
+            50% { transform: scale(1.1); opacity: 0.5; border-color: var(--primary); }
         }
         
         .blockchain-center {
@@ -1264,7 +1289,7 @@
             width: 400px;
             max-width: 90vw;
             height: 6px;
-            background: rgba(255,255,255,0.1);
+            background: var(--border);
             border-radius: 3px;
             overflow: hidden;
             position: relative;
@@ -1272,7 +1297,7 @@
         
         .loading-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--btc-orange), var(--accent));
+            background: linear-gradient(90deg, var(--btc-orange), var(--primary));
             width: 0%;
             animation: loadingProgress 3s ease-in-out infinite;
         }
@@ -1288,7 +1313,7 @@
         .loading-details {
             margin-top: 3rem;
             text-align: center;
-            color: var(--dark-gray);
+            color: var(--gray);
             font-size: 0.9rem;
         }
         
@@ -1316,13 +1341,13 @@
         .time-estimate {
             margin-top: 2rem;
             padding: 1rem;
-            background: rgba(245,158,11,0.1);
+            background: var(--primary-light);
             border-radius: 8px;
-            border: 1px solid rgba(245,158,11,0.3);
+            border: 1px solid var(--primary);
         }
         
         .time-estimate p {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
         }
         
@@ -1333,6 +1358,7 @@
             text-align: center;
             margin-bottom: 2rem;
             font-size: 2rem;
+            color: var(--dark);
         }
         
         .form-group { margin-bottom: 1.5rem; }
@@ -1347,17 +1373,17 @@
         .form-group input {
             width: 100%;
             padding: 1rem;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.1);
+            background: var(--secondary);
+            border: 2px solid var(--border);
             border-radius: 10px;
-            color: var(--light);
+            color: var(--dark);
             font-size: 1rem;
             transition: all 0.3s;
         }
         
         .form-group input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--primary);
         }
         
         .auth-switch {
@@ -1367,7 +1393,7 @@
         }
         
         .auth-switch a {
-            color: var(--accent);
+            color: var(--primary);
             cursor: pointer;
             font-weight: 600;
         }
@@ -1381,18 +1407,20 @@
         .profile-avatar {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             margin: 0 auto 1rem;
+            color: white;
         }
         
         .profile-name {
             font-size: 1.5rem;
             font-weight: 700;
+            color: var(--dark);
         }
         
         .profile-email {
@@ -1408,16 +1436,17 @@
         }
         
         .profile-stat {
-            background: rgba(255,255,255,0.05);
+            background: var(--secondary);
             padding: 1rem;
             border-radius: 12px;
             text-align: center;
+            border: 1px solid var(--border);
         }
         
         .profile-stat-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--primary);
         }
         
         .profile-stat-label {
@@ -1443,22 +1472,22 @@
         }
         
         .favorite-item {
-            background: rgba(255,255,255,0.05);
+            background: var(--secondary);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border);
             cursor: pointer;
             transition: all 0.3s;
         }
         
         .favorite-item:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             transform: translateY(-4px);
         }
         
         .favorite-item-image {
             height: 150px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             overflow: hidden;
         }
         
@@ -1475,6 +1504,7 @@
         .favorite-item-title {
             font-weight: 600;
             margin-bottom: 0.25rem;
+            color: var(--dark);
         }
         
         .favorite-item-price {
@@ -1503,15 +1533,15 @@
         
         /* Buyer Info Form */
         .buyer-info-section {
-            background: rgba(255,255,255,0.05);
+            background: var(--secondary);
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--border);
         }
         
         .buyer-info-section h3 {
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
@@ -1533,16 +1563,16 @@
             width: 100%;
             padding: 0.75rem;
             border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(0,0,0,0.2);
-            color: #fff;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--dark);
             font-family: inherit;
         }
         
         .buyer-info-section input:focus,
         .buyer-info-section textarea:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--primary);
         }
         
         .buyer-info-section label {
@@ -1552,11 +1582,65 @@
             margin-bottom: 0.25rem;
         }
         
+        /* Testimonials */
+        .testimonials {
+            background: white;
+            padding: 2rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: var(--secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .testimonial-meta h4 {
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .stars {
+            color: #ffc107;
+        }
+        
+        .testimonial-text {
+            color: var(--dark-gray);
+            font-style: italic;
+        }
+        
         /* Footer */
         footer {
-            background: linear-gradient(180deg, var(--secondary), var(--primary));
+            background: var(--dark);
             padding: 4rem 2rem 2rem;
-            border-top: 2px solid rgba(245,158,11,0.2);
+            border-top: 2px solid var(--primary);
         }
         
         .footer-content {
@@ -1569,7 +1653,7 @@
         }
         
         .footer-section h3 {
-            color: var(--accent);
+            color: white;
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
         }
@@ -1582,13 +1666,13 @@
             margin-bottom: 0.5rem;
         }
         
-        .footer-section a:hover { color: var(--accent); }
+        .footer-section a:hover { color: var(--primary); }
         
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--dark-gray);
+            color: var(--gray);
         }
         
         /* Toast */
@@ -1596,8 +1680,8 @@
             position: fixed;
             bottom: 100px;
             right: 20px;
-            background: var(--secondary);
-            border: 1px solid var(--accent);
+            background: white;
+            border: 1px solid var(--primary);
             border-radius: 12px;
             padding: 1rem 1.5rem;
             display: flex;
@@ -1606,6 +1690,7 @@
             z-index: 5000;
             transform: translateX(400px);
             transition: transform 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
         
         .toast.show { transform: translateX(0); }
@@ -1692,19 +1777,20 @@
 
     <!-- Stats -->
     <div class="stats-bar">
-    <div class="stat">
-        <span class="stat-value">$500+</span>
-        <span class="stat-label">Starting Price</span>
+        <div class="stat">
+            <span class="stat-value">$500+</span>
+            <span class="stat-label">Starting Price</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">30%</span>
+            <span class="stat-label">Below Market</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">₿</span>
+            <span class="stat-label">Bitcoin Only</span>
+        </div>
     </div>
-    <div class="stat">
-        <span class="stat-value">30%</span>
-        <span class="stat-label">Below Market</span>
-    </div>
-    <div class="stat">
-        <span class="stat-value">₿</span>
-        <span class="stat-label">Bitcoin Only</span>
-    </div>
-</div>
+
     <!-- Inventory -->
     <section id="inventory">
         <div class="section-header">
@@ -1770,18 +1856,18 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" style="padding: 5rem 2rem; text-align: center;">
+    <section id="contact" style="padding: 5rem 2rem; text-align: center; background: white;">
         <div class="section-header">
             <h2>Contact Us</h2>
             <p>Have questions? We're here to help 24/7</p>
         </div>
         <div style="max-width: 600px; margin: 0 auto;">
-            <div style="background: rgba(245,158,11,0.1); border: 2px solid var(--accent); border-radius: 16px; padding: 2rem;">
-                <h3 style="color: var(--accent); margin-bottom: 1rem;">⚠️ Bitcoin Only Payments</h3>
-                <p style="margin-bottom: 1.5rem;">We exclusively accept <strong>Bitcoin (BTC)</strong> for all vehicle purchases.</p>
+            <div style="background: var(--primary-light); border: 2px solid var(--primary); border-radius: 16px; padding: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">⚠️ Bitcoin Only Payments</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--dark-gray);">We exclusively accept <strong>Bitcoin (BTC)</strong> for all vehicle purchases.</p>
                 <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div>📧 <a href="mailto:management01098@gmail.com" style="color: var(--accent);">management01098@gmail.com</a></div>
-                    <div>💬 <a href="https://tr.ee/pxo6p9VhqF" target="_blank" style="color: var(--accent);">Telegram: @LibertyMotorsSupport</a></div>
+                    <div>📧 <a href="mailto:management01098@gmail.com" style="color: var(--primary);">management01098@gmail.com</a></div>
+                    <div>💬 <a href="https://tr.ee/pxo6p9VhqF" target="_blank" style="color: var(--primary);">Telegram: @LibertyMotorsSupport</a></div>
                 </div>
             </div>
         </div>
@@ -1811,7 +1897,7 @@
         </div>
     </footer>
 
-    <!-- MODIFIED: Car Detail Modal with Payment Calculator -->
+    <!-- Car Detail Modal -->
     <div class="modal-overlay" id="carModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1846,7 +1932,7 @@
                         </div>
                         <div class="pricing-row">
                             <span class="price-label">You Save</span>
-                            <span class="price-value" style="color: var(--accent);" id="modalSavings">$0</span>
+                            <span class="price-value" style="color: var(--primary);" id="modalSavings">$0</span>
                         </div>
                     </div>
                     
@@ -1862,7 +1948,6 @@
                 <div class="calculator-section">
                     <h3>📊 Payment Calculator</h3>
                     
-                    <!-- NEW: Payment Type Selection -->
                     <div class="calc-box">
                         <h4>Payment Option</h4>
                         <div class="calc-field" style="display: flex; gap: 2rem; margin-bottom: 0;">
@@ -1882,7 +1967,6 @@
                         <div class="calc-vehicle-price" id="calcVehiclePrice">$0</div>
                     </div>
                     
-                    <!-- WRAPPED FINANCING OPTIONS -->
                     <div id="financingOptions">
                         <div class="calc-box">
                             <h4>Down Payment</h4>
@@ -1936,7 +2020,7 @@
                         <small>Rate updates on page refresh</small>
                     </div>
                     
-                    <div class="action-buttons" style="margin-top: 1.5rem; flex-wrap: wrap;">
+                    <div class="action-buttons" style="margin-top: 1.5rem;">
                         <button class="btn btn-secondary btn-full" onclick="toggleFavoriteFromModal()">
                             <span id="modalFavBtnIcon">🤍</span> <span id="modalFavBtnText">Save for Later</span>
                         </button>
@@ -1990,7 +2074,6 @@
                 </div>
                 
                 <div class="crypto-section active" id="cryptoSection">
-                    <!-- Buyer Information Form -->
                     <div class="buyer-info-section">
                         <h3>👤 Buyer Information</h3>
                         
@@ -2208,7 +2291,7 @@
         let BTC_PRICE = 43000;
         
         // ============================================
-        // STATE MANAGEMENT - NO CART, ONLY FAVORITES
+        // STATE MANAGEMENT
         // ============================================
         let currentCar = null;
         let favorites = JSON.parse(localStorage.getItem('libertyFavorites')) || [];
@@ -2219,10 +2302,10 @@
         let calculatedMonthly = 0;
         let calculatedTerm = 36;
         let currentPaymentType = 'down';
-        let checkoutCar = null; // Stores car being purchased
+        let checkoutCar = null;
         
         // ============================================
-        // CAR DATABASE - 60 CARS (20 PER TIER)
+        // CAR DATABASE - 60 CARS
         // ============================================
         const carDatabase = [
             // BUDGET TIER: $500 - $2,000 (20 cars)
@@ -2771,7 +2854,7 @@
                 
                 card.innerHTML = `
                     <div class="car-image-container">
-                        <img src="images/${car.images[0]}" alt="${car.year} ${car.make} ${car.model}" class="car-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect fill=%22%23334155%22 width=%22400%22 height=%22250%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 font-size=%2280%22>🚗</text></svg>'">
+                        <img src="images/${car.images[0]}" alt="${car.year} ${car.make} ${car.model}" class="car-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><rect fill=%22%23f8f9fa%22 width=%22400%22 height=%22250%22/><text fill=%22%23015998%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 font-size=%2280%22>🚗</text></svg>'">
                         <div class="discount-badge">SAVE 30%</div>
                         <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite('${car.id}')" title="Save for Later">
                             ${isFav ? '❤️' : '🤍'}
@@ -2856,10 +2939,9 @@
             document.getElementById('modalYourPrice').textContent = `$${discountedPrice.toLocaleString()}`;
             document.getElementById('modalSavings').textContent = `$${savings.toLocaleString()}`;
             
-            // Set up images
             document.getElementById('mainCarImage').src = `images/${car.images[0]}`;
             document.getElementById('mainCarImage').onerror = function() {
-                this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect fill="%231e293b" width="800" height="500"/><text fill="%23f59e0b" x="50%" y="50%" text-anchor="middle" font-size="120">🚗</text></svg>';
+                this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect fill="%23f8f9fa" width="800" height="500"/><text fill="%23015998" x="50%" y="50%" text-anchor="middle" font-size="120">🚗</text></svg>';
             };
             
             const gallery = document.getElementById('imageGallery');
@@ -2889,22 +2971,41 @@
                 <div class="feature-item"><span class="feature-icon">✓</span><span>${f}</span></div>
             `).join('');
             
-            // Update Save for Later button state in modal
             const isFav = favorites.includes(car.id);
             document.getElementById('modalFavBtnIcon').textContent = isFav ? '❤️' : '🤍';
             document.getElementById('modalFavBtnText').textContent = isFav ? 'Saved' : 'Save for Later';
             
-            // Initialize Payment Calculator
             initializeCarCalculator(discountedPrice, car.tier);
+            updateInquireButton();
             
-  
-updateInquireButton();
-
-          document.getElementById('carModal').classList.add('active');
+            document.getElementById('carModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
         
-        // PAYMENT CALCULATOR FUNCTIONS
+        function updateInquireButton() {
+            if (!currentCar) return;
+            
+            const subject = `Inquiry about ${currentCar.year} ${currentCar.make} ${currentCar.model}`;
+            const body = `Hello Liberty Motors Team,
+
+I'm interested in learning more about the following vehicle:
+
+Vehicle: ${currentCar.year} ${currentCar.make} ${currentCar.model}
+Price: $${getDiscountedPrice(currentCar.marketPrice).toLocaleString()}
+Location: ${currentCar.location}
+VIN: ${currentCar.vin}
+
+My questions:
+[Your questions here]
+
+Please contact me with more information.
+
+Best regards`;
+
+            const mailtoLink = `mailto:management01098@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            document.getElementById('inquireBtn').href = mailtoLink;
+        }
+        
         function initializeCarCalculator(vehiclePrice, tier) {
             document.getElementById('calcVehiclePrice').textContent = '$' + vehiclePrice.toLocaleString();
             
@@ -3008,7 +3109,7 @@ updateInquireButton();
         }
         
         // ============================================
-        // SAVE FOR LATER / FAVORITES FUNCTIONS
+        // FAVORITES FUNCTIONS
         // ============================================
         function toggleFavorite(carId) {
             if (!requireAuth('add favorites')) return;
@@ -3025,7 +3126,6 @@ updateInquireButton();
             updateFavBadge();
             renderCars(currentFilter === 'all' ? carDatabase : carDatabase.filter(c => c.tier === currentFilter));
             
-            // Update modal button if open
             if (currentCar && currentCar.id === carId) {
                 const isFav = favorites.includes(carId);
                 document.getElementById('modalFavBtnIcon').textContent = isFav ? '❤️' : '🤍';
@@ -3049,9 +3149,6 @@ updateInquireButton();
             }
         }
         
-        // ============================================
-        // FAVORITES MODAL
-        // ============================================
         function openFavorites() {
             if (!requireAuth('view favorites')) return;
             renderFavorites();
@@ -3082,7 +3179,7 @@ updateInquireButton();
                     return `
                     <div class="favorite-item" onclick="viewFavoriteCar('${car.id}')">
                         <div class="favorite-item-image">
-                            <img src="images/${car.images[0]}" alt="${car.year} ${car.make}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 75%22><rect fill=%22%23334155%22 width=%22100%22 height=%2275%22/><text fill=%22%23f59e0b%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>🚗</text></svg>'">
+                            <img src="images/${car.images[0]}" alt="${car.year} ${car.make}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 75%22><rect fill=%22%23f8f9fa%22 width=%22100%22 height=%2275%22/><text fill=%22%23015998%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>🚗</text></svg>'">
                         </div>
                         <div class="favorite-item-info">
                             <div class="favorite-item-title">${car.year} ${car.make} ${car.model}</div>
@@ -3145,45 +3242,6 @@ updateInquireButton();
             closeModal();
             openPaymentWithCalculatedValues();
         }
-
-        // ============================================
-        // INQUIRE BUTTON - EMAIL FUNCTION
-        // ============================================
-        function updateInquireButton() {
-            if (!currentCar) return;
-            
-            const subject = `Inquiry about ${currentCar.year} ${currentCar.make} ${currentCar.model}`;
-            const body = `Hello Liberty Motors Team,
-
-I'm interested in learning more about the following vehicle:
-
-Vehicle: ${currentCar.year} ${currentCar.make} ${currentCar.model}
-Price: $${getDiscountedPrice(currentCar.marketPrice).toLocaleString()}
-Location: ${currentCar.location}
-VIN: ${currentCar.vin}
-
-My questions:
-[Your questions here]
-
-Please contact me with more information.
-
-Best regards`;
-
-            const mailtoLink = `mailto:management01098@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            document.getElementById('inquireBtn').href = mailtoLink;
-        }
-
-        // ============================================
-        // USER AUTHENTICATION
-        // ============================================
-        function requireAuth(action) {
-            if (!currentUser) {
-                showToast('Please sign in to ' + action, '⚠️');
-                openAuth();
-                return false;
-            }
-            return true;
-        }
         
         // ============================================
         // PAYMENT FUNCTIONS
@@ -3221,7 +3279,6 @@ Best regards`;
             document.getElementById('btcAmount').textContent = btcAmount + ' BTC';
             document.getElementById('btcUsdAmount').textContent = '$' + (item.paymentType === 'full' ? total : item.downPayment).toLocaleString() + ' USD';
             
-            // Insert summary before buyer info
             const cryptoSection = document.getElementById('cryptoSection');
             let summaryDiv = cryptoSection.querySelector('.financing-summary');
             if (!summaryDiv) {
@@ -3320,6 +3377,15 @@ Best regards`;
         // ============================================
         // AUTHENTICATION
         // ============================================
+        function requireAuth(action) {
+            if (!currentUser) {
+                showToast('Please sign in to ' + action, '⚠️');
+                openAuth();
+                return false;
+            }
+            return true;
+        }
+        
         function openAuth() {
             document.getElementById('authModal').classList.add('active');
         }
@@ -3402,5 +3468,4 @@ Best regards`;
         init();
     </script>
 </body>
-</html>
-
+    </html>
